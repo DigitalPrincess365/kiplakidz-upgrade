@@ -1,0 +1,514 @@
+<?php
+/**
+ * Front page — the eight core KIPLA sections.
+ *
+ * 1. Hero / First Impression
+ * 2. Welcome to KIPLA
+ * 3. Our Programs
+ * 4. The KIPLA Difference
+ * 5. Culture in Action
+ * 6. Meet Our Founder
+ * 7. What KIPLA Families Say
+ * 8. See KIPLA in Action
+ *
+ * @package KIPLA
+ */
+
+get_header();
+
+$tour   = kipla_opt( 'kipla_tour_url' );
+$enroll = kipla_opt( 'kipla_enroll_url' );
+?>
+
+<!-- 1. HERO / FIRST IMPRESSION -->
+<section class="hero container" id="hero">
+	<div class="hero__inner">
+		<span class="eyebrow"><?php echo esc_html( kipla_opt( 'kipla_hero_eyebrow' ) ? kipla_opt( 'kipla_hero_eyebrow' ) : __( 'Two campuses · Infants through school age', 'kipla' ) ); ?></span>
+		<h1>
+			<?php
+			$heading = kipla_opt( 'kipla_hero_heading' );
+			echo $heading
+				? kipla_accent_text( $heading ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				: wp_kses_post( __( 'Where every child is <span class="accent">known</span>, nurtured, and celebrated.', 'kipla' ) );
+			?>
+		</h1>
+		<p class="hero__lead">
+			<?php
+			echo esc_html( kipla_opt( 'kipla_hero_lead' ) ? kipla_opt( 'kipla_hero_lead' ) : __( 'Keeping It Positive Learning Academy is a family-rooted early learning community built on warmth, high expectations, and joyful, hands-on discovery.', 'kipla' ) );
+			?>
+		</p>
+		<div class="hero__actions">
+			<a class="btn btn--primary" href="<?php echo esc_url( $tour ); ?>"><?php esc_html_e( 'Schedule a Tour', 'kipla' ); ?></a>
+			<a class="btn btn--gold" href="<?php echo esc_url( $enroll ); ?>"><?php esc_html_e( 'Enroll Now', 'kipla' ); ?></a>
+			<a class="btn btn--ghost" href="#programs"><?php esc_html_e( 'Explore Programs', 'kipla' ); ?></a>
+		</div>
+	</div>
+	<div class="hero__media reveal">
+		<?php
+		kipla_frame( array(
+			'image_id' => absint( get_theme_mod( 'kipla_hero_image' ) ),
+			'size'     => 'kipla-wide',
+			'modifier' => 'frame--wide',
+			'label'    => __( 'Hero photo space', 'kipla' ),
+			'hint'     => __( 'Add a wide photo of your classrooms or playground in Customize → KIPLA: Hero & Welcome.', 'kipla' ),
+			'alt'      => get_bloginfo( 'name' ),
+		) );
+		?>
+	</div>
+</section>
+
+<div class="affirmations" aria-hidden="true">
+	<div class="affirmations__track">
+		<?php
+		$affirmations = array( __( 'I am kind', 'kipla' ), __( 'I am capable', 'kipla' ), __( 'I am curious', 'kipla' ), __( 'I am loved', 'kipla' ), __( 'I am a leader', 'kipla' ) );
+		for ( $pass = 0; $pass < 2; $pass++ ) {
+			foreach ( $affirmations as $line ) {
+				echo '<span>' . esc_html( $line ) . '</span>';
+			}
+		}
+		?>
+	</div>
+</div>
+
+<!-- 2. WELCOME TO KIPLA (+ clear KIPLA #1 / #2 distinction) -->
+<section class="section section--white" id="welcome">
+	<div class="container">
+		<div class="split">
+			<div class="reveal">
+				<span class="eyebrow"><?php esc_html_e( 'Welcome to KIPLA', 'kipla' ); ?></span>
+				<hr class="rule" />
+				<h2><?php echo esc_html( kipla_opt( 'kipla_welcome_head' ) ? kipla_opt( 'kipla_welcome_head' ) : __( 'A positive start shapes everything that follows', 'kipla' ) ); ?></h2>
+				<p>
+					<?php
+					echo esc_html( kipla_opt( 'kipla_welcome_text' ) ? kipla_opt( 'kipla_welcome_text' ) : __( 'From the moment your family walks through our doors, you are part of the KIPLA family. Our teachers know every child by name, story, and strength — and they build each day around helping them grow.', 'kipla' ) );
+					?>
+				</p>
+				<div class="stat-row">
+					<div class="stat"><div class="stat__num">2</div><div class="stat__label"><?php esc_html_e( 'Campuses', 'kipla' ); ?></div></div>
+					<div class="stat"><div class="stat__num"><?php esc_html_e( '6 wks+', 'kipla' ); ?></div><div class="stat__label"><?php esc_html_e( 'Ages served', 'kipla' ); ?></div></div>
+				</div>
+			</div>
+			<div class="reveal">
+				<?php
+				kipla_frame( array(
+					'image_id' => absint( get_theme_mod( 'kipla_welcome_image' ) ),
+					'size'     => 'kipla-portrait',
+					'modifier' => 'frame--leaf frame--portrait',
+					'label'    => __( 'Welcome photo space', 'kipla' ),
+					'hint'     => __( 'A candid classroom moment works beautifully here.', 'kipla' ),
+				) );
+				?>
+			</div>
+		</div>
+
+		<div id="locations" style="margin-top:clamp(2.5rem,6vw,4rem)">
+			<div class="section-head">
+				<div>
+					<span class="eyebrow eyebrow--red"><?php esc_html_e( 'Our two campuses', 'kipla' ); ?></span>
+					<h2><?php esc_html_e( 'KIPLA #1 &amp; KIPLA #2', 'kipla' ); ?></h2>
+					<p><?php esc_html_e( 'Same heart, same standards — two convenient locations.', 'kipla' ); ?></p>
+				</div>
+			</div>
+			<div class="locations">
+				<?php kipla_location_card( 1 ); ?>
+				<?php kipla_location_card( 2 ); ?>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- 3. OUR PROGRAMS -->
+<section class="section section--hunter" id="programs">
+	<div class="container">
+		<div style="text-align:center;max-width:44rem;margin:0 auto 2.5rem">
+			<span class="eyebrow"><?php esc_html_e( 'Our Programs', 'kipla' ); ?></span>
+			<h2><?php esc_html_e( 'Find the right room for your child', 'kipla' ); ?></h2>
+			<p style="color:rgba(254,250,240,.78)"><?php esc_html_e( 'Age-based classrooms with intentional curriculum, warm routines, and daily communication home.', 'kipla' ); ?></p>
+		</div>
+
+		<?php
+		$locations = get_terms( array(
+			'taxonomy'   => 'kipla_location',
+			'hide_empty' => true,
+		) );
+
+		if ( ! is_wp_error( $locations ) && count( $locations ) > 1 ) :
+			?>
+			<div class="program-filters">
+				<button class="program-filter is-active" type="button" data-filter="all"><?php esc_html_e( 'All programs', 'kipla' ); ?></button>
+				<?php foreach ( $locations as $term ) : ?>
+					<button class="program-filter" type="button" data-filter="<?php echo esc_attr( $term->slug ); ?>"><?php echo esc_html( $term->name ); ?></button>
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
+
+		<?php
+		$programs = new WP_Query( array(
+			'post_type'      => 'kipla_program',
+			'posts_per_page' => 12,
+			'orderby'        => array( 'menu_order' => 'ASC', 'date' => 'ASC' ),
+		) );
+
+		if ( $programs->have_posts() ) :
+			?>
+			<div class="program-grid">
+				<?php
+				while ( $programs->have_posts() ) :
+					$programs->the_post();
+					$terms      = get_the_terms( get_the_ID(), 'kipla_location' );
+					$slugs      = ( $terms && ! is_wp_error( $terms ) ) ? wp_list_pluck( $terms, 'slug' ) : array();
+					$names      = ( $terms && ! is_wp_error( $terms ) ) ? wp_list_pluck( $terms, 'name' ) : array();
+					$age        = get_post_meta( get_the_ID(), '_kipla_age_range', true );
+					$highlights = array_filter( array_map( 'trim', explode( '|', (string) get_post_meta( get_the_ID(), '_kipla_highlights', true ) ) ) );
+					?>
+					<article class="program-card reveal" data-locations="<?php echo esc_attr( implode( ' ', $slugs ) ); ?>">
+						<span class="program-card__icon" aria-hidden="true"><?php echo kipla_icon( 'sprout' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+						<h3><?php the_title(); ?></h3>
+						<?php if ( $age ) : ?>
+							<p class="program-card__age"><?php echo esc_html( $age ); ?></p>
+						<?php endif; ?>
+						<?php if ( $highlights ) : ?>
+							<ul>
+								<?php foreach ( $highlights as $item ) : ?>
+									<li><span><?php echo esc_html( $item ); ?></span></li>
+								<?php endforeach; ?>
+							</ul>
+						<?php else : ?>
+							<ul><li><span><?php echo esc_html( wp_trim_words( get_the_excerpt(), 18 ) ); ?></span></li></ul>
+						<?php endif; ?>
+						<?php if ( $names ) : ?>
+							<span class="program-card__where"><?php echo esc_html( implode( ' · ', $names ) ); ?></span>
+						<?php endif; ?>
+					</article>
+					<?php
+				endwhile;
+				wp_reset_postdata();
+				?>
+			</div>
+		<?php else : ?>
+			<p style="text-align:center;color:rgba(254,250,240,.75)">
+				<?php esc_html_e( 'Add your classrooms under Programs in the WordPress admin — each one can list an age range, highlights, and which campus it belongs to.', 'kipla' ); ?>
+			</p>
+		<?php endif; ?>
+
+		<div style="text-align:center;margin-top:2.5rem">
+			<a class="btn btn--gold" href="<?php echo esc_url( $tour ); ?>"><?php esc_html_e( 'Schedule a Tour', 'kipla' ); ?></a>
+		</div>
+	</div>
+</section>
+
+<!-- 4. THE KIPLA DIFFERENCE -->
+<section class="section section--hunter" id="difference" style="padding-top:0">
+	<div class="container">
+		<div class="difference">
+			<div class="reveal">
+				<span class="eyebrow"><?php esc_html_e( 'The KIPLA Difference', 'kipla' ); ?></span>
+				<h2><?php esc_html_e( 'Why families choose us', 'kipla' ); ?></h2>
+			</div>
+			<div class="difference__grid">
+				<?php
+				$difference = array(
+					array( __( 'Positive language, always', 'kipla' ), __( 'Children learn to speak kindly to themselves and each other — it starts with how we speak to them.', 'kipla' ) ),
+					array( __( 'Teachers who stay', 'kipla' ), __( 'Low turnover and real relationships mean your child sees the same trusted faces every day.', 'kipla' ) ),
+					array( __( 'Kindergarten-ready', 'kipla' ), __( 'Literacy, math, and social skills woven into play so children leave us confident and prepared.', 'kipla' ) ),
+					array( __( 'Parents in the loop', 'kipla' ), __( 'Daily updates, photos, and open conversation — no wondering how the day went.', 'kipla' ) ),
+				);
+				foreach ( $difference as $item ) :
+					?>
+					<div class="difference__item reveal">
+						<h3><?php echo esc_html( $item[0] ); ?></h3>
+						<p><?php echo esc_html( $item[1] ); ?></p>
+					</div>
+					<?php
+				endforeach;
+				?>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- 5. CULTURE IN ACTION -->
+<section class="section" id="culture">
+	<div class="container">
+		<div class="section-head">
+			<div>
+				<span class="eyebrow eyebrow--red"><?php esc_html_e( 'Culture in Action', 'kipla' ); ?></span>
+				<h2><?php esc_html_e( 'What positivity looks like on a Tuesday', 'kipla' ); ?></h2>
+				<p><?php esc_html_e( 'Our values are not on a poster — they are in the routines, the rituals, and the small moments.', 'kipla' ); ?></p>
+			</div>
+		</div>
+		<div class="culture-grid">
+			<?php
+			$culture = array(
+				array( 'sun', __( 'Morning affirmations', 'kipla' ), __( 'Every classroom opens the day standing tall together: I am kind, I am capable, I am loved.', 'kipla' ) ),
+				array( 'heart', __( 'Kindness in practice', 'kipla' ), __( 'Conflict becomes coaching. Children learn words for big feelings and how to make things right.', 'kipla' ) ),
+				array( 'book', __( 'Celebrating growth', 'kipla' ), __( 'First words, first letters, first friendships — milestones get noticed and cheered here.', 'kipla' ) ),
+			);
+			foreach ( $culture as $card ) :
+				?>
+				<article class="culture-card reveal">
+					<span class="program-card__icon" aria-hidden="true"><?php echo kipla_icon( $card[0] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+					<h3><?php echo esc_html( $card[1] ); ?></h3>
+					<p><?php echo esc_html( $card[2] ); ?></p>
+				</article>
+				<?php
+			endforeach;
+			?>
+		</div>
+	</div>
+</section>
+
+<!-- 6. MEET OUR FOUNDER -->
+<section class="section section--white" id="founder">
+	<div class="container">
+		<div class="founder-card reveal">
+			<div>
+				<?php
+				kipla_frame( array(
+					'image_id' => absint( get_theme_mod( 'kipla_founder_photo' ) ),
+					'size'     => 'kipla-portrait',
+					'modifier' => 'frame--arch frame--portrait',
+					'label'    => __( 'Founder photo space', 'kipla' ),
+					'hint'     => __( 'Add the founder portrait in Customize → KIPLA: Meet Our Founder.', 'kipla' ),
+					'alt'      => kipla_opt( 'kipla_founder_name' ),
+				) );
+				?>
+			</div>
+			<div>
+				<span class="eyebrow"><?php esc_html_e( 'Meet Our Founder', 'kipla' ); ?></span>
+				<blockquote class="founder-quote">
+					<?php
+					echo esc_html( kipla_opt( 'kipla_founder_quote' ) ? kipla_opt( 'kipla_founder_quote' ) : __( '“I built KIPLA to be the place I wanted for my own children — safe, joyful, and full of people who believe in them.”', 'kipla' ) );
+					?>
+				</blockquote>
+				<?php if ( kipla_opt( 'kipla_founder_bio' ) ) : ?>
+					<p><?php echo esc_html( kipla_opt( 'kipla_founder_bio' ) ); ?></p>
+				<?php endif; ?>
+				<p class="founder-name"><?php echo esc_html( kipla_opt( 'kipla_founder_name' ) ? kipla_opt( 'kipla_founder_name' ) : __( 'Add founder name in the Customizer', 'kipla' ) ); ?></p>
+				<span class="founder-role"><?php echo esc_html( kipla_opt( 'kipla_founder_role' ) ); ?></span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- 7. WHAT KIPLA FAMILIES SAY -->
+<section class="section" id="testimonials">
+	<div class="container">
+		<div class="section-head">
+			<div>
+				<span class="eyebrow eyebrow--red"><?php esc_html_e( 'What KIPLA Families Say', 'kipla' ); ?></span>
+				<h2><?php esc_html_e( 'Trusted by parents across our community', 'kipla' ); ?></h2>
+			</div>
+		</div>
+
+		<?php
+		$testimonials = new WP_Query( array(
+			'post_type'      => 'kipla_testimonial',
+			'posts_per_page' => 3,
+			'orderby'        => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
+		) );
+
+		if ( $testimonials->have_posts() ) :
+			?>
+			<div class="testimonial-grid">
+				<?php
+				while ( $testimonials->have_posts() ) :
+					$testimonials->the_post();
+					?>
+					<figure class="testimonial reveal">
+						<div class="testimonial__stars" aria-hidden="true">★★★★★</div>
+						<blockquote class="testimonial__quote"><?php echo esc_html( wp_strip_all_tags( get_the_content() ) ); ?></blockquote>
+						<figcaption>
+							<div class="testimonial__author"><?php echo esc_html( get_post_meta( get_the_ID(), '_kipla_parent_name', true ) ? get_post_meta( get_the_ID(), '_kipla_parent_name', true ) : get_the_title() ); ?></div>
+							<span class="testimonial__rel"><?php echo esc_html( get_post_meta( get_the_ID(), '_kipla_parent_rel', true ) ); ?></span>
+						</figcaption>
+					</figure>
+					<?php
+				endwhile;
+				wp_reset_postdata();
+				?>
+			</div>
+		<?php else : ?>
+			<p><?php esc_html_e( 'Add parent reviews under Testimonials in the WordPress admin and they will appear here.', 'kipla' ); ?></p>
+		<?php endif; ?>
+
+		<div class="credibility">
+			<?php
+			$credibility = array(
+				array( __( 'Licensed', 'kipla' ), __( 'State of Georgia', 'kipla' ) ),
+				array( __( 'CPR', 'kipla' ), __( 'Certified staff', 'kipla' ) ),
+				array( __( 'Secure', 'kipla' ), __( 'Keypad entry', 'kipla' ) ),
+				array( __( 'Family', 'kipla' ), __( 'Owned & operated', 'kipla' ) ),
+			);
+			foreach ( $credibility as $item ) :
+				?>
+				<div class="credibility__item reveal">
+					<strong><?php echo esc_html( $item[0] ); ?></strong>
+					<span><?php echo esc_html( $item[1] ); ?></span>
+				</div>
+				<?php
+			endforeach;
+			?>
+		</div>
+	</div>
+</section>
+
+<!-- 8. SEE KIPLA IN ACTION -->
+<section class="section section--white" id="in-action">
+	<div class="container">
+		<div class="section-head">
+			<div>
+				<span class="eyebrow"><?php esc_html_e( 'See KIPLA in Action', 'kipla' ); ?></span>
+				<h2><?php esc_html_e( 'Photos, videos, and everyday moments', 'kipla' ); ?></h2>
+				<p><?php esc_html_e( 'Follow along on Instagram, TikTok, and YouTube for daily peeks into our classrooms.', 'kipla' ); ?></p>
+			</div>
+			<?php kipla_social_links( 'social-links--dark' ); ?>
+		</div>
+
+		<?php
+		$videos = new WP_Query( array(
+			'post_type'      => 'kipla_media',
+			'posts_per_page' => 1,
+			'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+				array(
+					'key'   => '_kipla_media_type',
+					'value' => 'video',
+				),
+			),
+		) );
+
+		if ( $videos->have_posts() ) :
+			while ( $videos->have_posts() ) :
+				$videos->the_post();
+				echo '<div class="reveal" style="margin-bottom:2rem">';
+				kipla_video_embed( get_post_meta( get_the_ID(), '_kipla_video_url', true ) );
+				echo '</div>';
+			endwhile;
+			wp_reset_postdata();
+		endif;
+
+		$photos = new WP_Query( array(
+			'post_type'      => 'kipla_media',
+			'posts_per_page' => 8,
+			'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+				'relation' => 'OR',
+				array(
+					'key'   => '_kipla_media_type',
+					'value' => 'photo',
+				),
+				array(
+					'key'     => '_kipla_media_type',
+					'compare' => 'NOT EXISTS',
+				),
+			),
+		) );
+		?>
+
+		<div class="gallery-grid">
+			<?php
+			if ( $photos->have_posts() ) :
+				while ( $photos->have_posts() ) :
+					$photos->the_post();
+					kipla_frame( array(
+						'post_id'  => get_the_ID(),
+						'size'     => 'kipla-square',
+						'modifier' => 'frame--square',
+						'label'    => __( 'Photo space', 'kipla' ),
+						'hint'     => get_the_title(),
+						'alt'      => get_the_title(),
+					) );
+				endwhile;
+				wp_reset_postdata();
+			else :
+				for ( $i = 0; $i < 4; $i++ ) {
+					kipla_frame( array(
+						'modifier' => 'frame--square',
+						'label'    => __( 'Photo space', 'kipla' ),
+						'hint'     => __( 'Add photos and videos under Photos & Videos.', 'kipla' ),
+					) );
+				}
+			endif;
+			?>
+		</div>
+
+		<p style="text-align:center;margin-top:2rem">
+			<a class="link-underline" href="<?php echo esc_url( get_post_type_archive_link( 'kipla_media' ) ); ?>"><?php esc_html_e( 'View the full gallery', 'kipla' ); ?></a>
+		</p>
+	</div>
+</section>
+
+<!-- NEWS, NEWSLETTERS, EVENTS & CLASSROOM HIGHLIGHTS -->
+<section class="section" id="updates">
+	<div class="container">
+		<div class="section-head">
+			<div>
+				<span class="eyebrow eyebrow--red"><?php esc_html_e( 'News &amp; Newsletters', 'kipla' ); ?></span>
+				<h2><?php esc_html_e( 'Announcements, events &amp; classroom highlights', 'kipla' ); ?></h2>
+			</div>
+			<a class="link-underline" href="<?php echo esc_url( get_post_type_archive_link( 'kipla_update' ) ); ?>"><?php esc_html_e( 'All updates', 'kipla' ); ?></a>
+		</div>
+
+		<?php
+		$updates = new WP_Query( array(
+			'post_type'      => 'kipla_update',
+			'posts_per_page' => 3,
+		) );
+
+		if ( $updates->have_posts() ) :
+			?>
+			<div class="update-grid">
+				<?php
+				while ( $updates->have_posts() ) :
+					$updates->the_post();
+					$types = get_the_terms( get_the_ID(), 'kipla_update_type' );
+					$file  = get_post_meta( get_the_ID(), '_kipla_file_url', true );
+					?>
+					<article class="update-card reveal">
+						<?php if ( has_post_thumbnail() ) : ?>
+							<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'medium_large', array( 'loading' => 'lazy' ) ); ?></a>
+						<?php endif; ?>
+						<div class="update-card__body">
+							<?php if ( $types && ! is_wp_error( $types ) ) : ?>
+								<span class="update-card__type"><?php echo esc_html( $types[0]->name ); ?></span>
+							<?php endif; ?>
+							<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							<span class="update-card__date"><?php echo esc_html( get_the_date() ); ?></span>
+							<p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 22 ) ); ?></p>
+							<span class="update-card__more">
+								<a href="<?php echo esc_url( $file ? $file : get_permalink() ); ?>"<?php echo $file ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>>
+									<?php echo esc_html( $file ? __( 'Download newsletter', 'kipla' ) : __( 'Read more', 'kipla' ) ); ?>
+								</a>
+							</span>
+						</div>
+					</article>
+					<?php
+				endwhile;
+				wp_reset_postdata();
+				?>
+			</div>
+		<?php else : ?>
+			<p><?php esc_html_e( 'Post newsletters, announcements, events, and classroom highlights under News & Newsletters.', 'kipla' ); ?></p>
+		<?php endif; ?>
+	</div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section section--white" id="tour">
+	<div class="container">
+		<div class="cta-band reveal">
+			<span class="eyebrow"><?php esc_html_e( 'Come see us', 'kipla' ); ?></span>
+			<h2><?php esc_html_e( 'Ready to visit KIPLA?', 'kipla' ); ?></h2>
+			<p><?php esc_html_e( 'Tour either campus, meet the teachers, and see the positivity for yourself. We would love to meet your family.', 'kipla' ); ?></p>
+			<div class="cta-band__actions">
+				<a class="btn btn--primary" href="<?php echo esc_url( $tour ); ?>"><?php esc_html_e( 'Schedule a Tour', 'kipla' ); ?></a>
+				<a class="btn btn--gold" href="<?php echo esc_url( $enroll ); ?>"><?php esc_html_e( 'Enroll Now', 'kipla' ); ?></a>
+				<?php if ( kipla_opt( 'kipla_phone' ) ) : ?>
+					<a class="btn btn--ghost" href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', kipla_opt( 'kipla_phone' ) ) ); ?>"><?php echo esc_html( kipla_opt( 'kipla_phone' ) ); ?></a>
+				<?php endif; ?>
+			</div>
+		</div>
+	</div>
+</section>
+
+<?php
+get_footer();
