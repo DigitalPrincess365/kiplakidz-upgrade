@@ -60,7 +60,7 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 <div class="affirmations" aria-hidden="true">
 	<div class="affirmations__track">
 		<?php
-		$affirmations = array( __( 'I am kind', 'kipla' ), __( 'I am capable', 'kipla' ), __( 'I am curious', 'kipla' ), __( 'I am loved', 'kipla' ), __( 'I am a leader', 'kipla' ) );
+		$affirmations = array( __( 'Teach', 'kipla' ), __( 'Train', 'kipla' ), __( 'Motivate', 'kipla' ), __( 'Love', 'kipla' ) );
 		for ( $pass = 0; $pass < 2; $pass++ ) {
 			foreach ( $affirmations as $line ) {
 				echo '<span>' . esc_html( $line ) . '</span>';
