@@ -204,8 +204,9 @@ p{margin:0 0 1rem}
 
 /* --- Affirmation marquee --- */
 .affirmations{background:var(--sunflower);border-block:1px solid rgba(27,67,50,.12);overflow:hidden;padding-block:.9rem}
-.affirmations__track{display:flex;gap:4rem;width:max-content;animation:kipla-marquee 34s linear infinite}
+.affirmations__track{display:flex;gap:1.5rem;width:max-content;animation:kipla-marquee 34s linear infinite}
 .affirmations span{font-family:var(--font-display);color:var(--hunter);font-size:1.05rem;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.affirmations__sep{align-self:center;font-family:var(--font-body);font-size:1.1rem;letter-spacing:0;text-transform:none;line-height:1;opacity:.9}
 @keyframes kipla-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.affirmations__track{animation:none}}
 
