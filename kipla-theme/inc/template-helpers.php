@@ -157,12 +157,14 @@ function kipla_location_card( $number ) {
 function kipla_fallback_menu() {
 	echo '<ul>';
 	foreach ( array(
-		'#programs'     => __( 'Programs', 'kipla' ),
-		'#locations'    => __( 'Locations', 'kipla' ),
+		'#hero'         => __( 'Hero / First Impression', 'kipla' ),
+		'#welcome'      => __( 'Welcome to KIPLA', 'kipla' ),
+		'#programs'     => __( 'Our Programs', 'kipla' ),
 		'#difference'   => __( 'The KIPLA Difference', 'kipla' ),
-		'#founder'      => __( 'Our Founder', 'kipla' ),
-		'#in-action'    => __( 'KIPLA in Action', 'kipla' ),
-		'#updates'      => __( 'News', 'kipla' ),
+		'#culture'      => __( 'Culture in Action', 'kipla' ),
+		'#founder'      => __( 'Meet Our Founder', 'kipla' ),
+		'#testimonials' => __( 'What KIPLA Families Say', 'kipla' ),
+		'#in-action'    => __( 'See KIPLA in Action', 'kipla' ),
 	) as $url => $label ) {
 		printf( '<li><a href="%s">%s</a></li>', esc_url( $url ), esc_html( $label ) );
 	}
