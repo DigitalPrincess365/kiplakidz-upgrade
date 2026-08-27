@@ -81,12 +81,13 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 				<h2><?php echo esc_html( kipla_opt( 'kipla_welcome_head' ) ? kipla_opt( 'kipla_welcome_head' ) : __( 'A positive start shapes everything that follows', 'kipla' ) ); ?></h2>
 				<p>
 					<?php
-					echo esc_html( kipla_opt( 'kipla_welcome_text' ) ? kipla_opt( 'kipla_welcome_text' ) : __( 'From the moment your family walks through our doors, you are part of the KIPLA family. Our teachers know every child by name, story, and strength — and they build each day around helping them grow.', 'kipla' ) );
+					echo esc_html( kipla_opt( 'kipla_welcome_text' ) ? kipla_opt( 'kipla_welcome_text' ) : __( 'KIPLA is a family-owned early learning community in Austell, Georgia, with two campuses serving scholars from 6 weeks through 12 years. From the first morning, your child is known by name, story, and strength.', 'kipla' ) );
 					?>
 				</p>
+				<p><strong><?php esc_html_e( 'The KIPLA difference:', 'kipla' ); ?></strong> <?php esc_html_e( 'we pair a leadership-minded, kindergarten-ready curriculum with genuine warmth — every scholar is taught, trained, motivated, and loved every single day.', 'kipla' ); ?></p>
 				<div class="stat-row">
-					<div class="stat"><div class="stat__num">2</div><div class="stat__label"><?php esc_html_e( 'Campuses', 'kipla' ); ?></div></div>
-					<div class="stat"><div class="stat__num"><?php esc_html_e( '6 wks+', 'kipla' ); ?></div><div class="stat__label"><?php esc_html_e( 'Ages served', 'kipla' ); ?></div></div>
+					<div class="stat"><div class="stat__num">2</div><div class="stat__label"><?php esc_html_e( 'Campuses in Austell', 'kipla' ); ?></div></div>
+					<div class="stat"><div class="stat__num"><?php esc_html_e( '6 wks – 12 yrs', 'kipla' ); ?></div><div class="stat__label"><?php esc_html_e( 'Ages served', 'kipla' ); ?></div></div>
 				</div>
 			</div>
 			<div class="reveal">
@@ -95,10 +96,11 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 					'image_id' => absint( get_theme_mod( 'kipla_welcome_image' ) ),
 					'size'     => 'kipla-portrait',
 					'modifier' => 'frame--leaf frame--portrait',
-					'label'    => __( 'Welcome photo space', 'kipla' ),
-					'hint'     => __( 'A candid classroom moment works beautifully here.', 'kipla' ),
+					'label'    => __( 'Scholars & educators photo', 'kipla' ),
+					'hint'     => __( 'An authentic photograph of KIPLA scholars learning with their educators.', 'kipla' ),
 				) );
 				?>
+
 			</div>
 		</div>
 
