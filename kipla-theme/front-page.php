@@ -23,23 +23,23 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 <!-- 1. HERO / FIRST IMPRESSION -->
 <section class="hero container" id="hero">
 	<div class="hero__inner">
-		<span class="eyebrow"><?php echo esc_html( kipla_opt( 'kipla_hero_eyebrow' ) ? kipla_opt( 'kipla_hero_eyebrow' ) : __( 'Two campuses · Infants through school age', 'kipla' ) ); ?></span>
+		<span class="eyebrow"><?php echo esc_html( kipla_opt( 'kipla_hero_eyebrow' ) ? kipla_opt( 'kipla_hero_eyebrow' ) : __( 'Teach · Train · Motivate · Love', 'kipla' ) ); ?></span>
 		<h1>
 			<?php
 			$heading = kipla_opt( 'kipla_hero_heading' );
 			echo $heading
 				? kipla_accent_text( $heading ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				: wp_kses_post( __( 'Where every child is <span class="accent">known</span>, nurtured, and celebrated.', 'kipla' ) );
+				: wp_kses_post( __( 'Where Learning, Leadership &amp; <span class="accent">Love</span> Grow Together.', 'kipla' ) );
 			?>
 		</h1>
 		<p class="hero__lead">
 			<?php
-			echo esc_html( kipla_opt( 'kipla_hero_lead' ) ? kipla_opt( 'kipla_hero_lead' ) : __( 'Keeping It Positive Learning Academy is a family-rooted early learning community built on warmth, high expectations, and joyful, hands-on discovery.', 'kipla' ) );
+			echo esc_html( kipla_opt( 'kipla_hero_lead' ) ? kipla_opt( 'kipla_hero_lead' ) : __( 'At Keeping It Positive Learning Academy we teach with purpose, train future leaders, motivate every scholar, and love them like family — across two Austell campuses, from infants through school age.', 'kipla' ) );
 			?>
 		</p>
 		<div class="hero__actions">
 			<a class="btn btn--primary" href="<?php echo esc_url( $tour ); ?>"><?php esc_html_e( 'Schedule a Tour', 'kipla' ); ?></a>
-			<a class="btn btn--gold" href="<?php echo esc_url( $enroll ); ?>"><?php esc_html_e( 'Enroll Now', 'kipla' ); ?></a>
+			<a class="btn btn--gold" href="<?php echo esc_url( $enroll ); ?>"><?php esc_html_e( 'Enroll / Learn More', 'kipla' ); ?></a>
 			<a class="btn btn--ghost" href="#programs"><?php esc_html_e( 'Explore Programs', 'kipla' ); ?></a>
 		</div>
 	</div>
@@ -49,11 +49,12 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 			'image_id' => absint( get_theme_mod( 'kipla_hero_image' ) ),
 			'size'     => 'kipla-wide',
 			'modifier' => 'frame--wide',
-			'label'    => __( 'Hero photo space', 'kipla' ),
-			'hint'     => __( 'Add a wide photo of your classrooms or playground in Customize → KIPLA: Hero & Welcome.', 'kipla' ),
+			'label'    => __( 'Hero photo or short video', 'kipla' ),
+			'hint'     => __( 'Add a large authentic KIPLA photo or short welcome video in Customize → KIPLA: Hero & Welcome.', 'kipla' ),
 			'alt'      => get_bloginfo( 'name' ),
 		) );
 		?>
+
 	</div>
 </section>
 
@@ -80,12 +81,13 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 				<h2><?php echo esc_html( kipla_opt( 'kipla_welcome_head' ) ? kipla_opt( 'kipla_welcome_head' ) : __( 'A positive start shapes everything that follows', 'kipla' ) ); ?></h2>
 				<p>
 					<?php
-					echo esc_html( kipla_opt( 'kipla_welcome_text' ) ? kipla_opt( 'kipla_welcome_text' ) : __( 'From the moment your family walks through our doors, you are part of the KIPLA family. Our teachers know every child by name, story, and strength — and they build each day around helping them grow.', 'kipla' ) );
+					echo esc_html( kipla_opt( 'kipla_welcome_text' ) ? kipla_opt( 'kipla_welcome_text' ) : __( 'KIPLA is a family-owned early learning community in Austell, Georgia, with two campuses serving scholars from 6 weeks through 12 years. From the first morning, your child is known by name, story, and strength.', 'kipla' ) );
 					?>
 				</p>
+				<p><strong><?php esc_html_e( 'The KIPLA difference:', 'kipla' ); ?></strong> <?php esc_html_e( 'we pair a leadership-minded, kindergarten-ready curriculum with genuine warmth — every scholar is taught, trained, motivated, and loved every single day.', 'kipla' ); ?></p>
 				<div class="stat-row">
-					<div class="stat"><div class="stat__num">2</div><div class="stat__label"><?php esc_html_e( 'Campuses', 'kipla' ); ?></div></div>
-					<div class="stat"><div class="stat__num"><?php esc_html_e( '6 wks+', 'kipla' ); ?></div><div class="stat__label"><?php esc_html_e( 'Ages served', 'kipla' ); ?></div></div>
+					<div class="stat"><div class="stat__num">2</div><div class="stat__label"><?php esc_html_e( 'Campuses in Austell', 'kipla' ); ?></div></div>
+					<div class="stat"><div class="stat__num"><?php esc_html_e( '6 wks – 12 yrs', 'kipla' ); ?></div><div class="stat__label"><?php esc_html_e( 'Ages served', 'kipla' ); ?></div></div>
 				</div>
 			</div>
 			<div class="reveal">
@@ -94,10 +96,11 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 					'image_id' => absint( get_theme_mod( 'kipla_welcome_image' ) ),
 					'size'     => 'kipla-portrait',
 					'modifier' => 'frame--leaf frame--portrait',
-					'label'    => __( 'Welcome photo space', 'kipla' ),
-					'hint'     => __( 'A candid classroom moment works beautifully here.', 'kipla' ),
+					'label'    => __( 'Scholars & educators photo', 'kipla' ),
+					'hint'     => __( 'An authentic photograph of KIPLA scholars learning with their educators.', 'kipla' ),
 				) );
 				?>
+
 			</div>
 		</div>
 
@@ -162,7 +165,16 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 					$highlights = array_filter( array_map( 'trim', explode( '|', (string) get_post_meta( get_the_ID(), '_kipla_highlights', true ) ) ) );
 					?>
 					<article class="program-card reveal" data-locations="<?php echo esc_attr( implode( ' ', $slugs ) ); ?>">
-						<span class="program-card__icon" aria-hidden="true"><?php echo kipla_icon( 'sprout' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+						<?php
+						kipla_frame( array(
+							'post_id'  => get_the_ID(),
+							'size'     => 'kipla-wide',
+							'modifier' => 'frame--wide program-card__media',
+							'label'    => get_the_title() . __( ' photo', 'kipla' ),
+							'hint'     => __( 'Set a featured image for this program.', 'kipla' ),
+							'alt'      => get_the_title(),
+						) );
+						?>
 						<h3><?php the_title(); ?></h3>
 						<?php if ( $age ) : ?>
 							<p class="program-card__age"><?php echo esc_html( $age ); ?></p>
@@ -179,6 +191,7 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 						<?php if ( $names ) : ?>
 							<span class="program-card__where"><?php echo esc_html( implode( ' · ', $names ) ); ?></span>
 						<?php endif; ?>
+						<a class="link-underline program-card__link" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Learn More', 'kipla' ); ?></a>
 					</article>
 					<?php
 				endwhile;
@@ -186,10 +199,37 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 				?>
 			</div>
 		<?php else : ?>
-			<p style="text-align:center;color:rgba(254,250,240,.75)">
-				<?php esc_html_e( 'Add your classrooms under Programs in the WordPress admin — each one can list an age range, highlights, and which campus it belongs to.', 'kipla' ); ?>
-			</p>
+			<div class="program-grid">
+				<?php
+				$default_programs = array(
+					array( __( 'Infants', 'kipla' ), __( '6 weeks – 12 months', 'kipla' ), __( 'Responsive one-on-one care with daily bottle, nap, and diaper logs.', 'kipla' ) ),
+					array( __( 'Toddlers', 'kipla' ), __( '1 – 2 years', 'kipla' ), __( 'Language-rich routines, potty-training support, music and movement.', 'kipla' ) ),
+					array( __( 'Preschool', 'kipla' ), __( '3 – 4 years', 'kipla' ), __( 'Letters, numbers, STEM centers, and social-emotional coaching.', 'kipla' ) ),
+					array( __( 'Georgia Pre-K', 'kipla' ), __( '4 years by Sept. 1', 'kipla' ), __( 'State-funded, kindergarten-ready curriculum led by certified educators.', 'kipla' ) ),
+					array( __( 'Before &amp; After School', 'kipla' ), __( '5 – 12 years', 'kipla' ), __( 'Transportation, homework help, and leadership-building enrichment.', 'kipla' ) ),
+					array( __( 'Summer Camp', 'kipla' ), __( '5 – 12 years', 'kipla' ), __( 'Field trips, STEAM projects, water days, and community service.', 'kipla' ) ),
+				);
+				foreach ( $default_programs as $item ) :
+					?>
+					<article class="program-card reveal">
+						<?php
+						kipla_frame( array(
+							'modifier' => 'frame--wide program-card__media',
+							'label'    => $item[0] . __( ' photo', 'kipla' ),
+							'hint'     => __( 'Add this program under Programs and set a featured image.', 'kipla' ),
+						) );
+						?>
+						<h3><?php echo esc_html( $item[0] ); ?></h3>
+						<p class="program-card__age"><?php echo esc_html( $item[1] ); ?></p>
+						<ul><li><span><?php echo esc_html( $item[2] ); ?></span></li></ul>
+						<a class="link-underline program-card__link" href="<?php echo esc_url( get_post_type_archive_link( 'kipla_program' ) ); ?>"><?php esc_html_e( 'Learn More', 'kipla' ); ?></a>
+					</article>
+					<?php
+				endforeach;
+				?>
+			</div>
 		<?php endif; ?>
+
 
 		<div style="text-align:center;margin-top:2.5rem">
 			<a class="btn btn--gold" href="<?php echo esc_url( $tour ); ?>"><?php esc_html_e( 'Schedule a Tour', 'kipla' ); ?></a>
