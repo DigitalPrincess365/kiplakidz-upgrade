@@ -337,3 +337,12 @@ p{margin:0 0 1rem}
 .site-footer .social-links__item:hover{background:var(--sunflower);color:var(--hunter)}
 .social-links--sm .social-links__item{width:2.1rem;height:2.1rem}
 .video-embed video{width:100%;height:100%;display:block;object-fit:cover}
+
+/* Section map additions */
+.program-card__media{margin:0 0 1rem;width:100%}
+.program-card__link{display:inline-block;margin-top:.85rem;font-weight:600}
+.difference__word{display:inline-block;font-family:var(--font-display,inherit);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sunflower,#f2b705);margin-bottom:.4rem}
+.founder-facts{list-style:none;margin:1.25rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:1.5rem}
+.founder-facts li{display:flex;flex-direction:column;line-height:1.2}
+.founder-facts strong{font-size:1.1rem}
+.founder-facts span{font-size:.8rem;opacity:.7}
