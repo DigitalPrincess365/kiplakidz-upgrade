@@ -23,23 +23,23 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 <!-- 1. HERO / FIRST IMPRESSION -->
 <section class="hero container" id="hero">
 	<div class="hero__inner">
-		<span class="eyebrow"><?php echo esc_html( kipla_opt( 'kipla_hero_eyebrow' ) ? kipla_opt( 'kipla_hero_eyebrow' ) : __( 'Two campuses · Infants through school age', 'kipla' ) ); ?></span>
+		<span class="eyebrow"><?php echo esc_html( kipla_opt( 'kipla_hero_eyebrow' ) ? kipla_opt( 'kipla_hero_eyebrow' ) : __( 'Teach · Train · Motivate · Love', 'kipla' ) ); ?></span>
 		<h1>
 			<?php
 			$heading = kipla_opt( 'kipla_hero_heading' );
 			echo $heading
 				? kipla_accent_text( $heading ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				: wp_kses_post( __( 'Where every child is <span class="accent">known</span>, nurtured, and celebrated.', 'kipla' ) );
+				: wp_kses_post( __( 'Where Learning, Leadership &amp; <span class="accent">Love</span> Grow Together.', 'kipla' ) );
 			?>
 		</h1>
 		<p class="hero__lead">
 			<?php
-			echo esc_html( kipla_opt( 'kipla_hero_lead' ) ? kipla_opt( 'kipla_hero_lead' ) : __( 'Keeping It Positive Learning Academy is a family-rooted early learning community built on warmth, high expectations, and joyful, hands-on discovery.', 'kipla' ) );
+			echo esc_html( kipla_opt( 'kipla_hero_lead' ) ? kipla_opt( 'kipla_hero_lead' ) : __( 'At Keeping It Positive Learning Academy we teach with purpose, train future leaders, motivate every scholar, and love them like family — across two Austell campuses, from infants through school age.', 'kipla' ) );
 			?>
 		</p>
 		<div class="hero__actions">
 			<a class="btn btn--primary" href="<?php echo esc_url( $tour ); ?>"><?php esc_html_e( 'Schedule a Tour', 'kipla' ); ?></a>
-			<a class="btn btn--gold" href="<?php echo esc_url( $enroll ); ?>"><?php esc_html_e( 'Enroll Now', 'kipla' ); ?></a>
+			<a class="btn btn--gold" href="<?php echo esc_url( $enroll ); ?>"><?php esc_html_e( 'Enroll / Learn More', 'kipla' ); ?></a>
 			<a class="btn btn--ghost" href="#programs"><?php esc_html_e( 'Explore Programs', 'kipla' ); ?></a>
 		</div>
 	</div>
@@ -49,11 +49,12 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 			'image_id' => absint( get_theme_mod( 'kipla_hero_image' ) ),
 			'size'     => 'kipla-wide',
 			'modifier' => 'frame--wide',
-			'label'    => __( 'Hero photo space', 'kipla' ),
-			'hint'     => __( 'Add a wide photo of your classrooms or playground in Customize → KIPLA: Hero & Welcome.', 'kipla' ),
+			'label'    => __( 'Hero photo or short video', 'kipla' ),
+			'hint'     => __( 'Add a large authentic KIPLA photo or short welcome video in Customize → KIPLA: Hero & Welcome.', 'kipla' ),
 			'alt'      => get_bloginfo( 'name' ),
 		) );
 		?>
+
 	</div>
 </section>
 
