@@ -165,7 +165,16 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 					$highlights = array_filter( array_map( 'trim', explode( '|', (string) get_post_meta( get_the_ID(), '_kipla_highlights', true ) ) ) );
 					?>
 					<article class="program-card reveal" data-locations="<?php echo esc_attr( implode( ' ', $slugs ) ); ?>">
-						<span class="program-card__icon" aria-hidden="true"><?php echo kipla_icon( 'sprout' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+						<?php
+						kipla_frame( array(
+							'post_id'  => get_the_ID(),
+							'size'     => 'kipla-wide',
+							'modifier' => 'frame--wide program-card__media',
+							'label'    => get_the_title() . __( ' photo', 'kipla' ),
+							'hint'     => __( 'Set a featured image for this program.', 'kipla' ),
+							'alt'      => get_the_title(),
+						) );
+						?>
 						<h3><?php the_title(); ?></h3>
 						<?php if ( $age ) : ?>
 							<p class="program-card__age"><?php echo esc_html( $age ); ?></p>
@@ -182,6 +191,7 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 						<?php if ( $names ) : ?>
 							<span class="program-card__where"><?php echo esc_html( implode( ' · ', $names ) ); ?></span>
 						<?php endif; ?>
+						<a class="link-underline program-card__link" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Learn More', 'kipla' ); ?></a>
 					</article>
 					<?php
 				endwhile;
@@ -189,10 +199,37 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 				?>
 			</div>
 		<?php else : ?>
-			<p style="text-align:center;color:rgba(254,250,240,.75)">
-				<?php esc_html_e( 'Add your classrooms under Programs in the WordPress admin — each one can list an age range, highlights, and which campus it belongs to.', 'kipla' ); ?>
-			</p>
+			<div class="program-grid">
+				<?php
+				$default_programs = array(
+					array( __( 'Infants', 'kipla' ), __( '6 weeks – 12 months', 'kipla' ), __( 'Responsive one-on-one care with daily bottle, nap, and diaper logs.', 'kipla' ) ),
+					array( __( 'Toddlers', 'kipla' ), __( '1 – 2 years', 'kipla' ), __( 'Language-rich routines, potty-training support, music and movement.', 'kipla' ) ),
+					array( __( 'Preschool', 'kipla' ), __( '3 – 4 years', 'kipla' ), __( 'Letters, numbers, STEM centers, and social-emotional coaching.', 'kipla' ) ),
+					array( __( 'Georgia Pre-K', 'kipla' ), __( '4 years by Sept. 1', 'kipla' ), __( 'State-funded, kindergarten-ready curriculum led by certified educators.', 'kipla' ) ),
+					array( __( 'Before &amp; After School', 'kipla' ), __( '5 – 12 years', 'kipla' ), __( 'Transportation, homework help, and leadership-building enrichment.', 'kipla' ) ),
+					array( __( 'Summer Camp', 'kipla' ), __( '5 – 12 years', 'kipla' ), __( 'Field trips, STEAM projects, water days, and community service.', 'kipla' ) ),
+				);
+				foreach ( $default_programs as $item ) :
+					?>
+					<article class="program-card reveal">
+						<?php
+						kipla_frame( array(
+							'modifier' => 'frame--wide program-card__media',
+							'label'    => $item[0] . __( ' photo', 'kipla' ),
+							'hint'     => __( 'Add this program under Programs and set a featured image.', 'kipla' ),
+						) );
+						?>
+						<h3><?php echo esc_html( $item[0] ); ?></h3>
+						<p class="program-card__age"><?php echo esc_html( $item[1] ); ?></p>
+						<ul><li><span><?php echo esc_html( $item[2] ); ?></span></li></ul>
+						<a class="link-underline program-card__link" href="<?php echo esc_url( get_post_type_archive_link( 'kipla_program' ) ); ?>"><?php esc_html_e( 'Learn More', 'kipla' ); ?></a>
+					</article>
+					<?php
+				endforeach;
+				?>
+			</div>
 		<?php endif; ?>
+
 
 		<div style="text-align:center;margin-top:2.5rem">
 			<a class="btn btn--gold" href="<?php echo esc_url( $tour ); ?>"><?php esc_html_e( 'Schedule a Tour', 'kipla' ); ?></a>
