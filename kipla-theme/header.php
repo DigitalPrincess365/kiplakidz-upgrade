@@ -26,11 +26,7 @@
 				<?php the_custom_logo(); ?>
 			<?php else : ?>
 				<a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-					<span class="brand__mark" aria-hidden="true">K</span>
-					<span>
-						<?php bloginfo( 'name' ); ?>
-						<span class="brand__tag"><?php esc_html_e( 'Keeping It Positive', 'kipla' ); ?></span>
-					</span>
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logo.png' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" loading="eager" />
 				</a>
 			<?php endif; ?>
 		</div>
