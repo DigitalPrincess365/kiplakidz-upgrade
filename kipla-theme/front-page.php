@@ -29,7 +29,7 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 			$heading = kipla_opt( 'kipla_hero_heading' );
 			echo $heading
 				? kipla_accent_text( $heading ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				: wp_kses_post( __( 'Where we Teach, Train, Motivate, &amp; <span class="accent">Love</span>', 'kipla' ) );
+				: wp_kses_post( __( 'Where We Teach, Train, Motivate, &amp; <span class="accent">Love</span>', 'kipla' ) );
 			?>
 		</h1>
 		<p class="hero__lead">
