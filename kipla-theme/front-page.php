@@ -32,9 +32,10 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 				: wp_kses_post( __( 'Where We Teach, Train, Motivate, &amp; <span class="accent">Love</span>', 'kipla' ) );
 			?>
 		</h1>
+		<p class="hero__tagline"><?php echo wp_kses_post( __( 'A <span class="accent-gold">Positive</span> Start Shapes Everything That Follows.', 'kipla' ) ); ?></p>
 		<p class="hero__lead">
 			<?php
-			echo esc_html( kipla_opt( 'kipla_hero_lead' ) ? kipla_opt( 'kipla_hero_lead' ) : __( 'At Keeping It Positive Learning Academy we teach with purpose, train future leaders, motivate every scholar, and love them like family — across two Austell campuses, from infants through school age.', 'kipla' ) );
+			echo esc_html( kipla_opt( 'kipla_hero_lead' ) ? kipla_opt( 'kipla_hero_lead' ) : __( 'At Keeping It Positive Learning Academy we teach with purpose, train future leaders, motivate every scholar, and love them like family — across two Austell campuses, from 6 weeks through 12 years.', 'kipla' ) );
 			?>
 		</p>
 		<div class="hero__actions">
