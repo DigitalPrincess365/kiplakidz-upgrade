@@ -32,9 +32,10 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 				: wp_kses_post( __( 'Where We Teach, Train, Motivate, &amp; <span class="accent">Love</span>', 'kipla' ) );
 			?>
 		</h1>
+		<p class="hero__tagline"><?php echo wp_kses_post( __( 'A <span class="accent-gold">Positive</span> Start Shapes Everything That Follows.', 'kipla' ) ); ?></p>
 		<p class="hero__lead">
 			<?php
-			echo esc_html( kipla_opt( 'kipla_hero_lead' ) ? kipla_opt( 'kipla_hero_lead' ) : __( 'At Keeping It Positive Learning Academy we teach with purpose, train future leaders, motivate every scholar, and love them like family — across two Austell campuses, from infants through school age.', 'kipla' ) );
+			echo esc_html( kipla_opt( 'kipla_hero_lead' ) ? kipla_opt( 'kipla_hero_lead' ) : __( 'At Keeping It Positive Learning Academy we teach with purpose, train future leaders, motivate every scholar, and love them like family — across two Austell campuses, from 6 weeks through 12 years.', 'kipla' ) );
 			?>
 		</p>
 		<div class="hero__actions">
@@ -84,7 +85,7 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 					echo esc_html( kipla_opt( 'kipla_welcome_text' ) ? kipla_opt( 'kipla_welcome_text' ) : __( 'KIPLA is a family-owned early learning community in Austell, Georgia, with two campuses serving scholars from 6 weeks through 12 years. From the first morning, your child is known by name, story, and strength.', 'kipla' ) );
 					?>
 				</p>
-				<p><strong><?php esc_html_e( 'The KIPLA difference:', 'kipla' ); ?></strong> <?php esc_html_e( 'we pair a leadership-minded, kindergarten-ready curriculum with genuine warmth — every scholar is taught, trained, motivated, and loved every single day.', 'kipla' ); ?></p>
+				<p><strong><?php esc_html_e( 'The KIPLA difference:', 'kipla' ); ?></strong> <?php esc_html_e( 'we pair leadership-centered learning designed to prepare scholars for every next step with genuine warmth — every scholar is taught, trained, motivated, and loved every single day.', 'kipla' ); ?></p>
 				<div class="stat-row">
 					<div class="stat"><div class="stat__num">2</div><div class="stat__label"><?php esc_html_e( 'Campuses in Austell', 'kipla' ); ?></div></div>
 					<div class="stat"><div class="stat__num"><?php esc_html_e( '6 wks – 12 yrs', 'kipla' ); ?></div><div class="stat__label"><?php esc_html_e( 'Ages served', 'kipla' ); ?></div></div>
@@ -205,7 +206,7 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 					array( __( 'Infants', 'kipla' ), __( '6 weeks – 12 months', 'kipla' ), __( 'Responsive one-on-one care with daily bottle, nap, and diaper logs.', 'kipla' ) ),
 					array( __( 'Toddlers', 'kipla' ), __( '1 – 2 years', 'kipla' ), __( 'Language-rich routines, potty-training support, music and movement.', 'kipla' ) ),
 					array( __( 'Preschool', 'kipla' ), __( '3 – 4 years', 'kipla' ), __( 'Letters, numbers, STEM centers, and social-emotional coaching.', 'kipla' ) ),
-					array( __( 'Georgia Pre-K', 'kipla' ), __( '4 years by Sept. 1', 'kipla' ), __( 'State-funded, kindergarten-ready curriculum led by certified educators.', 'kipla' ) ),
+					array( __( 'Georgia Pre-K', 'kipla' ), __( '4 years by Sept. 1', 'kipla' ), __( 'State-funded Pre-K led by certified educators — leadership-centered learning for every next step.', 'kipla' ) ),
 					array( __( 'Before &amp; After School', 'kipla' ), __( '5 – 12 years', 'kipla' ), __( 'Transportation, homework help, and leadership-building enrichment.', 'kipla' ) ),
 					array( __( 'Summer Camp', 'kipla' ), __( '5 – 12 years', 'kipla' ), __( 'Field trips, STEAM projects, water days, and community service.', 'kipla' ) ),
 				);
