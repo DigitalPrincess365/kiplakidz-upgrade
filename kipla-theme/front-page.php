@@ -35,7 +35,7 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 		<p class="hero__tagline"><?php echo wp_kses_post( __( 'A <span class="accent-gold">Positive</span> Start Shapes Everything That Follows.', 'kipla' ) ); ?></p>
 		<p class="hero__lead">
 			<?php
-			echo esc_html( kipla_opt( 'kipla_hero_lead' ) ? kipla_opt( 'kipla_hero_lead' ) : __( 'At Keeping It Positive Learning Academy we teach with purpose, train future leaders, motivate every scholar, and love them like family — across two Austell campuses, from 6 weeks through 12 years.', 'kipla' ) );
+			echo esc_html( kipla_opt( 'kipla_hero_lead' ) ? kipla_opt( 'kipla_hero_lead' ) : __( 'At Keeping It Positive Learning Academy we teach with purpose, train future leaders, motivate every scholar, and love them like family — across two campuses in Austell and Lithia Springs, from 6 weeks through 12 years.', 'kipla' ) );
 			?>
 		</p>
 		<div class="hero__actions">
@@ -87,7 +87,7 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 				</p>
 				<p><strong><?php esc_html_e( 'The KIPLA difference:', 'kipla' ); ?></strong> <?php esc_html_e( 'we pair leadership-centered learning designed to prepare scholars for every next step with genuine warmth — every scholar is taught, trained, motivated, and loved every single day.', 'kipla' ); ?></p>
 				<div class="stat-row">
-					<div class="stat"><div class="stat__num">2</div><div class="stat__label"><?php esc_html_e( 'Campuses in Austell', 'kipla' ); ?></div></div>
+					<div class="stat"><div class="stat__num">2</div><div class="stat__label"><?php esc_html_e( 'Campuses in West Georgia', 'kipla' ); ?></div></div>
 					<div class="stat"><div class="stat__num"><?php esc_html_e( '6 wks – 12 yrs', 'kipla' ); ?></div><div class="stat__label"><?php esc_html_e( 'Ages served', 'kipla' ); ?></div></div>
 				</div>
 			</div>
