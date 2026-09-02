@@ -23,7 +23,7 @@ function kipla_program_data() {
 			'age'       => __( '6 weeks – 12 months', 'kipla' ),
 			'summary'   => __( 'Responsive one-on-one care with daily bottle, nap, and diaper logs.', 'kipla' ),
 			'intro'     => __( 'Our infant room is quiet, clean, and full of warmth. Every baby follows their own schedule for feeding and sleeping, and our educators hold, rock, talk, and sing all day long so your child feels safe and loved from the very first drop-off.', 'kipla' ),
-			'locations' => array( 'kipla-1' ),
+			'locations' => array( 'kipla-1', 'kipla-2' ),
 			'highlights'=> array(
 				__( 'Individual feeding, nap, and diapering schedules', 'kipla' ),
 				__( 'Daily digital log sent to parents', 'kipla' ),
@@ -101,7 +101,7 @@ function kipla_program_data() {
 			'age'       => __( '4 years old by Sept. 1', 'kipla' ),
 			'summary'   => __( 'State-funded Pre-K led by certified educators — leadership-centered learning for every next step.', 'kipla' ),
 			'intro'     => __( 'KIPLA offers Georgia\'s Pre-K Program with certified lead teachers and the state-approved curriculum, delivered the KIPLA way: leadership-centered learning designed to prepare scholars for every next step. Seats are limited and fill quickly each year.', 'kipla' ),
-			'locations' => array( 'kipla-2' ),
+			'locations' => array( 'kipla-1', 'kipla-2' ),
 			'highlights'=> array(
 				__( 'State-funded, no tuition for the Pre-K day', 'kipla' ),
 				__( 'Georgia-certified lead teachers', 'kipla' ),
@@ -127,7 +127,7 @@ function kipla_program_data() {
 			'age'       => __( '5 – 12 years', 'kipla' ),
 			'summary'   => __( 'Transportation, homework help, and leadership-building enrichment.', 'kipla' ),
 			'intro'     => __( 'School-age scholars get a calm landing spot before the bell and a productive, joyful afternoon after it — homework first, then enrichment, games, and leadership activities with educators who know them by name.', 'kipla' ),
-			'locations' => array( 'kipla-2' ),
+			'locations' => array( 'kipla-1', 'kipla-2' ),
 			'highlights'=> array(
 				__( 'Transportation to and from partner schools', 'kipla' ),
 				__( 'Daily homework help and quiet study time', 'kipla' ),

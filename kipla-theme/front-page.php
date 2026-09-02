@@ -110,7 +110,7 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 				<div>
 					<span class="eyebrow eyebrow--red"><?php esc_html_e( 'Our two campuses', 'kipla' ); ?></span>
 					<h2><?php esc_html_e( 'KIPLA #1 &amp; KIPLA #2', 'kipla' ); ?></h2>
-					<p><?php esc_html_e( 'Same heart, same standards — two convenient locations.', 'kipla' ); ?></p>
+					<p><?php esc_html_e( 'Same heart, same standards, all programs — two convenient locations.', 'kipla' ); ?></p>
 				</div>
 			</div>
 			<div class="locations">
