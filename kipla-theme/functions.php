@@ -75,3 +75,5 @@ add_action( 'widgets_init', 'kipla_widgets' );
 require_once get_template_directory() . '/inc/post-types.php';
 require_once get_template_directory() . '/inc/customizer.php';
 require_once get_template_directory() . '/inc/template-helpers.php';
+require_once get_template_directory() . '/inc/programs-data.php';
+
