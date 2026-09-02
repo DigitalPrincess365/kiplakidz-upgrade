@@ -202,14 +202,10 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 		<?php else : ?>
 			<div class="program-grid">
 				<?php
-				$default_programs = array(
-					array( __( 'Infants', 'kipla' ), __( '6 weeks – 12 months', 'kipla' ), __( 'Responsive one-on-one care with daily bottle, nap, and diaper logs.', 'kipla' ) ),
-					array( __( 'Toddlers', 'kipla' ), __( '1 – 2 years', 'kipla' ), __( 'Language-rich routines, potty-training support, music and movement.', 'kipla' ) ),
-					array( __( 'Preschool', 'kipla' ), __( '3 – 4 years', 'kipla' ), __( 'Letters, numbers, STEM centers, and social-emotional coaching.', 'kipla' ) ),
-					array( __( 'Georgia Pre-K', 'kipla' ), __( '4 years by Sept. 1', 'kipla' ), __( 'State-funded Pre-K led by certified educators — leadership-centered learning for every next step.', 'kipla' ) ),
-					array( __( 'Before &amp; After School', 'kipla' ), __( '5 – 12 years', 'kipla' ), __( 'Transportation, homework help, and leadership-building enrichment.', 'kipla' ) ),
-					array( __( 'Summer Camp', 'kipla' ), __( '5 – 12 years', 'kipla' ), __( 'Field trips, STEAM projects, water days, and community service.', 'kipla' ) ),
-				);
+				$default_programs = array();
+				foreach ( kipla_program_data() as $p ) {
+					$default_programs[] = array( $p['title'], $p['age'], $p['summary'], kipla_program_link( $p['slug'] ) );
+				}
 				foreach ( $default_programs as $item ) :
 					?>
 					<article class="program-card reveal">
@@ -223,7 +219,7 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 						<h3><?php echo esc_html( $item[0] ); ?></h3>
 						<p class="program-card__age"><?php echo esc_html( $item[1] ); ?></p>
 						<ul><li><span><?php echo esc_html( $item[2] ); ?></span></li></ul>
-						<a class="link-underline program-card__link" href="<?php echo esc_url( get_post_type_archive_link( 'kipla_program' ) ); ?>"><?php esc_html_e( 'Learn More', 'kipla' ); ?></a>
+						<a class="link-underline program-card__link" href="<?php echo esc_url( $item[3] ); ?>"><?php esc_html_e( 'Learn More', 'kipla' ); ?></a>
 					</article>
 					<?php
 				endforeach;

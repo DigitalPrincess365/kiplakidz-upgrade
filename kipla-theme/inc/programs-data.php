@@ -196,7 +196,7 @@ function kipla_location_seed() {
  */
 function kipla_program_body( $program ) {
 	$body  = '<!-- wp:paragraph --><p>' . $program['intro'] . '</p><!-- /wp:paragraph -->';
-	$body .= '<!-- wp:heading {"level":2} --><h2>' . esc_html__( 'What makes this program special', 'kipla' ) . '</h2><!-- /wp:heading />';
+	$body .= '<!-- wp:heading {"level":2} --><h2>' . esc_html__( 'What makes this program special', 'kipla' ) . '</h2><!-- /wp:heading -->';
 	$body .= '<!-- wp:list --><ul>';
 	foreach ( $program['highlights'] as $item ) {
 		$body .= '<li>' . $item . '</li>';
