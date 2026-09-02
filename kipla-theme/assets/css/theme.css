@@ -352,3 +352,16 @@ p{margin:0 0 1rem}
 .accent-gold{color:var(--hunter);background:linear-gradient(transparent 62%,rgba(255,195,0,.55) 62%);font-style:normal;font-weight:700;padding-inline:.08em;border-radius:2px}
 .affirmations__track{will-change:transform;backface-visibility:hidden}
 @media(max-width:560px){.brand img{max-height:72px}.brand .custom-logo{max-height:72px}}
+
+/* Program detail pages */
+.program-single__age{font-family:var(--font-display,inherit);font-size:1.15rem;color:var(--gold,#e8b21f);font-weight:600}
+.program-single__cta{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:1.5rem}
+.program-detail{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));margin-top:2.5rem}
+.program-detail__card{background:#fff;border-radius:1.25rem;padding:1.5rem;box-shadow:0 12px 40px rgba(20,40,25,.08)}
+.program-detail__card h2{font-size:1.15rem;margin:0 0 .85rem}
+.program-detail__card ul{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.program-detail__card li{display:flex;gap:.6rem;font-size:.95rem;line-height:1.5}
+.program-detail__card li::before{content:"";flex:0 0 .55rem;height:.55rem;margin-top:.45rem;border-radius:50%;background:#e8b21f}
+.program-enroll{margin-top:3rem;text-align:center;background:#1f4d33;color:#fefaf0;border-radius:1.5rem;padding:clamp(2rem,5vw,3rem)}
+.program-enroll h2{color:#fefaf0;margin:0 0 .5rem}
+.program-enroll p{color:rgba(254,250,240,.82);max-width:34rem;margin:0 auto}
