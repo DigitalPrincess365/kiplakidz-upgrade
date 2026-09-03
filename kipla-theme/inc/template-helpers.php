@@ -155,7 +155,7 @@ function kipla_location_card( $number ) {
  * Fallback menu when no menu is assigned.
  */
 function kipla_fallback_menu() {
-	echo '<ul>';
+	echo '<ul class="menu">';
 	foreach ( array(
 		'#hero'         => __( 'Hero / First Impression', 'kipla' ),
 		'#welcome'      => __( 'Welcome to KIPLA', 'kipla' ),
