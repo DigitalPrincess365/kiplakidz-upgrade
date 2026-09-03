@@ -77,3 +77,7 @@ require_once get_template_directory() . '/inc/customizer.php';
 require_once get_template_directory() . '/inc/template-helpers.php';
 require_once get_template_directory() . '/inc/programs-data.php';
 
+if ( is_admin() ) {
+	require_once get_template_directory() . '/inc/admin-help.php';
+}
+
