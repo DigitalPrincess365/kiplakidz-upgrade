@@ -82,13 +82,14 @@ function kipla_social_links( $class = '' ) {
  */
 function kipla_frame( $args = array() ) {
 	$args = wp_parse_args( $args, array(
-		'image_id' => 0,
-		'post_id'  => 0,
-		'size'     => 'large',
-		'modifier' => 'frame--wide',
-		'label'    => __( 'Photo space', 'kipla' ),
-		'hint'     => __( 'Add your own KIPLA photo here.', 'kipla' ),
-		'alt'      => '',
+		'image_id'    => 0,
+		'post_id'     => 0,
+		'size'        => 'large',
+		'modifier'    => 'frame--wide',
+		'label'       => __( 'Photo space', 'kipla' ),
+		'hint'        => __( 'Add your own KIPLA photo here.', 'kipla' ),
+		'alt'         => '',
+		'default_src' => '',
 	) );
 
 	$image_id = $args['image_id'];
@@ -102,6 +103,12 @@ function kipla_frame( $args = array() ) {
 			'alt'     => esc_attr( $args['alt'] ),
 			'loading' => 'lazy',
 		) );
+	} elseif ( $args['default_src'] ) {
+		printf(
+			'<img src="%1$s" alt="%2$s" loading="lazy" />',
+			esc_url( $args['default_src'] ),
+			esc_attr( $args['alt'] )
+		);
 	} else {
 		echo '<div class="frame__placeholder">' . kipla_icon( 'image' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo '<span>' . esc_html( $args['label'] ) . '</span>';
