@@ -108,10 +108,11 @@ function kipla_customize_register( $wp_customize ) {
 			'kipla_loc2_map'     => array( __( 'Google Maps link', 'kipla' ), 'url' ),
 		),
 		'kipla_founder' => array(
-			'kipla_founder_name'  => array( __( 'Founder name', 'kipla' ), 'text' ),
-			'kipla_founder_role'  => array( __( 'Role', 'kipla' ), 'text' ),
-			'kipla_founder_quote' => array( __( 'Pull quote', 'kipla' ), 'textarea' ),
-			'kipla_founder_bio'   => array( __( 'Short bio', 'kipla' ), 'textarea' ),
+			'kipla_founder_name'     => array( __( 'Founder name', 'kipla' ), 'text' ),
+			'kipla_founder_role'     => array( __( 'Role', 'kipla' ), 'text' ),
+			'kipla_founder_quote'   => array( __( 'Pull quote', 'kipla' ), 'textarea' ),
+			'kipla_founder_bio'     => array( __( 'Short bio', 'kipla' ), 'textarea' ),
+			'kipla_founder_story_url' => array( __( 'Read Our Story link', 'kipla' ), 'url' ),
 		),
 		'kipla_social' => array(
 			'kipla_instagram' => array( __( 'Instagram URL', 'kipla' ), 'url' ),
