@@ -302,27 +302,28 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 			<div>
 				<?php
 				kipla_frame( array(
-					'image_id' => absint( get_theme_mod( 'kipla_founder_photo' ) ),
-					'size'     => 'kipla-portrait',
-					'modifier' => 'frame--arch frame--portrait',
-					'label'    => __( 'Founder photo space', 'kipla' ),
-					'hint'     => __( 'Add the founder portrait in Customize → KIPLA: Meet Our Founder.', 'kipla' ),
-					'alt'      => kipla_opt( 'kipla_founder_name' ),
+					'image_id'    => absint( get_theme_mod( 'kipla_founder_photo' ) ),
+					'size'        => 'kipla-portrait',
+					'modifier'    => 'frame--arch frame--portrait',
+					'label'       => __( 'Founder photo space', 'kipla' ),
+					'hint'        => __( 'Replace this photo in Customize → KIPLA: Meet Our Founder.', 'kipla' ),
+					'alt'         => kipla_opt( 'kipla_founder_name' ),
+					'default_src' => get_template_directory_uri() . '/assets/images/founder.jpg',
 				) );
 				?>
 			</div>
 			<div>
 				<span class="eyebrow"><?php esc_html_e( 'Meet Our Founder', 'kipla' ); ?></span>
+				<h2 class="founder-heading"><?php echo esc_html( sprintf( __( 'Meet %s', 'kipla' ), kipla_opt( 'kipla_founder_name' ) ) ); ?></h2>
+				<span class="founder-role"><?php echo esc_html( kipla_opt( 'kipla_founder_role' ) ); ?></span>
 				<blockquote class="founder-quote">
-					<?php
-					echo esc_html( kipla_opt( 'kipla_founder_quote' ) ? kipla_opt( 'kipla_founder_quote' ) : __( '“I built KIPLA to be the place I wanted for my own children — safe, joyful, and full of people who believe in them.”', 'kipla' ) );
-					?>
+					<?php echo esc_html( kipla_opt( 'kipla_founder_quote' ) ); ?>
 				</blockquote>
 				<?php if ( kipla_opt( 'kipla_founder_bio' ) ) : ?>
 					<p><?php echo esc_html( kipla_opt( 'kipla_founder_bio' ) ); ?></p>
 				<?php endif; ?>
-				<p class="founder-name"><?php echo esc_html( kipla_opt( 'kipla_founder_name' ) ? kipla_opt( 'kipla_founder_name' ) : __( 'Add founder name in the Customizer', 'kipla' ) ); ?></p>
-				<span class="founder-role"><?php echo esc_html( kipla_opt( 'kipla_founder_role' ) ); ?></span>
+				<p class="founder-name"><?php echo esc_html( kipla_opt( 'kipla_founder_name' ) ); ?></p>
+				<p style="margin-top:1.25rem"><a class="btn btn--primary" href="<?php echo esc_url( kipla_opt( 'kipla_founder_story_url' ) ); ?>"><?php esc_html_e( 'Read Our Story', 'kipla' ); ?></a></p>
 			</div>
 		</div>
 	</div>

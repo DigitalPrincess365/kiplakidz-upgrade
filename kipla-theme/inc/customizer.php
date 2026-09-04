@@ -35,10 +35,11 @@ function kipla_defaults() {
 		'kipla_loc2_ages'       => '6 weeks – 12 years · all programs',
 		'kipla_loc2_map'        => 'https://www.google.com/maps/search/?api=1&query=2548+Vulcan+Dr+Lithia+Springs+GA+30122',
 
-		'kipla_founder_name'    => '',
-		'kipla_founder_role'    => 'Founder & Director',
-		'kipla_founder_quote'   => '',
-		'kipla_founder_bio'     => '',
+		'kipla_founder_name'    => 'Mrs. Wanda',
+		'kipla_founder_role'    => 'Visionary · Educator · Mentor · Community Leader',
+		'kipla_founder_quote'   => 'As the founder of Keeping It Positive Learning Academy, Mrs. Wanda believes every child deserves to be taught, trained, motivated, and loved.',
+		'kipla_founder_bio'     => 'Her mission is simple: plant seeds of positivity today and grow future leaders for tomorrow.',
+		'kipla_founder_story_url' => '#welcome',
 
 		'kipla_instagram'       => '',
 		'kipla_tiktok'          => '',
@@ -107,10 +108,11 @@ function kipla_customize_register( $wp_customize ) {
 			'kipla_loc2_map'     => array( __( 'Google Maps link', 'kipla' ), 'url' ),
 		),
 		'kipla_founder' => array(
-			'kipla_founder_name'  => array( __( 'Founder name', 'kipla' ), 'text' ),
-			'kipla_founder_role'  => array( __( 'Role', 'kipla' ), 'text' ),
-			'kipla_founder_quote' => array( __( 'Pull quote', 'kipla' ), 'textarea' ),
-			'kipla_founder_bio'   => array( __( 'Short bio', 'kipla' ), 'textarea' ),
+			'kipla_founder_name'     => array( __( 'Founder name', 'kipla' ), 'text' ),
+			'kipla_founder_role'     => array( __( 'Role', 'kipla' ), 'text' ),
+			'kipla_founder_quote'   => array( __( 'Pull quote', 'kipla' ), 'textarea' ),
+			'kipla_founder_bio'     => array( __( 'Short bio', 'kipla' ), 'textarea' ),
+			'kipla_founder_story_url' => array( __( 'Read Our Story link (URL or #anchor)', 'kipla' ), 'text' ),
 		),
 		'kipla_social' => array(
 			'kipla_instagram' => array( __( 'Instagram URL', 'kipla' ), 'url' ),
