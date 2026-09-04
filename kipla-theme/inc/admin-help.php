@@ -45,7 +45,7 @@ function kipla_admin_help_page() {
 		<h2><?php esc_html_e( 'Words on the homepage', 'kipla' ); ?></h2>
 		<ul style="list-style:disc;padding-left:1.4em">
 			<li><?php esc_html_e( 'Headline, eyebrow, hero paragraph, welcome heading and paragraph: Customize → KIPLA: Hero & Welcome. Wrap a word in *stars* to highlight it in gold.', 'kipla' ); ?></li>
-			<li><?php esc_html_e( 'Founder name, role, quote and bio: Customize → KIPLA: Meet Our Founder.', 'kipla' ); ?></li>
+			<li><?php esc_html_e( 'Founder photo, name, role, quote, bio and Read Our Story link: Customize → KIPLA: Meet Our Founder. A default founder photo and text are shown until you add your own.', 'kipla' ); ?></li>
 			<li><?php esc_html_e( 'Campus addresses, hours, phone, ages, map links: Customize → KIPLA #1 Location and KIPLA #2 Location.', 'kipla' ); ?></li>
 			<li><?php esc_html_e( 'Schedule a Tour / Enroll button links, main phone and email: Customize → KIPLA: Calls to Action.', 'kipla' ); ?></li>
 			<li><?php esc_html_e( 'Instagram, TikTok, YouTube, Facebook links: Customize → KIPLA: Social Media. Leave one blank to hide that icon.', 'kipla' ); ?></li>
