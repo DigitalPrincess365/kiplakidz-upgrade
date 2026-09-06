@@ -40,11 +40,14 @@
 				'fallback_cb'    => 'kipla_fallback_menu',
 			) );
 			?>
+			<div class="menu-extras">
+				<a class="btn btn--gold btn--sm menu-tour" href="<?php echo esc_url( kipla_opt( 'kipla_tour_url' ) ); ?>"><?php esc_html_e( 'Schedule a Tour', 'kipla' ); ?></a>
+				<p class="menu-connect"><?php esc_html_e( 'Stay Connected', 'kipla' ); ?></p>
+				<?php kipla_social_links( 'social-links--menu' ); ?>
+			</div>
 		</nav>
 
 		<div class="header-cta">
-			<?php kipla_social_links( 'social-links--header' ); ?>
-			<a class="btn btn--gold btn--sm" href="<?php echo esc_url( kipla_opt( 'kipla_tour_url' ) ); ?>"><?php esc_html_e( 'Schedule a Tour', 'kipla' ); ?></a>
 			<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
 				<span></span><span></span><span></span>
 				<span class="screen-reader-text"><?php esc_html_e( 'Toggle menu', 'kipla' ); ?></span>

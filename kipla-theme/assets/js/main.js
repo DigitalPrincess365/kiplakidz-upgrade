@@ -11,6 +11,28 @@
       toggle.setAttribute('aria-expanded', String(!open));
       nav.classList.toggle('is-open', !open);
     });
+
+    nav.addEventListener('click', function (event) {
+      if (event.target.closest('a')) {
+        toggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('is-open');
+      }
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+        toggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('is-open');
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        toggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('is-open');
+        toggle.focus();
+      }
+    });
   }
 
   /* Program filters */
