@@ -112,7 +112,7 @@ p{margin:0 0 1rem}
 .menu-extras{display:flex;flex-direction:column;align-items:center;padding-top:1rem}
 .menu-tour{width:100%;text-align:center}
 .menu-connect{margin:1rem 0 .65rem;font-family:var(--font-display);font-size:1.25rem;font-style:italic;color:var(--hunter)}
-.social-links--menu{justify-content:center}
+.main-nav .social-links--menu{flex-direction:row;align-items:center;justify-content:center;gap:.6rem}
 
 @media(max-width:960px){
   .nav-toggle{order:3}
