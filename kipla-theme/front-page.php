@@ -312,18 +312,23 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 				) );
 				?>
 			</div>
-			<div>
+			<div class="founder-body">
 				<span class="eyebrow"><?php esc_html_e( 'Meet Our Founder', 'kipla' ); ?></span>
 				<h2 class="founder-heading"><?php echo esc_html( sprintf( __( 'Meet %s', 'kipla' ), kipla_opt( 'kipla_founder_name' ) ) ); ?></h2>
 				<span class="founder-role"><?php echo esc_html( kipla_opt( 'kipla_founder_role' ) ); ?></span>
-				<blockquote class="founder-quote">
-					<?php echo esc_html( kipla_opt( 'kipla_founder_quote' ) ); ?>
-				</blockquote>
-				<?php if ( kipla_opt( 'kipla_founder_bio' ) ) : ?>
-					<p><?php echo esc_html( kipla_opt( 'kipla_founder_bio' ) ); ?></p>
-				<?php endif; ?>
-				<p class="founder-name"><?php echo esc_html( kipla_opt( 'kipla_founder_name' ) ); ?></p>
-				<p style="margin-top:1.25rem"><a class="btn btn--primary" href="<?php echo esc_url( kipla_opt( 'kipla_founder_story_url' ) ); ?>"><?php esc_html_e( 'Read Our Story', 'kipla' ); ?></a></p>
+
+				<p class="founder-text"><?php echo esc_html( kipla_opt( 'kipla_founder_intro' ) ); ?></p>
+				<p class="founder-text"><?php echo esc_html( kipla_opt( 'kipla_founder_creds' ) ); ?></p>
+
+				<p class="founder-belief"><?php esc_html_e( 'That belief became the heart of KIPLA:', 'kipla' ); ?></p>
+				<p class="founder-ttml"><?php echo esc_html( kipla_opt( 'kipla_founder_ttml' ) ); ?></p>
+
+				<p class="founder-text"><?php echo esc_html( kipla_opt( 'kipla_founder_vision' ) ); ?></p>
+				<p class="founder-text"><?php echo esc_html( kipla_opt( 'kipla_founder_closing' ) ); ?></p>
+
+				<p class="founder-mission"><?php echo esc_html( kipla_opt( 'kipla_founder_mission' ) ); ?></p>
+
+				<p class="founder-cta"><a class="btn btn--primary" href="<?php echo esc_url( kipla_opt( 'kipla_founder_story_url' ) ); ?>"><?php esc_html_e( 'Read Our Story', 'kipla' ); ?></a></p>
 			</div>
 		</div>
 	</div>
