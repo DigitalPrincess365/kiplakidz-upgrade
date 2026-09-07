@@ -42,6 +42,24 @@ function kipla_icon( $name ) {
 }
 
 /**
+ * Inline sunflower SVG (filled) used as a decorative motif.
+ *
+ * @param string $class Optional class.
+ * @return string
+ */
+function kipla_sunflower( $class = 'sun' ) {
+	$petals = '';
+	foreach ( array( 0, 45, 90, 135, 180, 225, 270, 315 ) as $deg ) {
+		$petals .= '<ellipse cx="16" cy="7" rx="2.7" ry="5.6" transform="rotate(' . $deg . ' 16 16)"/>';
+	}
+	return '<svg class="' . esc_attr( $class ) . '" viewBox="0 0 32 32" aria-hidden="true" focusable="false">'
+		. '<g fill="currentColor">' . $petals . '</g>'
+		. '<circle cx="16" cy="16" r="4.8" fill="#6b4423"/>'
+		. '<circle cx="16" cy="16" r="2.4" fill="#8a5a2b"/>'
+		. '</svg>';
+}
+
+/**
  * Render social media icon links.
  *
  * @param string $class Extra class.
