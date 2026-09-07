@@ -296,21 +296,25 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 </section>
 
 <!-- 6. MEET OUR FOUNDER -->
-<section class="section section--white" id="founder">
+<section class="section section--cream" id="founder">
 	<div class="container">
 		<div class="founder-card reveal">
-			<div>
+			<span class="founder-corner founder-corner--tl" aria-hidden="true"><?php echo kipla_sunflower(); // phpcs:ignore ?></span>
+			<span class="founder-corner founder-corner--br" aria-hidden="true"><?php echo kipla_sunflower(); // phpcs:ignore ?></span>
+			<div class="founder-media">
+				<span class="founder-media__halo" aria-hidden="true"></span>
 				<?php
 				kipla_frame( array(
 					'image_id'    => absint( get_theme_mod( 'kipla_founder_photo' ) ),
 					'size'        => 'kipla-portrait',
-					'modifier'    => 'frame--arch frame--portrait',
+					'modifier'    => 'frame--arch frame--portrait founder-media__frame',
 					'label'       => __( 'Founder photo space', 'kipla' ),
 					'hint'        => __( 'Replace this photo in Customize → KIPLA: Meet Our Founder.', 'kipla' ),
 					'alt'         => kipla_opt( 'kipla_founder_name' ),
 					'default_src' => get_template_directory_uri() . '/assets/images/founder.jpg',
 				) );
 				?>
+				<span class="founder-badge"><?php echo kipla_sunflower(); // phpcs:ignore ?><span><?php esc_html_e( 'Founder & Visionary', 'kipla' ); ?></span></span>
 			</div>
 			<div class="founder-body">
 				<span class="eyebrow"><?php esc_html_e( 'Meet Our Founder', 'kipla' ); ?></span>
@@ -321,12 +325,26 @@ $enroll = kipla_opt( 'kipla_enroll_url' );
 				<p class="founder-text"><?php echo esc_html( kipla_opt( 'kipla_founder_creds' ) ); ?></p>
 
 				<p class="founder-belief"><?php esc_html_e( 'That belief became the heart of KIPLA:', 'kipla' ); ?></p>
-				<p class="founder-ttml"><?php echo esc_html( kipla_opt( 'kipla_founder_ttml' ) ); ?></p>
+				<?php
+				$ttml_parts = array_filter( array_map( 'trim', explode( '•', kipla_opt( 'kipla_founder_ttml' ) ) ) );
+				if ( empty( $ttml_parts ) ) {
+					$ttml_parts = array( kipla_opt( 'kipla_founder_ttml' ) );
+				}
+				?>
+				<p class="founder-ttml">
+					<?php foreach ( $ttml_parts as $ttml_i => $ttml_word ) : ?>
+						<?php if ( $ttml_i > 0 ) : ?>
+							<span class="founder-ttml__sep" aria-hidden="true"><?php echo kipla_sunflower(); // phpcs:ignore ?></span>
+						<?php endif; ?>
+						<span class="founder-ttml__word"><?php echo esc_html( $ttml_word ); ?></span>
+					<?php endforeach; ?>
+				</p>
 
 				<p class="founder-text"><?php echo esc_html( kipla_opt( 'kipla_founder_vision' ) ); ?></p>
 				<p class="founder-text"><?php echo esc_html( kipla_opt( 'kipla_founder_closing' ) ); ?></p>
 
 				<p class="founder-mission"><?php echo esc_html( kipla_opt( 'kipla_founder_mission' ) ); ?></p>
+				<p class="founder-signature">— <?php echo esc_html( kipla_opt( 'kipla_founder_signature' ) ); ?></p>
 
 				<p class="founder-cta"><a class="btn btn--primary" href="<?php echo esc_url( kipla_opt( 'kipla_founder_story_url' ) ); ?>"><?php esc_html_e( 'Read Our Story', 'kipla' ); ?></a></p>
 			</div>
