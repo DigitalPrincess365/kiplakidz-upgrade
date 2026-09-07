@@ -43,6 +43,7 @@ function kipla_defaults() {
 		'kipla_founder_vision'    => "Today, her vision continues to grow through KIPLA's programs, educators, families, and commitment to developing confident, capable young leaders.",
 		'kipla_founder_closing'   => 'For Ms. Wanda, KIPLA is more than a learning academy—it is the continuation of a vision planted years ago: to pour something positive into a child today that will remain with them for a lifetime.',
 		'kipla_founder_mission'   => 'Her mission remains simple: Plant the seed. Nurture the potential. Grow the leader. 🌻',
+		'kipla_founder_signature' => 'Ms. Wanda',
 		'kipla_founder_story_url' => '#welcome',
 
 		'kipla_instagram'       => '',
@@ -119,8 +120,9 @@ function kipla_customize_register( $wp_customize ) {
 			'kipla_founder_ttml'      => array( __( 'TTML belief line', 'kipla' ), 'text' ),
 			'kipla_founder_vision'    => array( __( 'Vision paragraph', 'kipla' ), 'textarea' ),
 			'kipla_founder_closing'   => array( __( 'Closing paragraph', 'kipla' ), 'textarea' ),
-			'kipla_founder_mission'   => array( __( 'Mission statement', 'kipla' ), 'textarea' ),
-			'kipla_founder_story_url' => array( __( 'Read Our Story link (URL or #anchor)', 'kipla' ), 'text' ),
+			'kipla_founder_mission'    => array( __( 'Mission statement', 'kipla' ), 'textarea' ),
+			'kipla_founder_signature'  => array( __( 'Founder signature (cursive, shown above the button)', 'kipla' ), 'text' ),
+			'kipla_founder_story_url'  => array( __( 'Read Our Story link (URL or #anchor)', 'kipla' ), 'text' ),
 		),
 		'kipla_social' => array(
 			'kipla_instagram' => array( __( 'Instagram URL', 'kipla' ), 'url' ),
