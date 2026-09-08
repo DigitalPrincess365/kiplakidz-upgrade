@@ -251,6 +251,23 @@ p{margin:0 0 1rem}
 .founder-mission{font-family:var(--font-display);font-style:italic;font-size:1.15rem;color:var(--hunter);margin:1.4rem 0 0}
 .founder-cta{margin-top:1.25rem}
 
+/* Sunflower icon sizing + founder media/badge styling */
+.sun{width:1.25rem;height:1.25rem;display:inline-block;flex:none}
+.founder-media{position:relative;display:flex;align-items:center;justify-content:center}
+.founder-media__halo{position:absolute;inset:-8% -8% auto auto;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,195,0,.22),transparent 70%);pointer-events:none;z-index:0}
+.founder-media__frame{position:relative;z-index:1}
+.founder-badge{display:inline-flex;align-items:center;gap:.4rem;background:var(--sunflower);color:var(--hunter);padding:.4rem .9rem;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;align-self:flex-start;margin-top:.75rem}
+.founder-ttml__sep{display:inline-flex;align-items:center;color:var(--sunflower)}
+
+/* Simple sunflower outline background watermark */
+.founder-card{position:relative;overflow:hidden}
+.founder-card::before{
+  content:"";position:absolute;right:-1.5rem;bottom:-1.5rem;width:11rem;height:11rem;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23ffc300' stroke-width='1.5' stroke-opacity='0.22'%3E%3Cellipse cx='50' cy='18' rx='7' ry='16'/%3E%3Cellipse cx='50' cy='18' rx='7' ry='16' transform='rotate(45 50 50)'/%3E%3Cellipse cx='50' cy='18' rx='7' ry='16' transform='rotate(90 50 50)'/%3E%3Cellipse cx='50' cy='18' rx='7' ry='16' transform='rotate(135 50 50)'/%3E%3Cellipse cx='50' cy='18' rx='7' ry='16' transform='rotate(180 50 50)'/%3E%3Cellipse cx='50' cy='18' rx='7' ry='16' transform='rotate(225 50 50)'/%3E%3Cellipse cx='50' cy='18' rx='7' ry='16' transform='rotate(270 50 50)'/%3E%3Cellipse cx='50' cy='18' rx='7' ry='16' transform='rotate(315 50 50)'/%3E%3Ccircle cx='50' cy='50' r='13'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-size:contain;pointer-events:none;z-index:0;
+}
+.founder-card>*{position:relative;z-index:1}
+
 /* --- Testimonials --- */
 .testimonial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
 @media(max-width:960px){.testimonial-grid{grid-template-columns:1fr}}
