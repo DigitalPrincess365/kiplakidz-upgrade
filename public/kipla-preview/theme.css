@@ -433,3 +433,11 @@ p{margin:0 0 1rem}
 .enroll-status--success h3{color:var(--kelly)}
 .enroll-status--error{background:rgba(164,22,26,.08);border:1px solid rgba(164,22,26,.2)}
 .enroll-status--error h3{color:var(--deep-red)}
+.enroll-progress{position:sticky;top:0;z-index:50;background:var(--cream);padding:.6rem 1rem;border-radius:.5rem;display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.enroll-progress__bar{flex:1;height:8px;background:rgba(27,67,50,.1);border-radius:4px;overflow:hidden}
+.enroll-progress__fill{height:100%;background:linear-gradient(90deg,var(--sunflower),var(--kelly));border-radius:4px;width:0;transition:width .3s ease}
+.enroll-progress__label{font-size:.8rem;font-weight:600;color:var(--hunter);white-space:nowrap}
+.enroll-signature{position:relative;border:1px solid rgba(27,67,50,.15);border-radius:.5rem;background:var(--white);overflow:hidden}
+.enroll-signature__canvas{display:block;width:100%;height:80px;cursor:crosshair;touch-action:none}
+.enroll-signature__clear{position:absolute;top:4px;right:4px;background:rgba(27,67,50,.08);border:0;border-radius:.25rem;padding:.2rem .5rem;font-size:.7rem;color:var(--hunter);cursor:pointer;font-weight:600}
+.enroll-signature__clear:hover{background:rgba(27,67,50,.15)}

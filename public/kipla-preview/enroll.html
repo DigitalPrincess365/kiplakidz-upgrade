@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/kipla-preview/theme.css" />
   <link rel="icon" href="/kipla-preview/logo.png" type="image/png" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -27,6 +28,11 @@
         <span class="eyebrow">Enrollment Packet</span>
         <h1>KIPLA Foundation Inc. Enrollment</h1>
         <p>Complete all sections below. On submission, a PDF copy is generated for you and the form data is emailed to <strong>kiplafoundationinc@gmail.com</strong>.</p>
+      </div>
+
+      <div class="enroll-progress" id="enrollProgress">
+        <div class="enroll-progress__bar"><div class="enroll-progress__fill" id="progressFill"></div></div>
+        <span class="enroll-progress__label" id="progressLabel">Section 1 of 11</span>
       </div>
 
       <form id="enrollment-form" class="enroll-form" novalidate>
@@ -136,7 +142,7 @@
             <p><strong>Emergency Medical Authorization:</strong> Should my child suffer an injury or illness while in the care of Keeping It Positive Learning Academy and the academy is unable to contact me immediately, I authorize the facility to secure emergency medical attention and care as necessary. I understand that I am responsible for all related charges.</p>
           </div>
           <div class="enroll-grid">
-            <div class="enroll-field"><label class="enroll-field__label" for="emaSignature">Parent / Guardian Signature (type full name)</label><input class="enroll-field__input" type="text" id="emaSignature" name="emaSignature" /></div>
+            <div class="enroll-field"><label class="enroll-field__label">Parent / Guardian Signature</label><div class="enroll-signature"><canvas class="enroll-signature__canvas" id="sigPad-emaSignature" data-sig="emaSignature"></canvas><button type="button" class="enroll-signature__clear" data-sig="emaSignature">Clear</button></div><input type="hidden" id="emaSignature" name="emaSignature" /></div>
             <div class="enroll-field"><label class="enroll-field__label" for="emaDate">Date</label><input class="enroll-field__input" type="date" id="emaDate" name="emaDate" /></div>
           </div>
         </fieldset>
@@ -155,7 +161,7 @@
             </ul>
           </div>
           <div class="enroll-grid">
-            <div class="enroll-field"><label class="enroll-field__label" for="parentAgreementSignature">Parent / Guardian Signature (type full name)</label><input class="enroll-field__input" type="text" id="parentAgreementSignature" name="parentAgreementSignature" /></div>
+            <div class="enroll-field"><label class="enroll-field__label">Parent / Guardian Signature</label><div class="enroll-signature"><canvas class="enroll-signature__canvas" id="sigPad-parentAgreementSignature" data-sig="parentAgreementSignature"></canvas><button type="button" class="enroll-signature__clear" data-sig="parentAgreementSignature">Clear</button></div><input type="hidden" id="parentAgreementSignature" name="parentAgreementSignature" /></div>
             <div class="enroll-field"><label class="enroll-field__label" for="parentAgreementDate">Date</label><input class="enroll-field__input" type="date" id="parentAgreementDate" name="parentAgreementDate" /></div>
           </div>
         </fieldset>
@@ -194,7 +200,7 @@
           </div>
           <div class="enroll-grid">
             <div class="enroll-field"><label class="enroll-field__label" for="cacfpBeginningDate">Beginning Date</label><input class="enroll-field__input" type="date" id="cacfpBeginningDate" name="cacfpBeginningDate" /></div>
-            <div class="enroll-field"><label class="enroll-field__label" for="cacfpSignature">Parent / Guardian Signature (type full name)</label><input class="enroll-field__input" type="text" id="cacfpSignature" name="cacfpSignature" /></div>
+            <div class="enroll-field"><label class="enroll-field__label">Parent / Guardian Signature</label><div class="enroll-signature"><canvas class="enroll-signature__canvas" id="sigPad-cacfpSignature" data-sig="cacfpSignature"></canvas><button type="button" class="enroll-signature__clear" data-sig="cacfpSignature">Clear</button></div><input type="hidden" id="cacfpSignature" name="cacfpSignature" /></div>
             <div class="enroll-field"><label class="enroll-field__label" for="cacfpDate">Date</label><input class="enroll-field__input" type="date" id="cacfpDate" name="cacfpDate" /></div>
           </div>
           <p class="enroll-disclaimer">In the operation of USDA food service programs, no one will be discriminated against because of race, color, national origin, sex, age, or disability.</p>
@@ -207,7 +213,7 @@
             <p>I hereby release Keeping It Positive Learning Academy, its staff, and volunteers from any liability for injury or illness that may occur to my child while in the academy's care, except in cases of gross negligence or willful misconduct. I understand that participation in academy activities involves inherent risks.</p>
           </div>
           <div class="enroll-grid">
-            <div class="enroll-field"><label class="enroll-field__label" for="generalReleaseSignature">Parent / Guardian Signature (type full name)</label><input class="enroll-field__input" type="text" id="generalReleaseSignature" name="generalReleaseSignature" /></div>
+            <div class="enroll-field"><label class="enroll-field__label">Parent / Guardian Signature</label><div class="enroll-signature"><canvas class="enroll-signature__canvas" id="sigPad-generalReleaseSignature" data-sig="generalReleaseSignature"></canvas><button type="button" class="enroll-signature__clear" data-sig="generalReleaseSignature">Clear</button></div><input type="hidden" id="generalReleaseSignature" name="generalReleaseSignature" /></div>
             <div class="enroll-field"><label class="enroll-field__label" for="generalReleaseDate">Date</label><input class="enroll-field__input" type="date" id="generalReleaseDate" name="generalReleaseDate" /></div>
           </div>
         </fieldset>
@@ -222,7 +228,7 @@
             </div>
           </div>
           <div class="enroll-grid">
-            <div class="enroll-field"><label class="enroll-field__label" for="photoReleaseSignature">Parent / Guardian Signature (type full name)</label><input class="enroll-field__input" type="text" id="photoReleaseSignature" name="photoReleaseSignature" /></div>
+            <div class="enroll-field"><label class="enroll-field__label">Parent / Guardian Signature</label><div class="enroll-signature"><canvas class="enroll-signature__canvas" id="sigPad-photoReleaseSignature" data-sig="photoReleaseSignature"></canvas><button type="button" class="enroll-signature__clear" data-sig="photoReleaseSignature">Clear</button></div><input type="hidden" id="photoReleaseSignature" name="photoReleaseSignature" /></div>
             <div class="enroll-field"><label class="enroll-field__label" for="photoReleaseDate">Date</label><input class="enroll-field__input" type="date" id="photoReleaseDate" name="photoReleaseDate" /></div>
           </div>
         </fieldset>
@@ -258,7 +264,7 @@
           <div class="enroll-grid">
             <div class="enroll-field"><label class="enroll-field__label" for="tuitionChildName">Child Name</label><input class="enroll-field__input" type="text" id="tuitionChildName" name="tuitionChildName" /></div>
             <div class="enroll-field"><label class="enroll-field__label" for="tuitionParentName">Parent / Guardian Name</label><input class="enroll-field__input" type="text" id="tuitionParentName" name="tuitionParentName" /></div>
-            <div class="enroll-field"><label class="enroll-field__label" for="tuitionParentSignature">Parent / Guardian Signature (type full name)</label><input class="enroll-field__input" type="text" id="tuitionParentSignature" name="tuitionParentSignature" /></div>
+            <div class="enroll-field"><label class="enroll-field__label">Parent / Guardian Signature</label><div class="enroll-signature"><canvas class="enroll-signature__canvas" id="sigPad-tuitionParentSignature" data-sig="tuitionParentSignature"></canvas><button type="button" class="enroll-signature__clear" data-sig="tuitionParentSignature">Clear</button></div><input type="hidden" id="tuitionParentSignature" name="tuitionParentSignature" /></div>
             <div class="enroll-field"><label class="enroll-field__label" for="tuitionParentDate">Date</label><input class="enroll-field__input" type="date" id="tuitionParentDate" name="tuitionParentDate" /></div>
           </div>
         </fieldset>
@@ -301,6 +307,54 @@
       });
     });
 
+    // Initialize signature pads
+    const signaturePads = {};
+    document.querySelectorAll('.enroll-signature__canvas').forEach(canvas => {
+      const sigId = canvas.dataset.sig;
+      const pad = new SignaturePad(canvas, {
+        backgroundColor: 'rgb(255,255,255)',
+        penColor: 'rgb(26,60,52)',
+        minWidth: 0.5,
+        maxWidth: 2.5
+      });
+      signaturePads[sigId] = pad;
+      function resizeCanvas() {
+        const ratio = Math.max(window.devicePixelRatio || 1, 1);
+        canvas.width = canvas.offsetWidth * ratio;
+        canvas.height = canvas.offsetHeight * ratio;
+        canvas.getContext('2d').scale(ratio, ratio);
+        pad.clear();
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+    });
+    document.querySelectorAll('.enroll-signature__clear').forEach(btn => {
+      btn.addEventListener('click', () => {
+        signaturePads[btn.dataset.sig].clear();
+      });
+    });
+
+    // Progress indicator
+    const formEl = document.getElementById('enrollment-form');
+    const formSections = formEl.querySelectorAll('.enroll-section');
+    const progressFill = document.getElementById('progressFill');
+    const progressLabel = document.getElementById('progressLabel');
+    function updateProgress() {
+      const scrollPos = window.scrollY + window.innerHeight * 0.35;
+      let current = 1;
+      formSections.forEach(function(section, i) {
+        if (scrollPos >= section.offsetTop) current = i + 1;
+      });
+      const formTop = formEl.offsetTop;
+      const formH = formEl.offsetHeight;
+      const progress = Math.min(100, Math.max(0, Math.round(((window.scrollY + window.innerHeight) - formTop) / formH * 100)));
+      progressFill.style.width = progress + '%';
+      progressLabel.textContent = 'Section ' + current + ' of ' + formSections.length;
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+
     // Collect all form data into a flat object
     function collectFormData(form) {
       const data = {};
@@ -318,11 +372,17 @@
       for (const key in data) {
         if (Array.isArray(data[key])) data[key] = data[key].join(', ');
       }
+      // Mark which signatures have been drawn
+      for (const id in signaturePads) {
+        if (!signaturePads[id].isEmpty()) {
+          data[id] = 'Signed (digital signature)';
+        }
+      }
       return data;
     }
 
     // Generate PDF with jsPDF
-    function generatePDF(data) {
+    function generatePDF(data, sigData) {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
       const margin = 14;
@@ -353,6 +413,16 @@
       }
       function addField(label, value) {
         addLine(label + ': ' + (value || '\u2014'), 10, 'normal', 6);
+      }
+      function addSignature(label, sigId) {
+        addLine(label + ':', 10, 'normal', 6);
+        if (sigData && sigData[sigId]) {
+          ensureSpace(28);
+          try { doc.addImage(sigData[sigId], 'PNG', margin + 15, y - 3, 80, 25); } catch(e) {}
+          y += 25;
+        } else {
+          addLine('  (not signed)', 9, 'italic', 6);
+        }
       }
 
       // Header
@@ -412,11 +482,11 @@
       addField('Special Needs / Diagnoses', data.specialNeeds);
       addField('Allergies', data.allergies);
       addField('Long-Term Medications', data.medications);
-      addField('EMA Signature', data.emaSignature);
+      addSignature('Signature', 'emaSignature');
       addField('EMA Date', data.emaDate);
 
       addSection('6. PARENT AGREEMENT');
-      addField('Signature', data.parentAgreementSignature);
+      addSignature('Signature', 'parentAgreementSignature');
       addField('Date', data.parentAgreementDate);
 
       addSection('7. CACFP ENROLLMENT');
@@ -426,22 +496,22 @@
       addField('Days', data.cacfpDays);
       addField('Meals', data.cacfpMeals);
       addField('Beginning Date', data.cacfpBeginningDate);
-      addField('Signature', data.cacfpSignature);
+      addSignature('Signature', 'cacfpSignature');
       addField('Date', data.cacfpDate);
 
       addSection('8. GENERAL RELEASE');
-      addField('Signature', data.generalReleaseSignature);
+      addSignature('Signature', 'generalReleaseSignature');
       addField('Date', data.generalReleaseDate);
 
       addSection('9. PHOTO / VIDEO RELEASE');
       addField('Authorization', data.photoRelease);
-      addField('Signature', data.photoReleaseSignature);
+      addSignature('Signature', 'photoReleaseSignature');
       addField('Date', data.photoReleaseDate);
 
       addSection('10. TUITION AGREEMENT');
       addField('Child Name', data.tuitionChildName);
       addField('Parent Name', data.tuitionParentName);
-      addField('Parent Signature', data.tuitionParentSignature);
+      addSignature('Parent Signature', 'tuitionParentSignature');
       addField('Parent Date', data.tuitionParentDate);
 
       addSection('11. PARENT SUBMISSION CHECKLIST');
@@ -465,22 +535,34 @@
 
       const data = collectFormData(form);
 
+      // Collect digital signatures for PDF
+      const sigData = {};
+      for (const id in signaturePads) {
+        if (!signaturePads[id].isEmpty()) {
+          sigData[id] = signaturePads[id].toDataURL('image/png');
+        }
+      }
+
       btn.disabled = true;
       btn.textContent = 'Submitting\u2026';
       status.style.display = 'none';
 
       try {
-        // Generate PDF
-        const doc = generatePDF(data);
+        // Generate PDF with signatures
+        const doc = generatePDF(data, sigData);
         const studentName = (data.studentFullName || 'student').replace(/[^a-zA-Z0-9]/g, '_');
         doc.save('KIPLA_Enrollment_' + studentName + '.pdf');
 
         // Submit form data to FormSubmit.co (emails to kiplafoundationinc@gmail.com)
+        const parentEmail = data.parent1Email || data.parent2Email;
         const emailPayload = Object.assign({}, data, {
           _subject: 'New Enrollment Packet - ' + (data.studentFullName || 'Unknown Student'),
           _template: 'table',
           _captcha: 'false'
         });
+        if (parentEmail) {
+          emailPayload._autoresponse = 'Thank you for submitting your enrollment packet to Keeping It Positive Learning Academy! We have received your information and will contact you within 1-2 business days to confirm enrollment and schedule a tour. If you have questions, call us at 770-672-7800 (Main Campus) or 678-483-5160 (Lithia Springs). \u2014 KIPLA Foundation Inc.';
+        }
 
         await fetch('https://formsubmit.co/ajax/kiplafoundationinc@gmail.com', {
           method: 'POST',
