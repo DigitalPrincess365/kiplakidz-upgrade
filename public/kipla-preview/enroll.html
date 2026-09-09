@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enrollment Packet | KIPLA — Keeping It Positive Learning Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="/kipla-preview/theme.css" />
+  <link rel="icon" href="/kipla-preview/logo.png" type="image/png" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/kipla-preview/index.html">
+        <img src="/kipla-preview/logo.png" alt="KIPLA — Keeping It Positive Learning Academy" loading="eager" style="max-height:80px" />
+      </a>
+      <a class="btn btn--ghost btn--sm" href="/kipla-preview/index.html">&larr; Back to Home</a>
+    </div>
+  </header>
+
+  <main class="section section--cream">
+    <div class="container">
+      <div class="enroll-intro">
+        <span class="eyebrow">Enrollment Packet</span>
+        <h1>KIPLA Foundation Inc. Enrollment</h1>
+        <p>Complete all sections below. On submission, a PDF copy is generated for you and the form data is emailed to <strong>kiplafoundationinc@gmail.com</strong>.</p>
+      </div>
+
+      <form id="enrollment-form" class="enroll-form" novalidate>
+
+        <!-- Section 1: Student Information -->
+        <fieldset class="enroll-section">
+          <legend class="enroll-section__legend">1. Student Information</legend>
+          <div class="enroll-grid">
+            <div class="enroll-field"><label class="enroll-field__label" for="studentFullName">Student Full Name *</label><input class="enroll-field__input" type="text" id="studentFullName" name="studentFullName" required /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="studentDOB">Date of Birth</label><input class="enroll-field__input" type="date" id="studentDOB" name="studentDOB" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="preferredName">Preferred Name / Nickname</label><input class="enroll-field__input" type="text" id="preferredName" name="preferredName" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="gender">Gender</label><input class="enroll-field__input" type="text" id="gender" name="gender" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="enrollmentDate">Enrollment Date</label><input class="enroll-field__input" type="date" id="enrollmentDate" name="enrollmentDate" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="withdrawalDate">Withdrawal Date</label><input class="enroll-field__input" type="date" id="withdrawalDate" name="withdrawalDate" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="streetAddress">Street Address</label><input class="enroll-field__input" type="text" id="streetAddress" name="streetAddress" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="zip">Zip</label><input class="enroll-field__input" type="text" id="zip" name="zip" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="cityState">City / State</label><input class="enroll-field__input" type="text" id="cityState" name="cityState" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="homePhone">Home Phone</label><input class="enroll-field__input" type="tel" id="homePhone" name="homePhone" /></div>
+          </div>
+        </fieldset>
+
+        <!-- Section 2: Parent/Guardian Information -->
+        <fieldset class="enroll-section">
+          <legend class="enroll-section__legend">2. Parent / Guardian Information</legend>
+          <h3 class="enroll-subhead">Parent / Guardian 1</h3>
+          <div class="enroll-grid">
+            <div class="enroll-field"><label class="enroll-field__label" for="parent1Name">Name</label><input class="enroll-field__input" type="text" id="parent1Name" name="parent1Name" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="parent1Relationship">Relationship</label><input class="enroll-field__input" type="text" id="parent1Relationship" name="parent1Relationship" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="parent1Email">Email Address</label><input class="enroll-field__input" type="email" id="parent1Email" name="parent1Email" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="parent1Cell">Cell</label><input class="enroll-field__input" type="tel" id="parent1Cell" name="parent1Cell" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="parent1Employer">Employer</label><input class="enroll-field__input" type="text" id="parent1Employer" name="parent1Employer" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="parent1WorkPhone">Work Phone</label><input class="enroll-field__input" type="tel" id="parent1WorkPhone" name="parent1WorkPhone" /></div>
+          </div>
+          <div class="enroll-field enroll-field--full"><label class="enroll-field__label" for="parent1EmployerAddress">Employer Address</label><input class="enroll-field__input" type="text" id="parent1EmployerAddress" name="parent1EmployerAddress" /></div>
+
+          <h3 class="enroll-subhead">Parent / Guardian 2</h3>
+          <div class="enroll-grid">
+            <div class="enroll-field"><label class="enroll-field__label" for="parent2Name">Name</label><input class="enroll-field__input" type="text" id="parent2Name" name="parent2Name" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="parent2Relationship">Relationship</label><input class="enroll-field__input" type="text" id="parent2Relationship" name="parent2Relationship" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="parent2Email">Email Address</label><input class="enroll-field__input" type="email" id="parent2Email" name="parent2Email" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="parent2Cell">Cell</label><input class="enroll-field__input" type="tel" id="parent2Cell" name="parent2Cell" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="parent2Employer">Employer</label><input class="enroll-field__input" type="text" id="parent2Employer" name="parent2Employer" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="parent2WorkPhone">Work Phone</label><input class="enroll-field__input" type="tel" id="parent2WorkPhone" name="parent2WorkPhone" /></div>
+          </div>
+          <div class="enroll-field enroll-field--full"><label class="enroll-field__label" for="parent2EmployerAddress">Employer Address</label><input class="enroll-field__input" type="text" id="parent2EmployerAddress" name="parent2EmployerAddress" /></div>
+        </fieldset>
+
+        <!-- Section 3: Custody / Pick-up Authorization -->
+        <fieldset class="enroll-section">
+          <legend class="enroll-section__legend">3. Custody / Pick-up Authorization</legend>
+          <div class="enroll-field"><span class="enroll-field__label">Child lives with</span>
+            <div class="enroll-checkbox-group">
+              <label class="enroll-checkbox-item"><input type="radio" name="childLivesWith" value="Both Parents" /> Both Parents</label>
+              <label class="enroll-checkbox-item"><input type="radio" name="childLivesWith" value="Mother" /> Mother</label>
+              <label class="enroll-checkbox-item"><input type="radio" name="childLivesWith" value="Father" /> Father</label>
+              <label class="enroll-checkbox-item"><input type="radio" name="childLivesWith" value="Other" /> Other</label>
+            </div>
+          </div>
+          <div class="enroll-field enroll-field--full" id="childLivesWithOtherWrap" style="display:none"><label class="enroll-field__label" for="childLivesWithOther">If other, please specify</label><input class="enroll-field__input" type="text" id="childLivesWithOther" name="childLivesWithOther" /></div>
+          <div class="enroll-field"><span class="enroll-field__label">Legal guardian(s)</span>
+            <div class="enroll-checkbox-group">
+              <label class="enroll-checkbox-item"><input type="radio" name="legalGuardian" value="Both Parents" /> Both Parents</label>
+              <label class="enroll-checkbox-item"><input type="radio" name="legalGuardian" value="Mother" /> Mother</label>
+              <label class="enroll-checkbox-item"><input type="radio" name="legalGuardian" value="Father" /> Father</label>
+              <label class="enroll-checkbox-item"><input type="radio" name="legalGuardian" value="Other" /> Other</label>
+            </div>
+          </div>
+          <div class="enroll-field enroll-field--full" id="legalGuardianOtherWrap" style="display:none"><label class="enroll-field__label" for="legalGuardianOther">If other, please specify</label><input class="enroll-field__input" type="text" id="legalGuardianOther" name="legalGuardianOther" /></div>
+          <h3 class="enroll-subhead">Authorized Pick-Up</h3>
+          <div class="enroll-grid">
+            <div class="enroll-field"><label class="enroll-field__label" for="pickup1Name">#1 Name</label><input class="enroll-field__input" type="text" id="pickup1Name" name="pickup1Name" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="pickup1Phone">#1 Phone</label><input class="enroll-field__input" type="tel" id="pickup1Phone" name="pickup1Phone" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="pickup2Name">#2 Name</label><input class="enroll-field__input" type="text" id="pickup2Name" name="pickup2Name" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="pickup2Phone">#2 Phone</label><input class="enroll-field__input" type="tel" id="pickup2Phone" name="pickup2Phone" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="pickup3Name">#3 Name</label><input class="enroll-field__input" type="text" id="pickup3Name" name="pickup3Name" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="pickup3Phone">#3 Phone</label><input class="enroll-field__input" type="tel" id="pickup3Phone" name="pickup3Phone" /></div>
+          </div>
+        </fieldset>
+
+        <!-- Section 4: Emergency Contacts -->
+        <fieldset class="enroll-section">
+          <legend class="enroll-section__legend">4. Emergency Contacts</legend>
+          <div class="enroll-grid">
+            <div class="enroll-field"><label class="enroll-field__label" for="emergency1Name">#1 Name</label><input class="enroll-field__input" type="text" id="emergency1Name" name="emergency1Name" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="emergency1Phone">#1 Phone</label><input class="enroll-field__input" type="tel" id="emergency1Phone" name="emergency1Phone" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="emergency2Name">#2 Name</label><input class="enroll-field__input" type="text" id="emergency2Name" name="emergency2Name" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="emergency2Phone">#2 Phone</label><input class="enroll-field__input" type="tel" id="emergency2Phone" name="emergency2Phone" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="emergency3Name">#3 Name</label><input class="enroll-field__input" type="text" id="emergency3Name" name="emergency3Name" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="emergency3Phone">#3 Phone</label><input class="enroll-field__input" type="tel" id="emergency3Phone" name="emergency3Phone" /></div>
+          </div>
+          <div class="enroll-field enroll-field--full"><label class="enroll-field__label" for="schoolAttends">School Child Attends (if applicable)</label><input class="enroll-field__input" type="text" id="schoolAttends" name="schoolAttends" /></div>
+        </fieldset>
+
+        <!-- Section 5: Medical Information -->
+        <fieldset class="enroll-section">
+          <legend class="enroll-section__legend">5. Medical Information</legend>
+          <div class="enroll-grid">
+            <div class="enroll-field"><label class="enroll-field__label" for="doctorName">Doctor / Clinic Name</label><input class="enroll-field__input" type="text" id="doctorName" name="doctorName" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="doctorPhone">Phone</label><input class="enroll-field__input" type="tel" id="doctorPhone" name="doctorPhone" /></div>
+          </div>
+          <div class="enroll-field enroll-field--full"><label class="enroll-field__label" for="hospitalPreference">Hospital Preference</label><input class="enroll-field__input" type="text" id="hospitalPreference" name="hospitalPreference" /></div>
+          <div class="enroll-field enroll-field--full"><label class="enroll-field__label" for="specialNeeds">Special Needs / Diagnoses</label><textarea class="enroll-field__textarea" id="specialNeeds" name="specialNeeds" rows="2"></textarea></div>
+          <div class="enroll-field enroll-field--full"><label class="enroll-field__label" for="allergies">Allergies / Health Concerns</label><textarea class="enroll-field__textarea" id="allergies" name="allergies" rows="2"></textarea></div>
+          <div class="enroll-field enroll-field--full"><label class="enroll-field__label" for="medications">Long-Term Medications</label><textarea class="enroll-field__textarea" id="medications" name="medications" rows="2"></textarea></div>
+
+          <div class="enroll-agreement">
+            <p><strong>Emergency Medical Authorization:</strong> Should my child suffer an injury or illness while in the care of Keeping It Positive Learning Academy and the academy is unable to contact me immediately, I authorize the facility to secure emergency medical attention and care as necessary. I understand that I am responsible for all related charges.</p>
+          </div>
+          <div class="enroll-grid">
+            <div class="enroll-field"><label class="enroll-field__label" for="emaSignature">Parent / Guardian Signature (type full name)</label><input class="enroll-field__input" type="text" id="emaSignature" name="emaSignature" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="emaDate">Date</label><input class="enroll-field__input" type="date" id="emaDate" name="emaDate" /></div>
+          </div>
+        </fieldset>
+
+        <!-- Section 6: Parent Agreement -->
+        <fieldset class="enroll-section">
+          <legend class="enroll-section__legend">6. Parent Agreement</legend>
+          <div class="enroll-agreement">
+            <ul>
+              <li>I will not send medication with my child. All medication must be given to staff directly with proper authorization.</li>
+              <li>I will follow the designated pick-up procedures and only authorize individuals listed on this form to pick up my child.</li>
+              <li>I will keep my child's records current, including emergency contacts, immunization records, and custody information.</li>
+              <li>I consent to my child participating in transportation and field trips as part of the academy's programs.</li>
+              <li>In the event of an emergency, I authorize the academy to secure medical care for my child if I cannot be reached.</li>
+              <li>I have read and agree to all policies of Keeping It Positive Learning Academy.</li>
+            </ul>
+          </div>
+          <div class="enroll-grid">
+            <div class="enroll-field"><label class="enroll-field__label" for="parentAgreementSignature">Parent / Guardian Signature (type full name)</label><input class="enroll-field__input" type="text" id="parentAgreementSignature" name="parentAgreementSignature" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="parentAgreementDate">Date</label><input class="enroll-field__input" type="date" id="parentAgreementDate" name="parentAgreementDate" /></div>
+          </div>
+        </fieldset>
+
+        <!-- Section 7: CACFP Enrollment -->
+        <fieldset class="enroll-section">
+          <legend class="enroll-section__legend">7. Child and Adult Care Food Program (CACFP) Enrollment Statement</legend>
+          <p class="enroll-note">Complete this section for children who will participate in meals and snacks while in care.</p>
+          <div class="enroll-grid">
+            <div class="enroll-field"><label class="enroll-field__label" for="cacfpChildName">Child Name</label><input class="enroll-field__input" type="text" id="cacfpChildName" name="cacfpChildName" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="cacfpChildAge">Age</label><input class="enroll-field__input" type="text" id="cacfpChildAge" name="cacfpChildAge" /></div>
+          </div>
+          <div class="enroll-field enroll-field--full"><label class="enroll-field__label">Day Care Center</label><input class="enroll-field__input" type="text" value="Keeping It Positive Learning Academy, LLC" readonly name="cacfpCenter" /></div>
+          <div class="enroll-field enroll-field--full"><label class="enroll-field__label">Center Address</label><input class="enroll-field__input" type="text" value="1920 Veterans Memorial Hwy, Austell, GA 30168" readonly name="cacfpCenterAddress" /></div>
+          <div class="enroll-grid">
+            <div class="enroll-field"><label class="enroll-field__label" for="cacfpHoursFrom">Hours in Attendance — From</label><div style="display:flex;gap:.5rem"><input class="enroll-field__input" type="text" id="cacfpHoursFrom" name="cacfpHoursFrom" placeholder="e.g. 7:00" style="flex:1" /><select class="enroll-field__input" name="cacfpHoursFromAmPm" style="flex:0 0 auto"><option value="">am/pm</option><option>am</option><option>pm</option></select></div></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="cacfpHoursTo">Hours in Attendance — To</label><div style="display:flex;gap:.5rem"><input class="enroll-field__input" type="text" id="cacfpHoursTo" name="cacfpHoursTo" placeholder="e.g. 6:00" style="flex:1" /><select class="enroll-field__input" name="cacfpHoursToAmPm" style="flex:0 0 auto"><option value="">am/pm</option><option>am</option><option>pm</option></select></div></div>
+          </div>
+          <div class="enroll-field"><span class="enroll-field__label">Days in attendance</span>
+            <div class="enroll-checkbox-group">
+              <label class="enroll-checkbox-item"><input type="checkbox" name="cacfpDays" value="Sunday" /> Sunday</label>
+              <label class="enroll-checkbox-item"><input type="checkbox" name="cacfpDays" value="Monday" /> Monday</label>
+              <label class="enroll-checkbox-item"><input type="checkbox" name="cacfpDays" value="Tuesday" /> Tuesday</label>
+              <label class="enroll-checkbox-item"><input type="checkbox" name="cacfpDays" value="Wednesday" /> Wednesday</label>
+              <label class="enroll-checkbox-item"><input type="checkbox" name="cacfpDays" value="Thursday" /> Thursday</label>
+              <label class="enroll-checkbox-item"><input type="checkbox" name="cacfpDays" value="Friday" /> Friday</label>
+            </div>
+          </div>
+          <div class="enroll-field"><span class="enroll-field__label">Meals normally received while in care</span>
+            <div class="enroll-checkbox-group">
+              <label class="enroll-checkbox-item"><input type="checkbox" name="cacfpMeals" value="Breakfast" /> Breakfast</label>
+              <label class="enroll-checkbox-item"><input type="checkbox" name="cacfpMeals" value="Lunch" /> Lunch</label>
+              <label class="enroll-checkbox-item"><input type="checkbox" name="cacfpMeals" value="PM Snack" /> PM Snack</label>
+              <label class="enroll-checkbox-item"><input type="checkbox" name="cacfpMeals" value="Dinner" /> Dinner</label>
+            </div>
+          </div>
+          <div class="enroll-grid">
+            <div class="enroll-field"><label class="enroll-field__label" for="cacfpBeginningDate">Beginning Date</label><input class="enroll-field__input" type="date" id="cacfpBeginningDate" name="cacfpBeginningDate" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="cacfpSignature">Parent / Guardian Signature (type full name)</label><input class="enroll-field__input" type="text" id="cacfpSignature" name="cacfpSignature" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="cacfpDate">Date</label><input class="enroll-field__input" type="date" id="cacfpDate" name="cacfpDate" /></div>
+          </div>
+          <p class="enroll-disclaimer">In the operation of USDA food service programs, no one will be discriminated against because of race, color, national origin, sex, age, or disability.</p>
+        </fieldset>
+
+        <!-- Section 8: General Release -->
+        <fieldset class="enroll-section">
+          <legend class="enroll-section__legend">8. General Release</legend>
+          <div class="enroll-agreement">
+            <p>I hereby release Keeping It Positive Learning Academy, its staff, and volunteers from any liability for injury or illness that may occur to my child while in the academy's care, except in cases of gross negligence or willful misconduct. I understand that participation in academy activities involves inherent risks.</p>
+          </div>
+          <div class="enroll-grid">
+            <div class="enroll-field"><label class="enroll-field__label" for="generalReleaseSignature">Parent / Guardian Signature (type full name)</label><input class="enroll-field__input" type="text" id="generalReleaseSignature" name="generalReleaseSignature" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="generalReleaseDate">Date</label><input class="enroll-field__input" type="date" id="generalReleaseDate" name="generalReleaseDate" /></div>
+          </div>
+        </fieldset>
+
+        <!-- Section 9: Photograph / Video Release -->
+        <fieldset class="enroll-section">
+          <legend class="enroll-section__legend">9. Photograph / Videotape Release</legend>
+          <div class="enroll-field"><span class="enroll-field__label">I authorize KIPLA to photograph and/or videotape my child for promotional and educational purposes:</span>
+            <div class="enroll-checkbox-group">
+              <label class="enroll-checkbox-item"><input type="radio" name="photoRelease" value="Yes" /> Yes</label>
+              <label class="enroll-checkbox-item"><input type="radio" name="photoRelease" value="No" /> No</label>
+            </div>
+          </div>
+          <div class="enroll-grid">
+            <div class="enroll-field"><label class="enroll-field__label" for="photoReleaseSignature">Parent / Guardian Signature (type full name)</label><input class="enroll-field__input" type="text" id="photoReleaseSignature" name="photoReleaseSignature" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="photoReleaseDate">Date</label><input class="enroll-field__input" type="date" id="photoReleaseDate" name="photoReleaseDate" /></div>
+          </div>
+        </fieldset>
+
+        <!-- Section 10: Tuition Agreement -->
+        <fieldset class="enroll-section">
+          <legend class="enroll-section__legend">10. Tuition Agreement</legend>
+          <div class="enroll-agreement">
+            <ul>
+              <li>Tuition is due on the first business day of each month.</li>
+              <li>A late fee of $25.00 will be applied after the 5th of the month.</li>
+              <li>The annual registration fee is non-refundable.</li>
+              <li>Two weeks' written notice is required for withdrawal; tuition is due during the notice period.</li>
+              <li>Tuition is not prorated for absences, holidays, or academy closures.</li>
+              <li>Payment plans are available; contact the director for arrangements.</li>
+              <li>Returned check fee is $35.00.</li>
+              <li>Drop-in care is subject to availability and charged at a daily rate.</li>
+              <li>Sibling discounts are available; contact the director for details.</li>
+              <li>The academy closes for major holidays; see the academic calendar for specific dates.</li>
+              <li>Late pick-up (after closing time) incurs a fee of $1.00 per minute.</li>
+              <li>Only individuals listed on the authorized pick-up list may collect the child; photo ID required.</li>
+              <li>Children must be signed in and out each day.</li>
+              <li>The academy is not responsible for lost or damaged personal items.</li>
+              <li>Children must be up-to-date on immunizations; Form 3231 required.</li>
+              <li>Sick children must be kept home; a doctor's note may be required for return.</li>
+              <li>Medication will only be administered with a completed medication authorization form.</li>
+              <li>Field trip permission is included in this agreement unless otherwise noted in writing.</li>
+              <li>The academy reserves the right to terminate enrollment for non-payment or policy violations.</li>
+              <li>All fees and policies are subject to change with 30 days' written notice.</li>
+              <li>By signing below, I acknowledge that I have read and agree to all terms of this tuition agreement.</li>
+            </ul>
+          </div>
+          <div class="enroll-grid">
+            <div class="enroll-field"><label class="enroll-field__label" for="tuitionChildName">Child Name</label><input class="enroll-field__input" type="text" id="tuitionChildName" name="tuitionChildName" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="tuitionParentName">Parent / Guardian Name</label><input class="enroll-field__input" type="text" id="tuitionParentName" name="tuitionParentName" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="tuitionParentSignature">Parent / Guardian Signature (type full name)</label><input class="enroll-field__input" type="text" id="tuitionParentSignature" name="tuitionParentSignature" /></div>
+            <div class="enroll-field"><label class="enroll-field__label" for="tuitionParentDate">Date</label><input class="enroll-field__input" type="date" id="tuitionParentDate" name="tuitionParentDate" /></div>
+          </div>
+        </fieldset>
+
+        <!-- Section 11: Parent Submission Checklist -->
+        <fieldset class="enroll-section">
+          <legend class="enroll-section__legend">11. Parent Submission Checklist</legend>
+          <p class="enroll-note">Please confirm the following items are included with this enrollment packet:</p>
+          <div class="enroll-checkbox-group enroll-checklist">
+            <label class="enroll-checkbox-item"><input type="checkbox" name="checklist" value="Completed enrollment packet" /> Completed enrollment packet</label>
+            <label class="enroll-checkbox-item"><input type="checkbox" name="checklist" value="Copy of birth certificate" /> Copy of birth certificate</label>
+            <label class="enroll-checkbox-item"><input type="checkbox" name="checklist" value="Current immunization record / Form 3231" /> Current immunization record / Form 3231</label>
+            <label class="enroll-checkbox-item"><input type="checkbox" name="checklist" value="Emergency contact information" /> Emergency contact information</label>
+            <label class="enroll-checkbox-item"><input type="checkbox" name="checklist" value="Medication authorization (if applicable)" /> Medication authorization (if applicable)</label>
+            <label class="enroll-checkbox-item"><input type="checkbox" name="checklist" value="Photo / video release decision" /> Photo / video release decision</label>
+            <label class="enroll-checkbox-item"><input type="checkbox" name="checklist" value="CACFP enrollment statement" /> CACFP enrollment statement</label>
+            <label class="enroll-checkbox-item"><input type="checkbox" name="checklist" value="Meal benefit income eligibility statement (if required)" /> Meal benefit income eligibility statement (if required)</label>
+          </div>
+        </fieldset>
+
+        <div class="enroll-submit">
+          <button type="submit" class="btn btn--primary" id="submitBtn">Submit Enrollment Packet</button>
+        </div>
+
+        <div id="enrollStatus" class="enroll-status" style="display:none"></div>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    // Show/hide "Other" text fields for radio groups
+    document.querySelectorAll('input[name="childLivesWith"]').forEach(r => {
+      r.addEventListener('change', () => {
+        document.getElementById('childLivesWithOtherWrap').style.display = r.value === 'Other' && r.checked ? 'block' : 'none';
+      });
+    });
+    document.querySelectorAll('input[name="legalGuardian"]').forEach(r => {
+      r.addEventListener('change', () => {
+        document.getElementById('legalGuardianOtherWrap').style.display = r.value === 'Other' && r.checked ? 'block' : 'none';
+      });
+    });
+
+    // Collect all form data into a flat object
+    function collectFormData(form) {
+      const data = {};
+      const formData = new FormData(form);
+      for (const [key, value] of formData.entries()) {
+        if (value === '') continue;
+        if (key in data) {
+          if (Array.isArray(data[key])) data[key].push(value);
+          else data[key] = [data[key], value];
+        } else {
+          data[key] = value;
+        }
+      }
+      // Join arrays for display
+      for (const key in data) {
+        if (Array.isArray(data[key])) data[key] = data[key].join(', ');
+      }
+      return data;
+    }
+
+    // Generate PDF with jsPDF
+    function generatePDF(data) {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      const margin = 14;
+      const pageW = doc.internal.pageSize.width;
+      const pageH = doc.internal.pageSize.height;
+      let y = 20;
+
+      function ensureSpace(needed) {
+        if (y + needed > pageH - 20) { doc.addPage(); y = 20; }
+      }
+      function addLine(text, size, style, gap) {
+        size = size || 10; style = style || 'normal'; gap = gap || 6;
+        ensureSpace(gap);
+        doc.setFontSize(size);
+        doc.setFont('helvetica', style);
+        doc.text(text, margin, y);
+        y += gap;
+      }
+      function addSection(title) {
+        y += 4; ensureSpace(14);
+        doc.setFillColor(255, 195, 0);
+        doc.rect(margin, y - 4, pageW - margin * 2, 8, 'F');
+        doc.setFontSize(11); doc.setFont('helvetica', 'bold');
+        doc.setTextColor(27, 67, 50);
+        doc.text(title, margin + 2, y + 1.5);
+        y += 10;
+        doc.setTextColor(0, 0, 0);
+      }
+      function addField(label, value) {
+        addLine(label + ': ' + (value || '\u2014'), 10, 'normal', 6);
+      }
+
+      // Header
+      addLine('KIPLA Foundation Inc.', 18, 'bold', 10);
+      addLine('Enrollment Packet', 13, 'normal', 8);
+      addLine('Main Campus: 1920 Veterans Memorial Hwy, Austell, GA 30168 | 770-672-7800', 8, 'normal', 5);
+      addLine('Lithia Springs: 2548 Vulcan Drive, Lithia Springs, GA 30122 | 678-483-5160', 8, 'normal', 6);
+      y += 2;
+
+      addSection('1. STUDENT INFORMATION');
+      addField('Student Full Name', data.studentFullName);
+      addField('Date of Birth', data.studentDOB);
+      addField('Preferred Name', data.preferredName);
+      addField('Gender', data.gender);
+      addField('Enrollment Date', data.enrollmentDate);
+      addField('Withdrawal Date', data.withdrawalDate);
+      addField('Street Address', data.streetAddress);
+      addField('Zip', data.zip);
+      addField('City / State', data.cityState);
+      addField('Home Phone', data.homePhone);
+
+      addSection('2. PARENT / GUARDIAN INFORMATION');
+      addField('Parent 1 Name', data.parent1Name);
+      addField('Parent 1 Relationship', data.parent1Relationship);
+      addField('Parent 1 Email', data.parent1Email);
+      addField('Parent 1 Cell', data.parent1Cell);
+      addField('Parent 1 Employer', data.parent1Employer);
+      addField('Parent 1 Work Phone', data.parent1WorkPhone);
+      addField('Parent 1 Employer Address', data.parent1EmployerAddress);
+      addField('Parent 2 Name', data.parent2Name);
+      addField('Parent 2 Relationship', data.parent2Relationship);
+      addField('Parent 2 Email', data.parent2Email);
+      addField('Parent 2 Cell', data.parent2Cell);
+      addField('Parent 2 Employer', data.parent2Employer);
+      addField('Parent 2 Work Phone', data.parent2WorkPhone);
+      addField('Parent 2 Employer Address', data.parent2EmployerAddress);
+
+      addSection('3. CUSTODY / PICK-UP AUTHORIZATION');
+      addField('Child Lives With', data.childLivesWith);
+      addField('Child Lives With (Other)', data.childLivesWithOther);
+      addField('Legal Guardian', data.legalGuardian);
+      addField('Legal Guardian (Other)', data.legalGuardianOther);
+      addField('Pick-Up #1', data.pickup1Name + ' / ' + (data.pickup1Phone || ''));
+      addField('Pick-Up #2', data.pickup2Name + ' / ' + (data.pickup2Phone || ''));
+      addField('Pick-Up #3', data.pickup3Name + ' / ' + (data.pickup3Phone || ''));
+
+      addSection('4. EMERGENCY CONTACTS');
+      addField('Emergency #1', data.emergency1Name + ' / ' + (data.emergency1Phone || ''));
+      addField('Emergency #2', data.emergency2Name + ' / ' + (data.emergency2Phone || ''));
+      addField('Emergency #3', data.emergency3Name + ' / ' + (data.emergency3Phone || ''));
+      addField('School Attends', data.schoolAttends);
+
+      addSection('5. MEDICAL INFORMATION');
+      addField('Doctor / Clinic', data.doctorName);
+      addField('Doctor Phone', data.doctorPhone);
+      addField('Hospital Preference', data.hospitalPreference);
+      addField('Special Needs / Diagnoses', data.specialNeeds);
+      addField('Allergies', data.allergies);
+      addField('Long-Term Medications', data.medications);
+      addField('EMA Signature', data.emaSignature);
+      addField('EMA Date', data.emaDate);
+
+      addSection('6. PARENT AGREEMENT');
+      addField('Signature', data.parentAgreementSignature);
+      addField('Date', data.parentAgreementDate);
+
+      addSection('7. CACFP ENROLLMENT');
+      addField('Child Name', data.cacfpChildName);
+      addField('Age', data.cacfpChildAge);
+      addField('Hours', (data.cacfpHoursFrom || '') + ' ' + (data.cacfpHoursFromAmPm || '') + ' to ' + (data.cacfpHoursTo || '') + ' ' + (data.cacfpHoursToAmPm || ''));
+      addField('Days', data.cacfpDays);
+      addField('Meals', data.cacfpMeals);
+      addField('Beginning Date', data.cacfpBeginningDate);
+      addField('Signature', data.cacfpSignature);
+      addField('Date', data.cacfpDate);
+
+      addSection('8. GENERAL RELEASE');
+      addField('Signature', data.generalReleaseSignature);
+      addField('Date', data.generalReleaseDate);
+
+      addSection('9. PHOTO / VIDEO RELEASE');
+      addField('Authorization', data.photoRelease);
+      addField('Signature', data.photoReleaseSignature);
+      addField('Date', data.photoReleaseDate);
+
+      addSection('10. TUITION AGREEMENT');
+      addField('Child Name', data.tuitionChildName);
+      addField('Parent Name', data.tuitionParentName);
+      addField('Parent Signature', data.tuitionParentSignature);
+      addField('Parent Date', data.tuitionParentDate);
+
+      addSection('11. PARENT SUBMISSION CHECKLIST');
+      addField('Items', data.checklist);
+
+      return doc;
+    }
+
+    // Handle form submission
+    document.getElementById('enrollment-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = this;
+      const btn = document.getElementById('submitBtn');
+      const status = document.getElementById('enrollStatus');
+
+      // Validate required fields
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const data = collectFormData(form);
+
+      btn.disabled = true;
+      btn.textContent = 'Submitting\u2026';
+      status.style.display = 'none';
+
+      try {
+        // Generate PDF
+        const doc = generatePDF(data);
+        const studentName = (data.studentFullName || 'student').replace(/[^a-zA-Z0-9]/g, '_');
+        doc.save('KIPLA_Enrollment_' + studentName + '.pdf');
+
+        // Submit form data to FormSubmit.co (emails to kiplafoundationinc@gmail.com)
+        const emailPayload = Object.assign({}, data, {
+          _subject: 'New Enrollment Packet - ' + (data.studentFullName || 'Unknown Student'),
+          _template: 'table',
+          _captcha: 'false'
+        });
+
+        await fetch('https://formsubmit.co/ajax/kiplafoundationinc@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(emailPayload)
+        });
+
+        status.style.display = 'block';
+        status.className = 'enroll-status enroll-status--success';
+        status.innerHTML = '<h3>\u2705 Enrollment Packet Submitted!</h3><p>Your enrollment data has been emailed to KIPLA. A PDF copy has been downloaded to your device.</p><p style="margin-top:.5rem;font-size:.85rem;opacity:.7">Note: The first submission may require email activation \u2014 check kiplafoundationinc@gmail.com for a one-time confirmation link from FormSubmit.</p>';
+        form.querySelectorAll('input,textarea,select').forEach(el => el.disabled = true);
+        btn.style.display = 'none';
+      } catch (err) {
+        console.error(err);
+        status.style.display = 'block';
+        status.className = 'enroll-status enroll-status--error';
+        status.innerHTML = '<h3>\u26a0\ufe0f Submission Error</h3><p>' + (err.message || 'Something went wrong. Please try again or contact us directly.') + '</p>';
+        btn.disabled = false;
+        btn.textContent = 'Submit Enrollment Packet';
+      }
+    });
+  </script>
+</body>
+</html>
