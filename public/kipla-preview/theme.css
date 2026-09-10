@@ -236,7 +236,7 @@ p{margin:0 0 1rem}
 /* --- Founder --- */
 .founder-card{
   background:var(--white);border:1px solid rgba(27,67,50,.08);border-radius:var(--radius-xl);
-  padding:clamp(2rem,5vw,4.5rem);display:grid;grid-template-columns:2fr 3fr;gap:clamp(2rem,5vw,4rem);
+  padding:clamp(2rem,5vw,4.5rem);display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);
   align-items:center;box-shadow:var(--shadow-sm);
 }
 @media(max-width:880px){.founder-card{grid-template-columns:1fr}}
@@ -255,7 +255,7 @@ p{margin:0 0 1rem}
 .sun{width:1.25rem;height:1.25rem;display:inline-block;flex:none}
 .founder-media{position:relative;display:flex;align-items:center;justify-content:center}
 .founder-media__halo{position:absolute;inset:-8% -8% auto auto;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,195,0,.22),transparent 70%);pointer-events:none;z-index:0}
-.founder-media__frame{position:relative;z-index:1}
+.founder-media__frame{position:relative;z-index:1;width:100%;max-width:480px;margin-inline:auto}
 .founder-badge{display:inline-flex;align-items:center;gap:.4rem;background:var(--sunflower);color:var(--hunter);padding:.4rem .9rem;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;align-self:flex-start;margin-top:.75rem}
 .founder-ttml__sep{display:inline-flex;align-items:center;color:var(--sunflower)}
 
