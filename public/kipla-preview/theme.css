@@ -137,22 +137,25 @@ p{margin:0 0 1rem}
 .hero--split .hero__inner{max-width:none;margin:0}
 .hero--split .hero__lead{max-width:none;margin:0 0 2.25rem}
 .hero--split .hero__actions{justify-content:flex-start}
-.hero--split .hero__media{margin-top:0}
+.hero--split .hero__media{margin-top:0;position:relative}
 
 .hero__photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/5}
 .hero__photo img{width:100%;height:100%;object-fit:cover}
 
-/* Seamless gradient fade blending photo into the page on the left */
-.hero__photo-mask{position:absolute;top:0;left:0;width:45%;height:100%;background:linear-gradient(to right,var(--cream) 8%,rgba(254,250,240,.85) 20%,rgba(254,250,240,.4) 50%,rgba(254,250,240,.1) 75%,rgba(254,250,240,0) 100%);pointer-events:none;z-index:1}
+/* Subtle gradient fade — narrower, lower opacity for seamless blend */
+.hero__photo-mask{position:absolute;top:0;left:0;width:28%;height:100%;background:linear-gradient(to right,rgba(254,250,240,.45) 0%,rgba(254,250,240,.18) 40%,rgba(254,250,240,0) 100%);pointer-events:none;z-index:1}
 
-/* Top overlay — handwritten text with red heart */
-.hero__overlay-top{position:absolute;top:1.5rem;left:50%;transform:translateX(-50%);width:90%;text-align:center;font-family:"Dancing Script",cursive;font-size:clamp(1.3rem,2.6vw,1.9rem);color:var(--hunter);font-weight:700;z-index:2;line-height:1.25;text-shadow:0 2px 8px rgba(254,250,240,.95),0 1px 4px rgba(254,250,240,.9)}
-.hero__overlay-heart{color:var(--deep-red);font-size:1.1em;vertical-align:middle;margin-left:.2em}
+/* Faint sunflower line-art overlapping the left edge of the photo */
+.hero__sunflower-deco{position:absolute;bottom:-1rem;left:-1.5rem;width:8rem;height:8rem;z-index:5;pointer-events:none;opacity:.85}
+.hero__sunflower-deco svg{width:100%;height:100%;filter:drop-shadow(0 1px 3px rgba(254,250,240,.5))}
 
-/* Bottom overlay — brush stroke badge with sunflower */
-.hero__overlay-bottom{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:.6rem;font-family:var(--font-body);font-size:clamp(.82rem,1.6vw,1rem);font-weight:700;color:var(--hunter);text-align:center;padding:.9rem 1.75rem;z-index:2;line-height:1.35;white-space:nowrap}
-.hero__overlay-brush{position:absolute;inset:0;background:var(--sunflower);border-radius:2rem 3rem 1.5rem 2.5rem / 1.5rem 2rem 2rem 3rem;z-index:-1;opacity:.95;box-shadow:var(--shadow-md)}
-.hero__overlay-sunflower{width:1.8rem;height:1.8rem;flex:none;filter:drop-shadow(0 1px 2px rgba(27,67,50,.3))}
+/* Top-right handwritten overlay with red heart */
+.hero__overlay-top{position:absolute;top:1.25rem;right:1.25rem;max-width:50%;text-align:right;font-family:"Dancing Script",cursive;font-size:clamp(1.2rem,2.4vw,1.75rem);color:var(--hunter);font-weight:700;z-index:3;line-height:1.25;text-shadow:0 2px 10px rgba(254,250,240,1),0 1px 6px rgba(254,250,240,.95)}
+.hero__overlay-heart{color:var(--deep-red);font-size:1em;vertical-align:middle;margin-left:.15em}
+
+/* Bottom-right brush stroke badge */
+.hero__overlay-bottom{position:absolute;bottom:1.25rem;right:1.25rem;display:flex;align-items:center;gap:.4rem;font-family:var(--font-body);font-size:clamp(.78rem,1.4vw,.92rem);font-weight:700;color:var(--hunter);text-align:right;padding:.85rem 1.5rem;z-index:3;line-height:1.35;white-space:nowrap}
+.hero__overlay-brush{position:absolute;inset:0;background:var(--sunflower);border-radius:1.5rem 2.5rem 1rem 2rem / 1rem 1.5rem 1.5rem 2.5rem;z-index:-1;opacity:.95;box-shadow:var(--shadow-md)}
 
 @media(max-width:720px){
   .hero--split{grid-template-columns:1fr;text-align:center}
