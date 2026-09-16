@@ -162,8 +162,8 @@ p{margin:0 0 1rem}
 /* Seamless gradient fade — photo dissolves into the cream background on the left */
 .hero__photo-mask{position:absolute;top:0;left:0;width:42%;height:100%;background:linear-gradient(to right,var(--cream) 0%,rgba(254,250,240,.92) 15%,rgba(254,250,240,.6) 35%,rgba(254,250,240,.25) 60%,rgba(254,250,240,.05) 85%,rgba(254,250,240,0) 100%);pointer-events:none;z-index:1}
 
-/* Faint sunflower line-art overlapping the left edge of the photo */
-.hero__sunflower-deco{position:absolute;bottom:-1rem;left:-1.5rem;width:8rem;height:8rem;z-index:5;pointer-events:none;opacity:.85}
+/* Sunflower motif tucked into the bottom-right corner, blending behind the quote */
+.hero__sunflower-deco{position:absolute;bottom:-1.5rem;right:-1.5rem;width:7rem;height:7rem;z-index:2;pointer-events:none;opacity:.85}
 .hero__sunflower-deco svg{width:100%;height:100%;filter:drop-shadow(0 1px 3px rgba(254,250,240,.5))}
 
 /* Top-right handwritten overlay with red heart */
@@ -172,7 +172,7 @@ p{margin:0 0 1rem}
 
 /* Bottom-right brush stroke badge */
 .hero__overlay-bottom{position:absolute;bottom:1.25rem;right:1.25rem;display:flex;align-items:center;gap:.4rem;font-family:var(--font-body);font-size:clamp(.78rem,1.4vw,.92rem);font-weight:700;color:var(--hunter);text-align:right;padding:.85rem 1.5rem;z-index:3;line-height:1.35;white-space:nowrap}
-.hero__overlay-brush{position:absolute;inset:0;background:var(--sunflower);border-radius:1.5rem 2.5rem 1rem 2rem / 1rem 1.5rem 1.5rem 2.5rem;z-index:-1;opacity:.95;box-shadow:var(--shadow-md)}
+.hero__overlay-brush{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
 
 @media(max-width:720px){
   .hero--split{grid-template-columns:1fr;text-align:center}
