@@ -150,10 +150,10 @@ p{margin:0 0 1rem}
 .hero--split .hero__tagline{font-weight:600;color:var(--hunter)}
 .hero--split .hero__lead{color:rgba(38,38,38,.9)}
 .hero--split .eyebrow{background:rgba(255,195,0,.28);font-weight:700;padding-inline:.5rem}
-.hero--split .hero__inner{position:relative;z-index:2;max-width:clamp(20rem,46%,35rem);margin:0;display:flex;flex-direction:column;justify-content:center;height:100%;padding-block:clamp(1rem,3vw,2rem)}
+.hero--split .hero__inner{position:relative;z-index:2;max-width:clamp(22rem,52%,38rem);margin:0;display:flex;flex-direction:column;justify-content:center;height:100%;padding-block:clamp(1rem,3vw,2rem)}
 .hero--split .hero__lead{max-width:none;margin:0 0 2.25rem}
-.hero--split .hero__actions{justify-content:flex-start}
-.hero--split .hero__actions .btn{flex:0 1 auto;white-space:nowrap}
+.hero--split .hero__actions{justify-content:flex-start;flex-wrap:nowrap;gap:.5rem}
+.hero--split .hero__actions .btn{flex:0 1 auto;white-space:nowrap;padding:.5rem .9rem;font-size:.82rem}
 .hero--split .hero__media{position:absolute;top:0;right:0;margin:0;width:60%;aspect-ratio:1085/1449;height:auto}
 
 .hero__photo{position:absolute;inset:0;overflow:hidden;height:100%;min-height:420px}
@@ -177,7 +177,8 @@ p{margin:0 0 1rem}
   .hero--split{min-height:0;text-align:center}
   .hero--split .hero__inner{position:static;max-width:56rem;margin-inline:auto;height:auto;padding:0}
   .hero--split .hero__lead{max-width:42rem;margin:0 auto 2.25rem}
-  .hero--split .hero__actions{justify-content:center}
+  .hero--split .hero__actions{justify-content:center;flex-wrap:nowrap;gap:.4rem}
+  .hero--split .hero__actions .btn{padding:.45rem .7rem;font-size:.76rem}
   .hero--split .hero__media{position:static;width:100%;margin:clamp(2rem,5vw,3rem) auto 0;max-width:24rem}
   .hero__photo{position:relative;height:auto;aspect-ratio:1085/1449;min-height:0}
   .hero__photo-mask{background:linear-gradient(to top,var(--cream) 0%,rgba(254,250,240,0) 10%)}
