@@ -12,6 +12,8 @@
 
   --font-display:"Fraunces",Georgia,"Times New Roman",serif;
   --font-body:"Outfit","Helvetica Neue",Arial,sans-serif;
+  --font-welcome:"Playfair Display",Georgia,serif;
+  --font-founder:"DM Serif Display",Georgia,serif;
 
   --radius-sm:.75rem;
   --radius-md:1.25rem;
@@ -49,6 +51,15 @@ p{margin:0 0 1rem}
 :focus-visible{outline:3px solid var(--sunflower);outline-offset:3px;border-radius:4px}
 
 .container{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+
+/* Section-specific heading fonts for visual variety */
+#welcome h2,#locations h2{font-family:var(--font-welcome)}
+#culture h2{font-family:var(--font-welcome)}
+#founder .founder-heading,#founder h2{font-family:var(--font-founder)}
+#testimonials h2{font-family:var(--font-welcome)}
+#in-action h2{font-family:var(--font-welcome)}
+#updates h2{font-family:var(--font-welcome)}
+.section--white .cta-band h2{font-family:var(--font-welcome)}
 .section{padding-block:clamp(3.5rem,8vw,6.5rem)}
 .section--white{background:var(--white)}
 .section--hunter{background:var(--hunter);color:var(--cream)}
@@ -127,14 +138,18 @@ p{margin:0 0 1rem}
 /* --- Hero --- */
 .hero{padding-block:clamp(3rem,7vw,5.5rem) clamp(2rem,5vw,4rem);text-align:center}
 .hero__inner{max-width:56rem;margin-inline:auto}
-.hero h1 .accent{color:var(--kelly);font-style:italic;text-decoration:underline;text-decoration-color:var(--sunflower);text-decoration-thickness:5px;text-underline-offset:10px}
-.heart-o{width:.78em;height:.78em;display:inline-block;fill:var(--deep-red);vertical-align:baseline;margin:0 .02em;filter:drop-shadow(0 2px 4px rgba(164,22,26,.35));position:relative;top:.02em}
+.hero h1 .accent{color:var(--sunflower);font-style:italic;font-weight:700;white-space:nowrap;text-shadow:0 2px 8px rgba(255,195,0,.35),0 1px 3px rgba(255,195,0,.2)}
+.heart-o{width:.82em;height:.82em;display:inline-block;fill:var(--sunflower);vertical-align:baseline;margin:0 .01em;filter:drop-shadow(0 2px 6px rgba(255,195,0,.6));position:relative;top:.04em}
 .hero__lead{font-size:clamp(1.05rem,2vw,1.3rem);color:rgba(38,38,38,.8);max-width:42rem;margin:0 auto 2.25rem}
 .hero__actions{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
 .hero__media{margin-top:clamp(2.5rem,6vw,4rem)}
 
 /* --- Hero split layout (photo + text) --- */
 .hero--split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:stretch;text-align:left}
+.hero--split h1{font-weight:700}
+.hero--split .hero__tagline{font-weight:600;color:var(--hunter)}
+.hero--split .hero__lead{color:rgba(38,38,38,.88)}
+.hero--split .eyebrow{background:rgba(255,195,0,.28);font-weight:700}
 .hero--split .hero__inner{max-width:none;margin:0}
 .hero--split .hero__lead{max-width:none;margin:0 0 2.25rem}
 .hero--split .hero__actions{justify-content:flex-start}
