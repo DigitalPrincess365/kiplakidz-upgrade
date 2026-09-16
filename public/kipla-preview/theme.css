@@ -163,7 +163,7 @@ p{margin:0 0 1rem}
 .hero__photo-mask{position:absolute;inset:0;pointer-events:none;z-index:1;background:linear-gradient(to right,var(--cream) 0%,rgba(254,250,240,.9) 6%,rgba(254,250,240,.3) 15%,rgba(254,250,240,0) 22%)}
 
 /* Sunflower image over the worksheet, clear of the hero text */
-.hero__sunflower-deco{position:absolute;bottom:-4rem;left:3.5rem;width:18rem;height:18rem;z-index:4;pointer-events:none;opacity:1}
+.hero__sunflower-deco{position:absolute;bottom:1.5%;left:15%;width:28%;aspect-ratio:1/1;z-index:4;pointer-events:none;opacity:1}
 .hero__sunflower-deco img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 4px 8px rgba(0,0,0,.28))}
 
 /* Top-right handwritten overlay — green text with yellow word-trace highlight */
@@ -181,9 +181,9 @@ p{margin:0 0 1rem}
   .hero--split .hero__lead{max-width:42rem;margin:0 auto 2.25rem}
   .hero--split .hero__actions{justify-content:center}
   .hero--split .hero__media{position:static;width:100%;margin:clamp(2rem,5vw,3rem) auto 0;max-width:24rem}
-  .hero__photo{position:relative;height:auto;aspect-ratio:4/5;min-height:0}
-  .hero__photo-mask{background:linear-gradient(to top,var(--cream) 0%,rgba(254,250,240,.5) 16%,rgba(254,250,240,0) 38%)}
-  .hero__sunflower-deco{width:8rem;height:8rem;left:1rem;bottom:.25rem;right:auto}
+  .hero__photo{position:relative;height:auto;aspect-ratio:1085/1449;min-height:0}
+  .hero__photo-mask{background:linear-gradient(to top,var(--cream) 0%,rgba(254,250,240,0) 10%)}
+  .hero__sunflower-deco{width:26%}
   .hero__overlay-bottom{left:9rem;bottom:.25rem;max-width:9.5rem;padding:.6rem 1rem;font-size:.9rem}
 }
 
