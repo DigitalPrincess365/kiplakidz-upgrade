@@ -172,7 +172,7 @@ p{margin:0 0 1rem}
 .hero__overlay-heart{color:var(--sunflower);font-size:1em;vertical-align:middle;margin-left:.15em}
 
 /* Bottom-left brush stroke badge, sitting beside the sunflower */
-.hero__overlay-bottom{position:absolute;bottom:1.5rem;left:15rem;display:flex;align-items:center;gap:.4rem;font-family:var(--font-body);font-size:clamp(.78rem,1.4vw,.92rem);font-weight:700;color:var(--hunter);text-align:left;padding:.85rem 1.5rem;z-index:5;line-height:1.35;white-space:nowrap}
+.hero__overlay-bottom{position:absolute;bottom:0.5rem;left:3.5rem;display:flex;align-items:center;gap:.4rem;font-family:var(--font-body);font-size:clamp(.78rem,1.4vw,.92rem);font-weight:700;color:var(--hunter);text-align:left;padding:.85rem 1.5rem;z-index:5;line-height:1.35;white-space:nowrap}
 .hero__overlay-brush{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
 
 @media(max-width:720px){
