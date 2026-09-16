@@ -157,7 +157,7 @@ p{margin:0 0 1rem}
 .hero--split .hero__media{position:absolute;inset:0;margin:0;width:60%;margin-left:auto}
 
 .hero__photo{position:absolute;inset:0;overflow:hidden;height:100%;min-height:420px}
-.hero__photo img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero__photo img{width:100%;height:100%;object-fit:contain;object-position:top center}
 
 /* Soft fade only at the far-left edge where text sits — the rest of the photo stays fully visible */
 .hero__photo-mask{position:absolute;inset:0;pointer-events:none;z-index:1;background:linear-gradient(to right,var(--cream) 0%,rgba(254,250,240,.9) 6%,rgba(254,250,240,.3) 15%,rgba(254,250,240,0) 22%)}
