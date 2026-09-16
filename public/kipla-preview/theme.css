@@ -162,16 +162,16 @@ p{margin:0 0 1rem}
 /* Soft fade only at the far-left edge where text sits — the rest of the photo stays fully visible */
 .hero__photo-mask{position:absolute;inset:0;pointer-events:none;z-index:1;background:linear-gradient(to right,var(--cream) 0%,rgba(254,250,240,.9) 6%,rgba(254,250,240,.3) 15%,rgba(254,250,240,0) 22%)}
 
-/* Sunflower motif in the bottom-left corner, covering the worksheet */
-.hero__sunflower-deco{position:absolute;bottom:-2rem;left:-2rem;width:11rem;height:11rem;z-index:4;pointer-events:none;opacity:1}
-.hero__sunflower-deco svg{width:100%;height:100%;filter:drop-shadow(0 4px 8px rgba(0,0,0,.28))}
+/* Sunflower image in the bottom-left corner, covering the worksheet */
+.hero__sunflower-deco{position:absolute;bottom:0.5rem;left:0.5rem;width:11rem;height:11rem;z-index:4;pointer-events:none;opacity:1}
+.hero__sunflower-deco img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 4px 8px rgba(0,0,0,.28))}
 
-/* Top-right handwritten overlay with red heart */
-.hero__overlay-top{position:absolute;top:1.25rem;right:1.25rem;max-width:50%;text-align:right;font-family:"Dancing Script",cursive;font-size:clamp(1.2rem,2.4vw,1.75rem);color:var(--deep-red);font-weight:700;z-index:3;line-height:1.25;text-shadow:0 2px 10px rgba(254,250,240,1),0 1px 6px rgba(254,250,240,.95)}
-.hero__overlay-heart{color:var(--deep-red);font-size:1em;vertical-align:middle;margin-left:.15em}
+/* Top-right handwritten overlay — green text with yellow highlight */
+.hero__overlay-top{position:absolute;top:1.25rem;right:1.25rem;max-width:50%;text-align:right;font-family:"Dancing Script",cursive;font-size:clamp(1.2rem,2.4vw,1.75rem);color:var(--hunter);font-weight:700;z-index:3;line-height:1.25;background:rgba(255,195,0,.42);padding:.1em .3em;border-radius:4px;text-shadow:0 1px 2px rgba(255,255,255,.5)}
+.hero__overlay-heart{color:var(--sunflower);font-size:1em;vertical-align:middle;margin-left:.15em}
 
-/* Bottom-left brush stroke badge */
-.hero__overlay-bottom{position:absolute;bottom:1.5rem;left:1.5rem;display:flex;align-items:center;gap:.4rem;font-family:var(--font-body);font-size:clamp(.78rem,1.4vw,.92rem);font-weight:700;color:var(--hunter);text-align:left;padding:.85rem 1.5rem;z-index:5;line-height:1.35;white-space:nowrap}
+/* Bottom-left brush stroke badge, sitting beside the sunflower */
+.hero__overlay-bottom{position:absolute;bottom:1.5rem;left:12rem;display:flex;align-items:center;gap:.4rem;font-family:var(--font-body);font-size:clamp(.78rem,1.4vw,.92rem);font-weight:700;color:var(--hunter);text-align:left;padding:.85rem 1.5rem;z-index:5;line-height:1.35;white-space:nowrap}
 .hero__overlay-brush{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
 
 @media(max-width:720px){
