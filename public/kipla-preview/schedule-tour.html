@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Schedule a Tour | KIPLA — Keeping It Positive Learning Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" />
+<link rel="stylesheet" href="/kipla-preview/theme.css" />
+<link rel="icon" href="/kipla-preview/logo.png" type="image/png" />
+<style>
+  :root{
+    --tour-navy:#2A3B56;
+    --tour-green:#DDE6D5;
+    --tour-yellow:#F4D03F;
+    --tour-bg:#FDFCF8;
+  }
+  body{background:var(--tour-bg);font-family:'Outfit',sans-serif;color:var(--tour-navy)}
+
+  .tour-page{max-width:680px;margin:0 auto;padding:clamp(2rem,5vw,3.5rem) 1.25rem 4rem}
+
+  /* Header */
+  .tour-header{text-align:center;margin-bottom:2.5rem;position:relative}
+  .tour-header__flower{position:absolute;top:-.5rem;left:0;width:42px;opacity:.5}
+  .tour-header h1{font-size:clamp(1.6rem,4vw,2.1rem);font-weight:800;letter-spacing:.06em;color:var(--tour-navy);margin:.5rem 0 .25rem}
+  .tour-header__sub{font-size:1rem;font-weight:600;color:var(--tour-navy);margin-bottom:1rem}
+  .tour-header__desc{font-size:.92rem;line-height:1.6;color:rgba(42,59,86,.75);max-width:32rem;margin:0 auto}
+  .tour-header__sprout{text-align:center;font-size:1.5rem;margin:.75rem 0 0}
+
+  /* Sections */
+  .tour-section{background:var(--tour-green);border-radius:12px;padding:1.5rem;margin-bottom:1.25rem;border:0}
+  .tour-section__title{display:flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tour-navy);margin-bottom:1.25rem;padding:0}
+  .tour-section__title svg{width:18px;height:18px;flex-shrink:0;color:#5a7a4a}
+
+  /* Fields */
+  .tour-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:.75rem}
+  .tour-row--two{grid-template-columns:1fr 1fr}
+  @media(max-width:600px){.tour-row,.tour-row--two{grid-template-columns:1fr}}
+  .tour-field{display:flex;flex-direction:column;gap:.3rem}
+  .tour-field__label{font-size:.78rem;font-weight:600;color:var(--tour-navy)}
+  .tour-field__input{padding:.6rem .75rem;border:1px solid rgba(42,59,86,.18);border-radius:8px;font-family:'Outfit',sans-serif;font-size:.92rem;background:#fff;color:var(--tour-navy);transition:border-color .2s}
+  .tour-field__input:focus{outline:none;border-color:var(--tour-navy);box-shadow:0 0 0 3px rgba(42,59,86,.1)}
+  .tour-field__textarea{padding:.6rem .75rem;border:1px solid rgba(42,59,86,.18);border-radius:8px;font-family:'Outfit',sans-serif;font-size:.92rem;background:#fff;color:var(--tour-navy);resize:vertical;min-height:120px;width:100%;transition:border-color .2s}
+  .tour-field__textarea:focus{outline:none;border-color:var(--tour-navy);box-shadow:0 0 0 3px rgba(42,59,86,.1)}
+
+  /* Checkboxes */
+  .tour-check{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;font-size:.9rem;color:var(--tour-navy);cursor:pointer}
+  .tour-check input{width:18px;height:18px;accent-color:var(--tour-navy);cursor:pointer}
+  .tour-check-group{margin-bottom:.75rem}
+  .tour-check-group__label{font-size:.78rem;font-weight:600;color:var(--tour-navy);margin-bottom:.5rem;display:block}
+  .tour-footer-note{font-size:.78rem;color:rgba(42,59,86,.6);margin-top:.75rem;font-style:italic}
+
+  /* Before submit */
+  .tour-disclaimer{font-size:.85rem;line-height:1.5;color:rgba(42,59,86,.75);margin-bottom:1rem;padding:0 .25rem}
+  .tour-confirm-check{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:1.5rem;font-size:.88rem;color:var(--tour-navy);cursor:pointer}
+  .tour-confirm-check input{width:18px;height:18px;accent-color:var(--tour-navy);cursor:pointer;margin-top:.1rem;flex-shrink:0}
+
+  /* Submit button */
+  .tour-submit-wrap{display:flex;align-items:center;justify-content:center;gap:1rem}
+  .tour-submit-btn{background:var(--tour-yellow);color:var(--tour-navy);border:none;padding:.85rem 2.5rem;border-radius:8px;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:filter .2s}
+  .tour-submit-btn:hover{filter:brightness(1.05)}
+  .tour-submit-btn:disabled{opacity:.6;cursor:wait}
+  .tour-submit-branch{font-size:1.5rem;opacity:.4}
+
+  /* Success message */
+  .tour-success{text-align:center;padding:2.5rem 1.5rem;border-radius:12px;background:var(--tour-green)}
+  .tour-success h2{font-size:1.4rem;color:var(--tour-navy);margin-bottom:1rem}
+  .tour-success p{font-size:1rem;line-height:1.7;color:var(--tour-navy);max-width:28rem;margin:0 auto}
+  .tour-success__flower{font-size:2rem;margin-bottom:.5rem}
+  .tour-back{margin-top:2rem;display:inline-block;font-size:.9rem;font-weight:600;color:var(--tour-navy);text-decoration:none;border-bottom:2px solid var(--tour-yellow);padding-bottom:.15rem}
+  .tour-back:hover{opacity:.8}
+
+  /* Error */
+  .tour-error{text-align:center;padding:1.5rem;border-radius:8px;background:rgba(164,22,26,.08);border:1px solid rgba(164,22,26,.2);margin-top:1rem}
+  .tour-error h3{color:#a4161a;margin:0 0 .5rem}
+  .tour-error p{color:#a4161a;margin:0}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/kipla-preview/index.html">
+      <img src="/kipla-preview/logo.png" alt="KIPLA — Keeping It Positive Learning Academy" loading="eager" style="max-height:80px" />
+    </a>
+    <a class="btn btn--ghost btn--sm" href="/kipla-preview/index.html">&larr; Back to Home</a>
+  </div>
+</header>
+
+<main class="section section--cream">
+  <div class="container">
+    <div class="tour-page">
+
+      <!-- Header -->
+      <div class="tour-header">
+        <svg class="tour-header__flower" viewBox="0 0 64 64" fill="none" stroke="#5a7a4a" stroke-width="1.5">
+          <circle cx="32" cy="32" r="8" fill="#d4a017" stroke="#d4a017"/>
+          <ellipse cx="32" cy="14" rx="6" ry="10" fill="#f4d03f" stroke="#d4a017"/>
+          <ellipse cx="50" cy="32" rx="10" ry="6" fill="#f4d03f" stroke="#d4a017"/>
+          <ellipse cx="32" cy="50" rx="6" ry="10" fill="#f4d03f" stroke="#d4a017"/>
+          <ellipse cx="14" cy="32" rx="10" ry="6" fill="#f4d03f" stroke="#d4a017"/>
+          <ellipse cx="46" cy="18" rx="5" ry="8" transform="rotate(45 46 18)" fill="#f4d03f" stroke="#d4a017"/>
+          <ellipse cx="46" cy="46" rx="5" ry="8" transform="rotate(-45 46 46)" fill="#f4d03f" stroke="#d4a017"/>
+          <ellipse cx="18" cy="46" rx="5" ry="8" transform="rotate(45 18 46)" fill="#f4d03f" stroke="#d4a017"/>
+          <ellipse cx="18" cy="18" rx="5" ry="8" transform="rotate(-45 18 18)" fill="#f4d03f" stroke="#d4a017"/>
+        </svg>
+        <h1>SCHEDULE A TOUR</h1>
+        <p class="tour-header__sub">Keeping It Positive Learning Academy 🌻</p>
+        <p class="tour-header__desc">We're so glad you're interested in learning more about KIPLA! Touring our campus is a great way to see our learning environment, meet our team, and ask questions. Please fill out the form below, and a member of our team will be in touch to confirm your tour time.</p>
+        <div class="tour-header__sprout">🌱</div>
+      </div>
+
+      <!-- Form -->
+      <form id="tour-form" novalidate>
+
+        <!-- Section 1: Your Information -->
+        <fieldset class="tour-section">
+          <legend class="tour-section__title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+            Your Information
+          </legend>
+          <div class="tour-row">
+            <div class="tour-field">
+              <label class="tour-field__label" for="parentName">Parent/Family Name</label>
+              <input class="tour-field__input" type="text" id="parentName" name="parentName" required />
+            </div>
+            <div class="tour-field">
+              <label class="tour-field__label" for="email">Email Address</label>
+              <input class="tour-field__input" type="email" id="email" name="email" required />
+            </div>
+            <div class="tour-field">
+              <label class="tour-field__label" for="phone">Phone Number</label>
+              <input class="tour-field__input" type="tel" id="phone" name="phone" required />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Section 2: Tour Preferences -->
+        <fieldset class="tour-section">
+          <legend class="tour-section__title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+            Tour Preferences
+          </legend>
+          <div class="tour-check-group">
+            <span class="tour-check-group__label">Preferred Tour Day</span>
+            <label class="tour-check"><input type="checkbox" name="preferredDay" value="Tuesday - Designated Tour Day" /> Tuesday – Designated Tour Day</label>
+          </div>
+          <div class="tour-check-group">
+            <span class="tour-check-group__label">Preferred Tour Time</span>
+            <label class="tour-check"><input type="checkbox" name="tourTime" value="Morning" /> Morning</label>
+            <label class="tour-check"><input type="checkbox" name="tourTime" value="Midday" /> Midday</label>
+            <label class="tour-check"><input type="checkbox" name="tourTime" value="Afternoon" /> Afternoon</label>
+          </div>
+          <div class="tour-field">
+            <label class="tour-field__label" for="preferredTime">Preferred Time</label>
+            <input class="tour-field__input" type="text" id="preferredTime" name="preferredTime" placeholder="e.g. 10:00 AM" />
+          </div>
+          <p class="tour-footer-note">Tours are held on Tuesdays. If you're not available that day, you may request an alternate below.</p>
+        </fieldset>
+
+        <!-- Section 3: Need an Alternate Day? -->
+        <fieldset class="tour-section">
+          <legend class="tour-section__title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+            Need an Alternate Day?
+          </legend>
+          <div class="tour-row tour-row--two">
+            <div class="tour-field">
+              <label class="tour-field__label" for="alternateDay">Alternate Day</label>
+              <input class="tour-field__input" type="text" id="alternateDay" name="alternateDay" placeholder="e.g. Thursday" />
+            </div>
+            <div class="tour-field">
+              <label class="tour-field__label" for="alternateTime">Alternate Time</label>
+              <input class="tour-field__input" type="text" id="alternateTime" name="alternateTime" placeholder="e.g. 2:00 PM" />
+            </div>
+          </div>
+          <p class="tour-footer-note">We'll do our best to accommodate your request based on availability.</p>
+        </fieldset>
+
+        <!-- Section 4: Additional Questions or Comments -->
+        <fieldset class="tour-section">
+          <legend class="tour-section__title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+            Additional Questions or Comments
+          </legend>
+          <div class="tour-field">
+            <label class="tour-field__label" for="comments">Is there anything specific you'd like us to know before your tour?</label>
+            <textarea class="tour-field__textarea" id="comments" name="comments" rows="4" placeholder="Share any questions or details..."></textarea>
+          </div>
+        </fieldset>
+
+        <!-- Section 5: Before You Submit -->
+        <fieldset class="tour-section">
+          <legend class="tour-section__title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+            Before You Submit
+          </legend>
+          <p class="tour-disclaimer"><strong>Please Note:</strong> Submitting this form does not guarantee a scheduled tour. All tour requests must be confirmed by a member of our team. We'll be in touch with available times and next steps.</p>
+          <label class="tour-confirm-check"><input type="checkbox" id="confirmCheck" name="confirmCheck" required /> I understand that my tour is not confirmed until I receive confirmation from a member of the KIPLA team.</label>
+          <div class="tour-submit-wrap">
+            <span class="tour-submit-branch">🌿</span>
+            <button type="submit" class="tour-submit-btn" id="submitBtn">[ SUBMIT REQUEST ]</button>
+            <span class="tour-submit-branch">🌿</span>
+          </div>
+        </fieldset>
+
+        <div id="tourError" class="tour-error" style="display:none">
+          <h3>⚠️ Submission Error</h3>
+          <p id="tourErrorMsg">Something went wrong. Please try again or contact us directly.</p>
+        </div>
+      </form>
+
+      <!-- After Submission (hidden until submitted) -->
+      <div id="tourSuccess" class="tour-success" style="display:none">
+        <div class="tour-success__flower">🌻</div>
+        <h2>Thank You for Choosing to Explore KIPLA!</h2>
+        <p>We are excited to connect with you and show you what makes our learning community so special. We can't wait to welcome you!</p>
+        <a class="tour-back" href="/kipla-preview/index.html">&larr; Back to Home</a>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:0">
+      <span>&copy; 2026 Keeping It Positive Learning Academy</span>
+      <span>Keeping It Positive, every single day</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var form = document.getElementById('tour-form');
+  var btn = document.getElementById('submitBtn');
+  var errorBox = document.getElementById('tourError');
+  var errorMsg = document.getElementById('tourErrorMsg');
+  var successBox = document.getElementById('tourSuccess');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+
+    if(!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Submitting\u2026';
+    errorBox.style.display = 'none';
+
+    try {
+      var fd = new FormData(form);
+      var data = {};
+      fd.forEach(function(v, k){
+        if(k in data) {
+          if(!Array.isArray(data[k])) data[k] = [data[k]];
+          data[k].push(v);
+        } else {
+          data[k] = v;
+        }
+      });
+      for(var k in data){
+        if(Array.isArray(data[k])) data[k] = data[k].join(', ');
+      }
+
+      var payload = Object.assign({}, data, {
+        _subject: 'New Tour Request - ' + (data.parentName || 'Unknown Family'),
+        _template: 'table',
+        _captcha: 'false',
+        _autoresponse: "Thank you for choosing to explore KIPLA! We are excited to connect with you and show you what makes our learning community so special. We can't wait to welcome you! \u2014 Keeping It Positive Learning Academy"
+      });
+
+      await fetch('https://formsubmit.co/ajax/kiplafoundationinc@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      form.style.display = 'none';
+      successBox.style.display = 'block';
+      successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch(err){
+      console.error(err);
+      errorBox.style.display = 'block';
+      errorMsg.textContent = err.message || 'Something went wrong. Please try again or contact us directly.';
+      btn.disabled = false;
+      btn.textContent = '[ SUBMIT REQUEST ]';
+    }
+  });
+})();
+</script>
+</body>
+</html>
