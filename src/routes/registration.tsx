@@ -137,6 +137,11 @@ const REG_CSS = `
 }
 @media print{
   .reg-header,.reg-footer,.pff-submitter,.pff-actions{display:none}
-  .pff-page{box-shadow:none}
+  .reg-main{padding:0}
+  .pff-page{box-shadow:none;border-radius:0;page-break-after:always;break-after:page}
+  .pff-page:last-child{page-break-after:auto;break-after:auto}
+  .pff-input{background:transparent!important;box-shadow:none!important;color:#000;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .pff-check{background:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .pff-check:checked{background:var(--hunter)!important}
 }
 `;

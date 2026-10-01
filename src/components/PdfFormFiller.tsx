@@ -253,6 +253,13 @@ export default function PdfFormFiller() {
         >
           {status === "submitting" ? "Submitting…" : "Submit Application"}
         </button>
+        <button
+          type="button"
+          className="btn btn--gold"
+          onClick={() => window.print()}
+        >
+          Print Form
+        </button>
         {errorMsg && <p className="pff-errortext">{errorMsg}</p>}
       </div>
     </form>
