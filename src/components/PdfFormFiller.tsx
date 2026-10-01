@@ -239,6 +239,19 @@ export default function PdfFormFiller() {
         </p>
       </div>
 
+      <div className="pff-toolbar">
+        <span className="pff-toolbar__label">
+          {pages.length}-page enrollment packet
+        </span>
+        <button
+          type="button"
+          className="btn btn--gold btn--sm"
+          onClick={() => window.print()}
+        >
+          Print Form
+        </button>
+      </div>
+
       <div className="pff-pages">
         {pages.map((page, i) => (
           <PdfPage key={i} page={page} values={values} setValues={setValues} />
@@ -252,13 +265,6 @@ export default function PdfFormFiller() {
           disabled={status === "submitting"}
         >
           {status === "submitting" ? "Submitting…" : "Submit Application"}
-        </button>
-        <button
-          type="button"
-          className="btn btn--gold"
-          onClick={() => window.print()}
-        >
-          Print Form
         </button>
         {errorMsg && <p className="pff-errortext">{errorMsg}</p>}
       </div>

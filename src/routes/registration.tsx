@@ -135,11 +135,17 @@ const REG_CSS = `
   .pff-submitter{grid-template-columns:1fr}
   .reg-header__inner .brand img{max-height:54px}
 }
+.pff-toolbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:var(--white);border:1px solid rgba(27,67,50,.12);border-radius:.75rem;padding:.7rem 1.1rem;margin-bottom:1.25rem}
+.pff-toolbar__label{font-size:.85rem;color:rgba(38,38,38,.65)}
+
 @media print{
-  .reg-header,.reg-footer,.pff-submitter,.pff-actions{display:none}
-  .reg-main{padding:0}
-  .pff-page{box-shadow:none;border-radius:0;page-break-after:always;break-after:page}
+  .reg-header,.reg-footer,.pff-submitter,.pff-actions,.pff-toolbar{display:none!important}
+  /* the page uses a 100vh flex column; reset it so content paginates instead of compressing onto one sheet */
+  .reg-page{display:block;min-height:0;height:auto}
+  .reg-main{flex:none;padding:0}
+  .pff-page{box-shadow:none;border-radius:0;page-break-after:always;break-after:page;overflow:visible;container-type:normal}
   .pff-page:last-child{page-break-after:auto;break-after:auto}
+  .pff-canvas{width:100%;height:auto}
   .pff-input{background:transparent!important;box-shadow:none!important;color:#000;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .pff-check{background:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .pff-check:checked{background:var(--hunter)!important}
