@@ -26,6 +26,12 @@ docker compose -f docker-compose.base44.yml up -d
 
 ## What the app renders
 - `/` (src/routes/index.tsx) renders an `<iframe>` pointing at `/kipla-preview/index.html`.
+- `/registration` (src/routes/registration.tsx + src/components/PdfFormFiller.tsx) is an online
+  fillable PDF form. It loads `public/kipla-preview/KIPLA_Standard_Enrollment_Application_Fillable.pdf`
+  with `pdfjs-dist` (renders pages + overlays native HTML inputs on the AcroForm fields), then on
+  submit fills the real PDF with `pdf-lib` and emails the completed PDF to
+  kiplafoundationinc@gmail.com via FormSubmit.co (no online storage). Both libs are client-only
+  (dynamically imported in effects) so SSR never loads them.
 - The static KIPLA WordPress theme preview lives in `public/kipla-preview/` (HTML, CSS, JS, program pages).
 - `kipla-theme/` and `kipla-theme.zip` are the raw WordPress PHP theme — not used by the Vite app.
 
