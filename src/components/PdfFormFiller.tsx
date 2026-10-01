@@ -108,6 +108,72 @@ export default function PdfFormFiller() {
     };
   }, []);
 
+  // Fills the real AcroForm PDF with the entered values via pdf-lib and
+  // returns the completed PDF as a Blob — shared by submit and print.
+  async function buildFilledPdf(): Promise<Blob> {
+    const { PDFDocument } = await import("pdf-lib");
+    const bytes = await fetch(FILLABLE_PDF).then((r) => r.arrayBuffer());
+    const doc = await PDFDocument.load(bytes, { updateMetadata: false });
+    const form = doc.getForm();
+
+    for (const page of pages) {
+      for (const f of page.fields) {
+        try {
+          if (f.type === "text") {
+            const field = form.getTextField(f.name);
+            field.setText(String(values[f.name] ?? ""));
+          } else {
+            const cb = form.getCheckBox(f.name);
+            if (values[f.name]) cb.check();
+            else cb.uncheck();
+          }
+        } catch {
+          // Skip any field that pdf-lib can't resolve by name.
+        }
+      }
+    }
+    form.updateFieldAppearances();
+    const out = await doc.save();
+    return new Blob([out as BlobPart], { type: "application/pdf" });
+  }
+
+  const [printing, setPrinting] = useState(false);
+
+  async function handlePrint() {
+    setPrinting(true);
+    setErrorMsg("");
+    try {
+      const blob = await buildFilledPdf();
+      const url = URL.createObjectURL(blob);
+
+      let frame = document.getElementById(
+        "pff-print-frame",
+      ) as HTMLIFrameElement | null;
+      if (!frame) {
+        frame = document.createElement("iframe");
+        frame.id = "pff-print-frame";
+        frame.style.position = "fixed";
+        frame.style.right = "0";
+        frame.style.bottom = "0";
+        frame.style.width = "0";
+        frame.style.height = "0";
+        frame.style.border = "0";
+        document.body.appendChild(frame);
+      }
+      frame.onload = () => {
+        frame?.contentWindow?.focus();
+        frame?.contentWindow?.print();
+      };
+      frame.src = url;
+    } catch (err: any) {
+      setErrorMsg(
+        err?.message || "Could not prepare the form for printing.",
+      );
+    } finally {
+      setPrinting(false);
+    }
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const form = e.currentTarget as HTMLFormElement;
@@ -118,30 +184,7 @@ export default function PdfFormFiller() {
     setStatus("submitting");
     setErrorMsg("");
     try {
-      const { PDFDocument } = await import("pdf-lib");
-      const bytes = await fetch(FILLABLE_PDF).then((r) => r.arrayBuffer());
-      const doc = await PDFDocument.load(bytes, { updateMetadata: false });
-      const form = doc.getForm();
-
-      for (const page of pages) {
-        for (const f of page.fields) {
-          try {
-            if (f.type === "text") {
-              const field = form.getTextField(f.name);
-              field.setText(String(values[f.name] ?? ""));
-            } else {
-              const cb = form.getCheckBox(f.name);
-              if (values[f.name]) cb.check();
-              else cb.uncheck();
-            }
-          } catch {
-            // Skip any field that pdf-lib can't resolve by name.
-          }
-        }
-      }
-      form.updateFieldAppearances(true);
-      const out = await doc.save();
-      const blob = new Blob([out as BlobPart], { type: "application/pdf" });
+      const blob = await buildFilledPdf();
 
       const fd = new FormData();
       fd.append("parentName", name);
@@ -246,9 +289,10 @@ export default function PdfFormFiller() {
         <button
           type="button"
           className="btn btn--gold btn--sm"
-          onClick={() => window.print()}
+          onClick={handlePrint}
+          disabled={printing}
         >
-          Print Form
+          {printing ? "Preparing…" : "Print Form"}
         </button>
       </div>
 
