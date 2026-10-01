@@ -139,36 +139,23 @@ export default function PdfFormFiller() {
 
   const [printing, setPrinting] = useState(false);
 
+  // Opens the full 6-page PDF (with anything typed so far) in a new tab so
+  // the family can print it from the browser's PDF viewer.
   async function handlePrint() {
+    // Open the tab synchronously (inside the click) so popup blockers allow it;
+    // we point it at the generated PDF once it's ready.
+    const tab = window.open("", "_blank");
     setPrinting(true);
     setErrorMsg("");
     try {
       const blob = await buildFilledPdf();
       const url = URL.createObjectURL(blob);
-
-      let frame = document.getElementById(
-        "pff-print-frame",
-      ) as HTMLIFrameElement | null;
-      if (!frame) {
-        frame = document.createElement("iframe");
-        frame.id = "pff-print-frame";
-        frame.style.position = "fixed";
-        frame.style.right = "0";
-        frame.style.bottom = "0";
-        frame.style.width = "0";
-        frame.style.height = "0";
-        frame.style.border = "0";
-        document.body.appendChild(frame);
-      }
-      frame.onload = () => {
-        frame?.contentWindow?.focus();
-        frame?.contentWindow?.print();
-      };
-      frame.src = url;
-    } catch (err: any) {
-      setErrorMsg(
-        err?.message || "Could not prepare the form for printing.",
-      );
+      if (tab) tab.location.href = url;
+      else window.open(url, "_blank");
+    } catch {
+      // Fall back to the blank 6-page packet if filling fails.
+      if (tab) tab.location.href = FILLABLE_PDF;
+      else window.open(FILLABLE_PDF, "_blank");
     } finally {
       setPrinting(false);
     }
