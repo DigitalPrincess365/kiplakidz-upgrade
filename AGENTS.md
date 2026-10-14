@@ -39,3 +39,16 @@ docker compose -f docker-compose.base44.yml up -d
 - vite.config.ts uses `@lovable.dev/vite-tanstack-config`, which already registers
   TanStack Start, React, Tailwind, tsconfig paths, nitro, and sandbox host/port detection.
   Do NOT re-add those plugins manually (causes duplicate-plugin errors).
+
+## Gallery API ("See KIPLA in Action" section)
+- `src/routes/api.gallery.ts` is a TanStack Start server route at `/api/gallery`:
+  GET (paged records, 50/page, newest first), POST (admin-only multipart upload),
+  PUT (admin login with `GALLERY_ADMIN_PASSWORD` → HMAC cookie), DELETE (logout).
+- Uploaded files are stored publicly in `public/kipla-preview/gallery/uploads/`; the record
+  list is `public/kipla-preview/gallery/records.json` (format: `{ items: [...] }`).
+- The static page's gallery UI lives in `public/kipla-preview/gallery.js`; the admin bar /
+  login panel / pager / uploader are toggled via the `hidden` attribute, so any new
+  `display:*` rule for those classes MUST be paired with a `[hidden]{display:none!important}`
+  guard (theme.css has one) or the controls leak to the public view.
+- In the WordPress theme, gate the upload button with a PHP admin-capability check instead
+  of the password gate (the preview's password login is sandbox-only).
