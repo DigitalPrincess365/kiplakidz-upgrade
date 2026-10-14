@@ -542,3 +542,6 @@ p{margin:0 0 1rem}
 .gallery-admin-bar[hidden],.gallery-admin-panel[hidden],.gallery-pager[hidden],
 .gallery-uploader[hidden],.gallery-empty[hidden],.gallery-queue-row[hidden],
 .gallery-queue-row .btn[hidden]{display:none!important}
+
+/* anchor jumps land below the sticky header */
+section[id]{scroll-margin-top:5.5rem}
