@@ -3,6 +3,7 @@
   "use strict";
 
   var API = window.KIPLA_GALLERY_API || "/api/gallery";
+  var FEATURED = (window.KIPLA_GALLERY_FEATURED | 0) || 0;
 
   var els = {
     grid: document.getElementById("action-gallery"),
@@ -22,6 +23,7 @@
     uploader: document.getElementById("gallery-uploader"),
     queueTitle: document.getElementById("gallery-queue-title"),
     queue: document.getElementById("gallery-queue"),
+    seeAll: document.getElementById("gallery-see-all"),
   };
   if (!els.grid) return;
 
@@ -29,7 +31,7 @@
 
   function load(page) {
     var target = page || state.page || 1;
-    fetch(API + "?page=" + target, { credentials: "include" })
+    fetch(API + "?page=" + target + (FEATURED ? "&limit=" + FEATURED : ""), { credentials: "include" })
       .then(function (r) { return r.json(); })
       .then(function (data) {
         state.page = data.page;
@@ -49,6 +51,7 @@
   function renderItems(items) {
     els.grid.innerHTML = "";
     els.empty.hidden = state.total > 0;
+    if (els.seeAll) els.seeAll.hidden = state.total <= FEATURED;
     if (state.total === 0) {
       els.empty.textContent = state.admin
         ? "No photos yet — click “Upload to Gallery” to add some."
@@ -80,7 +83,7 @@
   }
 
   function renderPager() {
-    els.pager.hidden = state.totalPages <= 1;
+    els.pager.hidden = !!FEATURED || state.totalPages <= 1;
     els.pagePrev.disabled = state.page <= 1;
     els.pageNext.disabled = state.page >= state.totalPages;
     els.pageInfo.textContent =

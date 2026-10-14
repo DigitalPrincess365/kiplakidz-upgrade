@@ -545,3 +545,7 @@ p{margin:0 0 1rem}
 
 /* anchor jumps land below the sticky header */
 section[id]{scroll-margin-top:5.5rem}
+
+/* centered CTA beneath the featured gallery photos */
+.gallery-cta{text-align:center;margin:2.5rem 0 0}
+.gallery-cta[hidden]{display:none!important}

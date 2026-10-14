@@ -5,7 +5,7 @@ import path from "node:path";
 
 /*
  * Gallery API for the "See KIPLA in Action" section.
- * - GET    /api/gallery?page=N  → one page of records (50 per page) + admin flag
+ * - GET    /api/gallery?page=N&limit=M  → one page of records (50 per page, or M featured) + admin flag
  * - POST   /api/gallery         → admin-only multipart upload, saves file + record
  * - PUT    /api/gallery         → admin login (password → session cookie)
  * - DELETE /api/gallery         → admin logout
@@ -77,16 +77,18 @@ export const Route = createFileRoute("/api/gallery")({
       GET: async ({ request }: any) => {
         const url = new URL(request.url);
         const requested = Math.max(1, parseInt(url.searchParams.get("page") || "1", 10) || 1);
+        const limitParam = parseInt(url.searchParams.get("limit") || "", 10);
+        const pageSize = limitParam > 0 && limitParam < PAGE_SIZE ? limitParam : PAGE_SIZE;
         const data = await readRecords();
         const sorted = [...data.items].sort((a, b) => (a.uploadedAt < b.uploadedAt ? 1 : -1));
         const total = sorted.length;
-        const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+        const totalPages = Math.max(1, Math.ceil(total / pageSize));
         const page = Math.min(requested, totalPages);
-        const items = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+        const items = sorted.slice((page - 1) * pageSize, page * pageSize);
         return Response.json({
           items,
           page,
-          pageSize: PAGE_SIZE,
+          pageSize,
           totalPages,
           total,
           admin: isAdmin(request),

@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as RegistrationRouteImport } from './routes/registration'
 import { Route as ApiGalleryRouteImport } from './routes/api.gallery'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RegistrationRoute = RegistrationRouteImport.update({
@@ -31,30 +37,34 @@ const ApiGalleryRoute = ApiGalleryRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/gallery': typeof GalleryRoute
   '/registration': typeof RegistrationRoute
   '/api/gallery': typeof ApiGalleryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/gallery': typeof GalleryRoute
   '/registration': typeof RegistrationRoute
   '/api/gallery': typeof ApiGalleryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/gallery': typeof GalleryRoute
   '/registration': typeof RegistrationRoute
   '/api/gallery': typeof ApiGalleryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/registration' | '/api/gallery'
+  fullPaths: '/' | '/gallery' | '/registration' | '/api/gallery'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/registration' | '/api/gallery'
-  id: '__root__' | '/' | '/registration' | '/api/gallery'
+  to: '/' | '/gallery' | '/registration' | '/api/gallery'
+  id: '__root__' | '/' | '/gallery' | '/registration' | '/api/gallery'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GalleryRoute: typeof GalleryRoute
   RegistrationRoute: typeof RegistrationRoute
   ApiGalleryRoute: typeof ApiGalleryRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/registration': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GalleryRoute: GalleryRoute,
   RegistrationRoute: RegistrationRoute,
   ApiGalleryRoute: ApiGalleryRoute,
 }
