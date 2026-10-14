@@ -2,5 +2,11 @@
   "previewPort": 3000,
   "healthPath": "/",
   "startCommand": "docker compose -f docker-compose.base44.yml up -d",
-  "secrets": []
+  "secrets": [
+    {
+      "name": "GALLERY_ADMIN_PASSWORD",
+      "description": "Password for the admin-only 'Upload to Gallery' button in the See KIPLA in Action section",
+      "requiredAtBoot": false
+    }
+  ]
 }

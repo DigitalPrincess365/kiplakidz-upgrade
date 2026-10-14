@@ -1,0 +1,60 @@
+{
+  "items": [
+    {
+      "id": "seed-01",
+      "type": "photo",
+      "url": "/kipla-preview/culture-circle-time.jpeg",
+      "filename": "IMG_5699.jpeg",
+      "uploadedAt": "2026-10-08T16:00:00.000Z"
+    },
+    {
+      "id": "seed-02",
+      "type": "photo",
+      "url": "/kipla-preview/culture-slides.jpeg",
+      "filename": "IMG_5700.jpeg",
+      "uploadedAt": "2026-10-08T16:01:00.000Z"
+    },
+    {
+      "id": "seed-03",
+      "type": "photo",
+      "url": "/kipla-preview/culture-blocks.jpeg",
+      "filename": "IMG_5698.jpeg",
+      "uploadedAt": "2026-10-08T16:02:00.000Z"
+    },
+    {
+      "id": "seed-04",
+      "type": "photo",
+      "url": "/kipla-preview/culture-community-helper.jpeg",
+      "filename": "IMG_5703.jpeg",
+      "uploadedAt": "2026-10-08T16:03:00.000Z"
+    },
+    {
+      "id": "seed-05",
+      "type": "photo",
+      "url": "/kipla-preview/culture-lunch.jpeg",
+      "filename": "IMG_5701.jpeg",
+      "uploadedAt": "2026-10-08T16:04:00.000Z"
+    },
+    {
+      "id": "seed-06",
+      "type": "photo",
+      "url": "/kipla-preview/culture-learning-cards.jpeg",
+      "filename": "IMG_5704.jpeg",
+      "uploadedAt": "2026-10-08T16:05:00.000Z"
+    },
+    {
+      "id": "seed-07",
+      "type": "photo",
+      "url": "/kipla-preview/culture-puzzle.jpeg",
+      "filename": "IMG_5706.jpeg",
+      "uploadedAt": "2026-10-08T17:40:00.000Z"
+    },
+    {
+      "id": "seed-08",
+      "type": "video",
+      "url": "/kipla-preview/culture-classroom.mp4",
+      "filename": "classroom.mp4",
+      "uploadedAt": "2026-10-08T17:41:00.000Z"
+    }
+  ]
+}

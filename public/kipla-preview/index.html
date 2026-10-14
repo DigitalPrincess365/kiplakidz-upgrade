@@ -357,17 +357,34 @@
         <li><a class="social-links__item" href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 2h-3.1v13.1a2.6 2.6 0 1 1-1.9-2.5V9.4a5.7 5.7 0 1 0 5 5.6V8.7a6.4 6.4 0 0 0 3.6 1.1V6.7a3.6 3.6 0 0 1-3.6-3.6V2Z"/></svg></a></li>
         <li><a class="social-links__item" href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8C22 15.2 22 12 22 12s0-3.2-.4-4.8ZM10 15.2V8.8L15.5 12 10 15.2Z"/></svg></a></li>
       </ul>
-    </div>
-    <div class="gallery-grid">
-      <figure class="frame frame--square"><div class="frame__placeholder"><span>Learning &amp; classrooms</span><small>Everyday moments from our rooms.</small></div></figure>
-      <figure class="frame frame--square"><div class="frame__placeholder"><span>Field trips</span><small>Adventures beyond the classroom.</small></div></figure>
-      <figure class="frame frame--square"><div class="frame__placeholder"><span>Summer camp</span><small>Water days, STEAM, and outdoor fun.</small></div></figure>
-      <figure class="frame frame--square"><div class="frame__placeholder"><span>Celebrations</span><small>Graduations, holidays, and milestones.</small></div></figure>
-      <figure class="frame frame--square"><div class="frame__placeholder"><span>Community involvement</span><small>Service projects and local partnerships.</small></div></figure>
-      <figure class="frame frame--square"><div class="frame__placeholder"><span>Video highlights</span><small>Add YouTube or uploaded videos.</small></div></figure>
+      <div class="gallery-admin">
+        <button class="link-underline" id="gallery-admin-link" type="button">Admin</button>
+        <form class="gallery-admin-panel" id="gallery-admin-panel" hidden>
+          <input type="password" id="gallery-admin-password" placeholder="Admin password" aria-label="Admin password" autocomplete="current-password" />
+          <button class="btn btn--primary btn--sm" type="submit">Sign in</button>
+          <span class="gallery-admin-error" id="gallery-admin-error" hidden>Incorrect password — please try again.</span>
+        </form>
+      </div>
     </div>
 
-    <p style="text-align:center;margin-top:2rem"><a class="link-underline" href="#">View the full gallery</a></p>
+    <div class="gallery-admin-bar" id="gallery-admin-bar" hidden>
+      <span class="gallery-admin-badge">Admin</span>
+      <button class="btn btn--gold btn--sm" id="gallery-upload-btn" type="button">Upload to Gallery</button>
+      <button class="link-underline gallery-admin-signout" id="gallery-signout" type="button">Sign out</button>
+    </div>
+    <input type="file" id="gallery-upload-input" multiple accept="image/*,video/*" hidden />
+    <div class="gallery-uploader" id="gallery-uploader" hidden>
+      <h3 id="gallery-queue-title">Uploading…</h3>
+      <div id="gallery-queue"></div>
+    </div>
+
+    <div class="gallery-grid" id="action-gallery"></div>
+    <p class="gallery-empty" id="action-gallery-empty" hidden>No photos yet — check back soon!</p>
+    <nav class="gallery-pager" id="action-gallery-pager" hidden>
+      <button class="btn btn--ghost btn--sm" id="gallery-prev" type="button">Previous</button>
+      <span id="gallery-page-info">Page 1 of 1</span>
+      <button class="btn btn--ghost btn--sm" id="gallery-next" type="button">Next</button>
+    </nav>
   </div>
 </section>
 
@@ -481,5 +498,6 @@
   </div>
 </footer>
 <script src="/kipla-preview/main.js"></script>
+<script src="/kipla-preview/gallery.js"></script>
 </body>
 </html>

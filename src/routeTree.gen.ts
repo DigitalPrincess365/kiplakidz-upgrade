@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as RegistrationRouteImport } from './routes/registration'
+import { Route as ApiGalleryRouteImport } from './routes/api.gallery'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,40 @@ const RegistrationRoute = RegistrationRouteImport.update({
   path: '/registration',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiGalleryRoute = ApiGalleryRouteImport.update({
+  id: '/api/gallery',
+  path: '/api/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/registration': typeof RegistrationRoute
+  '/api/gallery': typeof ApiGalleryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/registration': typeof RegistrationRoute
+  '/api/gallery': typeof ApiGalleryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/registration': typeof RegistrationRoute
+  '/api/gallery': typeof ApiGalleryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/registration'
+  fullPaths: '/' | '/registration' | '/api/gallery'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/registration'
-  id: '__root__' | '/' | '/registration'
+  to: '/' | '/registration' | '/api/gallery'
+  id: '__root__' | '/' | '/registration' | '/api/gallery'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   RegistrationRoute: typeof RegistrationRoute
+  ApiGalleryRoute: typeof ApiGalleryRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RegistrationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/gallery': {
+      id: '/api/gallery'
+      path: '/api/gallery'
+      fullPath: '/api/gallery'
+      preLoaderRoute: typeof ApiGalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   RegistrationRoute: RegistrationRoute,
+  ApiGalleryRoute: ApiGalleryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
