@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'KIPLA_VERSION', '1.0.0' );
+define( 'KIPLA_VERSION', '1.1.0' );
 
 /**
  * Theme supports.
@@ -45,9 +45,8 @@ add_action( 'after_setup_theme', 'kipla_setup' );
  * Assets.
  */
 function kipla_assets() {
-	wp_enqueue_style( 'kipla-fonts', 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap', array(), null );
+	wp_enqueue_style( 'kipla-fonts', 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@400;600;700;800&family=DM+Serif+Display&display=swap', array(), null );
 	wp_enqueue_style( 'kipla-style', get_stylesheet_uri(), array(), KIPLA_VERSION );
-	wp_enqueue_style( 'kipla-theme', get_template_directory_uri() . '/assets/css/theme.css', array( 'kipla-style' ), KIPLA_VERSION );
 	wp_enqueue_script( 'kipla-main', get_template_directory_uri() . '/assets/js/main.js', array(), KIPLA_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

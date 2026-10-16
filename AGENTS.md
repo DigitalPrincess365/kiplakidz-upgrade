@@ -33,7 +33,11 @@ docker compose -f docker-compose.base44.yml up -d
   kiplafoundationinc@gmail.com via FormSubmit.co (no online storage). Both libs are client-only
   (dynamically imported in effects) so SSR never loads them.
 - The static KIPLA WordPress theme preview lives in `public/kipla-preview/` (HTML, CSS, JS, program pages).
-- `kipla-theme/` and `kipla-theme.zip` are the raw WordPress PHP theme — not used by the Vite app.
+- `kipla-theme/` is the deliverable WordPress theme (also zipped as `kipla-theme.zip`) — not used by the Vite app.
+  Standard structure: `header.php`/`footer.php` (wp_head/wp_footer), `index.php` (the Loop), `front-page.php` + `template-parts/home/*` (homepage sections),
+  `page-templates/tour.php` + `page-templates/enrollment.php` (plugin-ready HTML forms), `archive-kipla_media.php` (full gallery), `style.css` (theme header + all styles),
+  `functions.php` (enqueues; CPTs: kipla_program/kipla_media/kipla_update/kipla_testimonial in `inc/post-types.php`), assets in `assets/{images,media,docs,js}`.
+  Verified via a dockerized WordPress instance (lint all PHP with `docker run php:8.2-cli` + activate theme + curl each template).
 
 ## Vite config note
 - vite.config.ts uses `@lovable.dev/vite-tanstack-config`, which already registers
