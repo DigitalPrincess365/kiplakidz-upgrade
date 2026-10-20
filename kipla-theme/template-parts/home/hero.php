@@ -24,7 +24,7 @@ $enroll_url   = kipla_opt( 'kipla_enroll_url' ) ? kipla_opt( 'kipla_enroll_url' 
 	</div>
 	<div class="hero__media">
 		<div class="hero__photo">
-			<img src="<?php echo esc_url( $kipla_assets ); ?>/assets/images/classroom-hero-new.jpeg" alt="KIPLA teacher and scholars together in a bright classroom" loading="eager" />
+			<img src="<?php echo esc_url( $kipla_assets ); ?>/assets/images/classroom-hero-group.jpeg" alt="KIPLA teacher and scholars together in a bright classroom" loading="eager" />
 			<span class="hero__photo-mask" aria-hidden="true"></span>
 			<span class="hero__overlay-top"><span class="hero__overlay-hl">A Positive Start Shapes<br>Everything That Follows</span> <span class="hero__overlay-heart">&#9829;</span></span>
 			<span class="hero__overlay-bottom">
