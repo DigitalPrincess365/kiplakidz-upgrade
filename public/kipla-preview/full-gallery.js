@@ -3,7 +3,7 @@
   "use strict";
 
   var API = window.KIPLA_GALLERY_API || "/api/gallery";
-  var PAGE_SIZE = window.KIPLA_GALLERY_PAGE_SIZE || 12;
+  var PAGE_SIZE = window.KIPLA_GALLERY_PAGE_SIZE || 48;
 
   var els = {
     grid: document.getElementById("action-gallery"),
