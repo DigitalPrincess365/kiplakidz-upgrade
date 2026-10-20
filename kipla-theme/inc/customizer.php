@@ -46,10 +46,10 @@ function kipla_defaults() {
 		'kipla_founder_signature' => 'Ms. Wanda',
 		'kipla_founder_story_url' => '#welcome',
 
-		'kipla_instagram'       => '',
+		'kipla_instagram'       => 'https://www.instagram.com/kipla_foundation_inc/',
 		'kipla_tiktok'          => '',
 		'kipla_youtube'         => '',
-		'kipla_facebook'        => '',
+		'kipla_facebook'        => 'https://www.facebook.com/p/KIPLA-Foundation-Inc-100063482413600/',
 	);
 }
 
