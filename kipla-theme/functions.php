@@ -72,7 +72,7 @@ function kipla_widgets() {
 add_action( 'widgets_init', 'kipla_widgets' );
 
 /**
- * Full Gallery archive: 14 items per page (front page shows 12 featured).
+ * Full Gallery archive: 12 items per page (front page shows 12 featured).
  *
  * @param WP_Query $query Main query.
  */
@@ -81,7 +81,7 @@ function kipla_media_archive_page_size( $query ) {
 		return;
 	}
 	if ( $query->is_post_type_archive( 'kipla_media' ) ) {
-		$query->set( 'posts_per_page', 14 );
+		$query->set( 'posts_per_page', 12 );
 	}
 }
 add_action( 'pre_get_posts', 'kipla_media_archive_page_size' );
