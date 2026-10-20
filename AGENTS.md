@@ -39,6 +39,20 @@ docker compose -f docker-compose.base44.yml up -d
   `functions.php` (enqueues; CPTs: kipla_program/kipla_media/kipla_update/kipla_testimonial in `inc/post-types.php`), assets in `assets/{images,media,docs,js}`.
   Verified via a dockerized WordPress instance (lint all PHP with `docker run php:8.2-cli` + activate theme + curl each template).
 
+## Downloadable WordPress export
+- `public/kipla-theme-installable.zip` is the theme-only download served at
+  `/kipla-theme-installable.zip`; keep it in sync with `kipla-theme/` when
+  delivering future exports. Do not send GitHub's whole-repository archive to
+  WordPress's theme uploader.
+- Inspect the final ZIP itself: only `kipla-theme/` at the root, with
+  `style.css` and `index.php` directly inside; compare each extracted file's
+  bytes against the source. No React/Vite build is required by this classic
+  PHP theme. A correct ZIP does not establish why a separate upload failed.
+- Preview startup installs from the frozen Bun lockfile, then runs the dev
+  server directly; its Compose healthcheck requests the rendered homepage
+  and checks for the preview iframe. These are development setup checks,
+  with no shared application configuration overrides.
+
 ## Vite config note
 - vite.config.ts uses `@lovable.dev/vite-tanstack-config`, which already registers
   TanStack Start, React, Tailwind, tsconfig paths, nitro, and sandbox host/port detection.
