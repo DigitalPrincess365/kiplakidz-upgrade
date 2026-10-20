@@ -8,7 +8,7 @@ import path from "node:path";
  * - GET    /api/gallery?page=N&limit=M  → one page of records (50 per page, or M featured) + admin flag
  * - POST   /api/gallery         → admin-only multipart upload, saves file + record
  * - PUT    /api/gallery         → admin login (password → session cookie)
- * - DELETE /api/gallery         → admin logout
+ * - DELETE /api/gallery?id=ID   → admin-only: delete one photo (record + file)
  *
  * Files are stored publicly in public/kipla-preview/gallery/uploads/ and the
  * record list lives in public/kipla-preview/gallery/records.json.
@@ -144,7 +144,23 @@ export const Route = createFileRoute("/api/gallery")({
           },
         });
       },
-      DELETE: async () => {
+      DELETE: async ({ request }: any) => {
+        const url = new URL(request.url);
+        const id = url.searchParams.get("id");
+        if (id) {
+          if (!isAdmin(request)) return jsonError("Unauthorized", 401);
+          const data = await readRecords();
+          const record = data.items.find((item) => item.id === id);
+          if (!record) return jsonError("Photo not found", 404);
+          data.items = data.items.filter((item) => item.id !== id);
+          await writeRecords(data);
+          try {
+            await fs.unlink(path.join(UPLOADS_DIR, path.basename(record.url)));
+          } catch {
+            /* file already gone — record removal is what matters */
+          }
+          return Response.json({ ok: true, id });
+        }
         return new Response(JSON.stringify({ ok: true }), {
           headers: {
             "content-type": "application/json",

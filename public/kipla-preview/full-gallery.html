@@ -30,6 +30,20 @@
       </div>
     </div>
 
+    <div class="gallery-admin">
+      <button class="link-underline" id="gallery-admin-link" type="button">Admin</button>
+      <form class="gallery-admin-panel" id="gallery-admin-panel" hidden>
+        <input type="password" id="gallery-admin-password" placeholder="Admin password" aria-label="Admin password" autocomplete="current-password" />
+        <button class="btn btn--primary btn--sm" type="submit">Sign in</button>
+        <span class="gallery-admin-error" id="gallery-admin-error" hidden>Incorrect password — please try again.</span>
+      </form>
+    </div>
+    <div class="gallery-admin-bar" id="gallery-admin-bar" hidden>
+      <span class="gallery-admin-badge">Admin</span>
+      <span class="gallery-admin-hint">Click Delete on any photo to remove it.</span>
+      <button class="link-underline gallery-admin-signout" id="gallery-signout" type="button">Sign out</button>
+    </div>
+
     <div class="gallery-grid" id="action-gallery"></div>
     <p class="gallery-empty" id="gallery-empty" hidden>No photos yet — check back soon!</p>
     <nav class="gallery-pager" id="gallery-pager" hidden>

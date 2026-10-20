@@ -23,6 +23,10 @@ get_header();
 				<?php
 				while ( have_posts() ) :
 					the_post();
+					$kipla_delete = kipla_media_delete_url( get_the_ID() );
+					if ( $kipla_delete ) {
+						echo '<div class="gallery-item">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					}
 					$kipla_video = get_post_meta( get_the_ID(), '_kipla_video_url', true );
 					if ( $kipla_video ) {
 						kipla_video_embed( $kipla_video );
@@ -35,6 +39,15 @@ get_header();
 							'label'    => get_the_title(),
 							'hint'     => __( 'Set a featured image for this item.', 'kipla' ),
 						) );
+					}
+					if ( $kipla_delete ) {
+						printf(
+							'<a class="gallery-delete" href="%1$s" onclick="return confirm(%2$s);">%3$s</a>',
+							esc_url( $kipla_delete ),
+							esc_attr( __( 'Delete this photo from the gallery? This cannot be undone.', 'kipla' ) ),
+							esc_html__( 'Delete', 'kipla' )
+						);
+						echo '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					}
 				endwhile;
 				?>

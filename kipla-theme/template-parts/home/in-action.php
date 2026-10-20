@@ -1,13 +1,13 @@
 <?php
 /**
- * Front page: See KIPLA in Action — 10 featured photos + link to the full gallery.
+ * Front page: See KIPLA in Action — 12 featured photos + link to the full gallery.
  *
  * @package KIPLA
  */
 
 $kipla_featured = new WP_Query( array(
 	'post_type'           => 'kipla_media',
-	'posts_per_page'      => 10,
+	'posts_per_page'      => 12,
 	'no_found_rows'       => true,
 	'ignore_sticky_posts' => true,
 ) );

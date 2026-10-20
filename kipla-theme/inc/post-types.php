@@ -239,3 +239,36 @@ function kipla_save_meta( $post_id ) {
 	}
 }
 add_action( 'save_post', 'kipla_save_meta' );
+
+/**
+ * Front-end delete URL for a gallery item — empty unless the current user may edit it.
+ *
+ * @param int $post_id Media post ID.
+ * @return string
+ */
+function kipla_media_delete_url( $post_id ) {
+	if ( ! $post_id || ! current_user_can( 'edit_post', $post_id ) ) {
+		return '';
+	}
+	return wp_nonce_url(
+		admin_url( 'admin-post.php?action=kipla_delete_media&post=' . (int) $post_id ),
+		'kipla_delete_media_' . $post_id
+	);
+}
+
+/**
+ * Handle the front-end gallery delete (admins only): trash the item, then return.
+ */
+function kipla_handle_media_delete() {
+	$post_id = isset( $_GET['post'] ) ? absint( $_GET['post'] ) : 0;
+	if ( ! $post_id || ! current_user_can( 'edit_post', $post_id ) ) {
+		wp_die( esc_html__( 'You are not allowed to do that.', 'kipla' ), 403 );
+	}
+	check_admin_referer( 'kipla_delete_media_' . $post_id );
+	if ( 'kipla_media' === get_post_type( $post_id ) ) {
+		wp_trash_post( $post_id );
+	}
+	wp_safe_redirect( wp_get_referer() ? wp_get_referer() : get_post_type_archive_link( 'kipla_media' ) );
+	exit;
+}
+add_action( 'admin_post_kipla_delete_media', 'kipla_handle_media_delete' );

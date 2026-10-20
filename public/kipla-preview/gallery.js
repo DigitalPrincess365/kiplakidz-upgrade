@@ -60,6 +60,7 @@
     items.forEach(function (item) {
       var fig = document.createElement("figure");
       fig.className = "frame frame--square";
+      if (state.admin) fig.appendChild(deleteButton(item));
       if (item.type === "video") {
         var video = document.createElement("video");
         video.controls = true;
@@ -80,6 +81,21 @@
       }
       els.grid.appendChild(fig);
     });
+  }
+
+  function deleteButton(item) {
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "gallery-delete";
+    btn.textContent = "Delete";
+    btn.addEventListener("click", function () {
+      if (!window.confirm("Delete this photo from the gallery? This cannot be undone.")) return;
+      fetch(API + "?id=" + encodeURIComponent(item.id), { method: "DELETE", credentials: "include" })
+        .then(function (r) {
+          if (r.ok) { load(state.page); }
+        });
+    });
+    return btn;
   }
 
   function renderPager() {

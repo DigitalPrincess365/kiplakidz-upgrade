@@ -481,6 +481,10 @@ p{margin:0 0 1rem}
    ========================================================== */
 .gallery-cta{text-align:center;margin:2.5rem 0 0}
 .gallery-empty{text-align:center;color:rgba(38,38,38,.6);padding:2.5rem 0;margin:0}
+/* per-photo delete control — only shown to signed-in admins */
+.gallery-item{position:relative}
+.gallery-delete{position:absolute;top:.6rem;right:.6rem;z-index:3;padding:.35rem .85rem;border-radius:999px;border:1px solid rgba(27,67,50,.3);background:var(--white);color:var(--deep-red);font-size:.75rem;font-weight:600;letter-spacing:.04em;text-decoration:none;box-shadow:var(--shadow-sm)}
+.gallery-delete:hover{background:var(--deep-red);color:var(--white);border-color:var(--deep-red)}
 section[id]{scroll-margin-top:5.5rem}
 
 /* ==========================================================

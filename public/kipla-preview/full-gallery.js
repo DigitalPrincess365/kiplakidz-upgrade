@@ -3,6 +3,7 @@
   "use strict";
 
   var API = window.KIPLA_GALLERY_API || "/api/gallery";
+  var PAGE_SIZE = window.KIPLA_GALLERY_PAGE_SIZE || 14;
 
   var els = {
     grid: document.getElementById("action-gallery"),
@@ -11,18 +12,25 @@
     pagePrev: document.getElementById("gallery-prev"),
     pageNext: document.getElementById("gallery-next"),
     pageInfo: document.getElementById("gallery-page-info"),
+    adminLink: document.getElementById("gallery-admin-link"),
+    adminPanel: document.getElementById("gallery-admin-panel"),
+    adminPassword: document.getElementById("gallery-admin-password"),
+    adminError: document.getElementById("gallery-admin-error"),
+    adminBar: document.getElementById("gallery-admin-bar"),
+    signout: document.getElementById("gallery-signout"),
   };
   if (!els.grid) return;
 
-  var state = { page: 1, totalPages: 1, total: 0 };
+  var state = { page: 1, totalPages: 1, total: 0, admin: false };
 
   function load(page) {
-    fetch(API + "?page=" + page, { credentials: "include" })
+    fetch(API + "?page=" + page + "&limit=" + PAGE_SIZE, { credentials: "include" })
       .then(function (r) { return r.json(); })
       .then(function (data) {
         state.page = Math.min(data.page, data.totalPages);
         state.totalPages = data.totalPages;
         state.total = data.total;
+        state.admin = !!data.admin;
         renderItems(data.items);
         renderPager();
       })
@@ -36,9 +44,13 @@
     els.grid.innerHTML = "";
     els.empty.hidden = state.total > 0;
     if (state.total === 0) els.empty.textContent = "No photos yet — check back soon!";
+    els.adminLink.hidden = state.admin;
+    if (!state.admin) els.adminPanel.hidden = true;
+    els.adminBar.hidden = !state.admin;
     items.forEach(function (item) {
       var fig = document.createElement("figure");
       fig.className = "frame frame--square";
+      if (state.admin) fig.appendChild(deleteButton(item));
       if (item.type === "video") {
         var video = document.createElement("video");
         video.controls = true;
@@ -61,6 +73,51 @@
       els.grid.appendChild(fig);
     });
   }
+
+  function deleteButton(item) {
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "gallery-delete";
+    btn.textContent = "Delete";
+    btn.addEventListener("click", function () {
+      if (!window.confirm("Delete this photo from the gallery? This cannot be undone.")) return;
+      fetch(API + "?id=" + encodeURIComponent(item.id), { method: "DELETE", credentials: "include" })
+        .then(function (r) {
+          if (r.ok) { load(state.page); }
+        });
+    });
+    return btn;
+  }
+
+  /* --- admin login / sign out --- */
+  els.adminLink.addEventListener("click", function () {
+    els.adminPanel.hidden = !els.adminPanel.hidden;
+    if (!els.adminPanel.hidden) els.adminPassword.focus();
+  });
+
+  els.adminPanel.addEventListener("submit", function (e) {
+    e.preventDefault();
+    els.adminError.hidden = true;
+    fetch(API, {
+      method: "PUT",
+      credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ password: els.adminPassword.value }),
+    })
+      .then(function (r) {
+        if (r.ok) {
+          els.adminPassword.value = "";
+          load(state.page);
+        } else {
+          els.adminError.hidden = false;
+        }
+      })
+      .catch(function () { els.adminError.hidden = false; });
+  });
+
+  els.signout.addEventListener("click", function () {
+    fetch(API, { method: "DELETE", credentials: "include" }).then(function () { load(state.page); });
+  });
 
   function renderPager() {
     els.pager.hidden = state.totalPages <= 1;

@@ -521,6 +521,10 @@ p{margin:0 0 1rem}
   padding:.35rem .9rem;border-radius:999px
 }
 .gallery-admin-signout{font-size:.85rem}
+.gallery-admin-hint{font-size:.85rem;color:rgba(38,38,38,.65)}
+/* per-photo delete control — only rendered for signed-in admins */
+.gallery-delete{position:absolute;top:.6rem;right:.6rem;z-index:3;padding:.35rem .85rem;border-radius:999px;border:1px solid rgba(27,67,50,.3);background:var(--white);color:var(--deep-red);font-size:.75rem;font-weight:600;letter-spacing:.04em;cursor:pointer;box-shadow:var(--shadow-sm)}
+.gallery-delete:hover{background:var(--deep-red);color:var(--white);border-color:var(--deep-red)}
 .gallery-uploader{
   margin:0 0 1.5rem;padding:1.25rem 1.5rem;border:1px dashed rgba(27,67,50,.3);
   border-radius:var(--radius-lg);background:rgba(27,67,50,.03)
