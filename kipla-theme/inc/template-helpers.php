@@ -63,8 +63,9 @@ function kipla_sunflower( $class = 'sun' ) {
  * Render social media icon links.
  *
  * @param string $class Extra class.
+ * @param bool   $labeled Show a visible "KIPLA <Network>" label beside each icon.
  */
-function kipla_social_links( $class = '' ) {
+function kipla_social_links( $class = '', $labeled = false ) {
 	$networks = array(
 		'instagram' => array( kipla_opt( 'kipla_instagram' ), __( 'Instagram', 'kipla' ) ),
 		'tiktok'    => array( kipla_opt( 'kipla_tiktok' ), __( 'TikTok', 'kipla' ) ),
@@ -83,10 +84,11 @@ function kipla_social_links( $class = '' ) {
 	echo '<ul class="social-links ' . esc_attr( $class ) . '">';
 	foreach ( $links as $key => $data ) {
 		printf(
-			'<li><a class="social-links__item social-links__item--%1$s" href="%2$s" target="_blank" rel="noopener noreferrer"><span class="screen-reader-text">%3$s</span>%4$s</a></li>',
-			esc_attr( $key ),
+			'<li><a class="social-links__item%1$s" href="%2$s" target="_blank" rel="noopener noreferrer">%5$s<span class="%3$s">%4$s</span></a></li>',
+			$labeled ? ' social-links__item--labeled' : ' social-links__item--' . esc_attr( $key ),
 			esc_url( $data[0] ),
-			esc_html( $data[1] ),
+			$labeled ? 'social-links__label' : 'screen-reader-text',
+			esc_html( ( $labeled ? 'KIPLA ' : '' ) . $data[1] ),
 			kipla_icon( $key ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		);
 	}

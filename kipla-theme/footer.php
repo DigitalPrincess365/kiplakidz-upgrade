@@ -17,7 +17,7 @@
 					<span><?php bloginfo( 'name' ); ?></span>
 				</div>
 				<p><?php echo esc_html( get_bloginfo( 'description' ) ); ?></p>
-				<?php kipla_social_links( 'social-links--footer' ); ?>
+				<?php kipla_social_links( 'social-links--footer', true ); ?>
 			</div>
 
 			<div>
