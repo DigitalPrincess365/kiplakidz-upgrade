@@ -83,12 +83,21 @@ function kipla_social_links( $class = '', $labeled = false ) {
 
 	echo '<ul class="social-links ' . esc_attr( $class ) . '">';
 	foreach ( $links as $key => $data ) {
+		if ( $labeled ) {
+			printf(
+				'<li><a class="social-labeled-link" href="%1$s" target="_blank" rel="noopener noreferrer"><span class="social-links__item social-links__item--%2$s">%3$s</span><span>%4$s</span></a></li>',
+				esc_url( $data[0] ),
+				esc_attr( $key ),
+				kipla_icon( $key ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				esc_html( 'KIPLA ' . $data[1] )
+			);
+			continue;
+		}
 		printf(
-			'<li><a class="social-links__item%1$s" href="%2$s" target="_blank" rel="noopener noreferrer">%5$s<span class="%3$s">%4$s</span></a></li>',
-			$labeled ? ' social-links__item--labeled' : ' social-links__item--' . esc_attr( $key ),
+			'<li><a class="social-links__item social-links__item--%1$s" href="%2$s" target="_blank" rel="noopener noreferrer"><span class="screen-reader-text">%3$s</span>%4$s</a></li>',
+			esc_attr( $key ),
 			esc_url( $data[0] ),
-			$labeled ? 'social-links__label' : 'screen-reader-text',
-			esc_html( ( $labeled ? 'KIPLA ' : '' ) . $data[1] ),
+			esc_html( $data[1] ),
 			kipla_icon( $key ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		);
 	}
