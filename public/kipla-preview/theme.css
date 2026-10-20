@@ -149,7 +149,7 @@ p{margin:0 0 1rem}
 .hero--split h1{font-weight:700}
 .hero--split .hero__tagline{font-weight:600;color:var(--hunter)}
 .hero--split .hero__lead{color:rgba(38,38,38,.9)}
-.hero--split .eyebrow{background:rgba(255,195,0,.28);font-weight:700;padding-inline:.5rem}
+.hero--split .eyebrow{background:rgba(255,195,0,.28);font-weight:700;padding:.45rem .9rem;white-space:nowrap}
 .hero--split .hero__inner{position:relative;z-index:2;max-width:clamp(22rem,42%,34rem);margin:0;display:flex;flex-direction:column;justify-content:center;height:100%;padding-block:clamp(.5rem,2vw,1.25rem)}
 .hero--split .hero__lead{max-width:none;margin:0 0 1.5rem}
 .hero--split .hero__actions{justify-content:flex-start;flex-wrap:nowrap;gap:.5rem;margin-top:20px}
