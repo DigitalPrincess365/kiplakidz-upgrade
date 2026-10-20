@@ -165,7 +165,7 @@ p{margin:0 0 1rem}
 .hero--split h1{font-weight:700}
 .hero--split .hero__tagline{font-weight:600;color:var(--hunter)}
 .hero--split .hero__lead{color:rgba(38,38,38,.9)}
-.hero--split .eyebrow{background:rgba(255,195,0,.28);font-weight:700;padding:.45rem .9rem;white-space:nowrap}
+.hero--split .eyebrow{background:rgba(255,195,0,.28);font-weight:700;padding:.45rem .9rem;white-space:nowrap;align-self:flex-start}
 .hero--split .hero__inner{position:relative;z-index:2;max-width:clamp(22rem,42%,34rem);margin:0;display:flex;flex-direction:column;justify-content:center;height:100%;padding-block:clamp(.5rem,2vw,1.25rem)}
 .hero--split .hero__lead{max-width:none;margin:0 0 1.5rem}
 .hero--split .hero__actions{justify-content:flex-start;flex-wrap:nowrap;gap:.5rem;margin-top:20px}
@@ -196,6 +196,7 @@ p{margin:0 0 1rem}
   .hero--split .hero__actions{justify-content:center;flex-wrap:nowrap;gap:.4rem}
   .hero--split .hero__actions .btn{padding:.45rem .7rem;font-size:.76rem}
   .hero--split .hero__media{position:static;width:100%;margin:clamp(1.25rem,4vw,2rem) auto 0;max-width:22rem}
+  .hero--split .eyebrow{align-self:center}
   .hero__photo{position:relative;height:auto;aspect-ratio:1085/1449;min-height:0}
   .hero__photo-mask{background:linear-gradient(to top,var(--cream) 0%,rgba(254,250,240,0) 10%)}
   .hero__overlay-bottom{left:6%;bottom:.25rem;max-width:9.5rem;padding:.6rem 1rem;font-size:.9rem}
