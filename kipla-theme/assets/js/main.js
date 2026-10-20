@@ -71,3 +71,27 @@
 
   revealables.forEach(function (el) { observer.observe(el); });
 })();
+
+/* Culture video: autoplay silently while in view, pause when scrolled away */
+(function () {
+  'use strict';
+  var video = document.querySelector('.gallery-grid video');
+  if (!video) return;
+
+  video.muted = true;
+  video.playsInline = true;
+
+  if (!('IntersectionObserver' in window)) return;
+
+  var videoObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        video.play().catch(function () {});
+      } else {
+        video.pause();
+      }
+    });
+  }, { threshold: 0.25 });
+
+  videoObserver.observe(video);
+})();

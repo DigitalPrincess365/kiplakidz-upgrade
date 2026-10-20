@@ -26,7 +26,7 @@ $kipla_assets = get_template_directory_uri();
 			<figure class="frame frame--square"><img src="<?php echo esc_url( $kipla_assets ); ?>/assets/images/culture-lunch.jpeg" alt="KIPLA scholars enjoying lunch together in the classroom" loading="lazy" /></figure>
 			<figure class="frame frame--square"><img src="<?php echo esc_url( $kipla_assets ); ?>/assets/images/culture-learning-cards.jpeg" alt="KIPLA scholars working on flashcards with pencils at the activity table" loading="lazy" /></figure>
 			<figure class="frame frame--square"><img src="<?php echo esc_url( $kipla_assets ); ?>/assets/images/culture-puzzle.jpeg" alt="Two KIPLA scholars working together on a Dr. Seuss floor puzzle" loading="lazy" /></figure>
-			<figure class="frame frame--square"><video src="<?php echo esc_url( $kipla_assets ); ?>/assets/media/culture-classroom.mp4" controls loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block" aria-label="Video of KIPLA scholars learning in the classroom"></video></figure>
+			<figure class="frame frame--square"><video src="<?php echo esc_url( $kipla_assets ); ?>/assets/media/culture-classroom.mp4" controls muted autoplay loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block" aria-label="Video of KIPLA scholars learning in the classroom"></video></figure>
 		</div>
 	</div>
 </section>
