@@ -28,7 +28,7 @@ $enroll_url   = kipla_opt( 'kipla_enroll_url' ) ? kipla_opt( 'kipla_enroll_url' 
 			<span class="hero__photo-mask" aria-hidden="true"></span>
 			<span class="hero__overlay-top"><span class="hero__overlay-hl">A Positive Start Shapes<br>Everything That Follows</span> <span class="hero__overlay-heart">&#9829;</span></span>
 			<span class="hero__overlay-bottom">
-				<svg class="hero__overlay-brush" viewBox="0 0 340 92" preserveAspectRatio="none" aria-hidden="true"><defs><filter id="brushGrain" x="-10%" y="-40%" width="120%" height="180%"><feGaussianBlur stdDeviation="0.5"/></filter></defs><g filter="url(#brushGrain)" transform="rotate(-1 170 46)"><path d="M30,46 C44,30 68,22 100,24 C130,26 152,17 184,19 C216,21 250,15 282,21 C300,25 312,31 310,42 C308,56 288,68 254,65 C220,62 200,74 166,70 C132,66 110,77 82,70 C58,64 40,54 36,49 C33,47 30,47 30,46 Z" fill="#f0d67a" fill-opacity="0.9"/></g></svg>
+				<svg class="hero__overlay-brush" viewBox="0 0 340 92" preserveAspectRatio="none" aria-hidden="true"><defs><filter id="brushGrain" x="-10%" y="-40%" width="120%" height="180%"><feGaussianBlur stdDeviation="0.5"/></filter></defs><g filter="url(#brushGrain)" transform="rotate(-0.8 170 46)"><path d="M12,49 C15,34 24,26 42,23 C74,18 112,16 152,16 C202,16 252,18 294,22 C314,24 327,30 327,39 C327,48 316,54 298,56 C276,58 262,64 232,66 C192,69 142,70 98,68 C64,66 32,62 20,55 C13,52 12,51 12,49 Z" fill="#f0d67a" fill-opacity="0.9"/></g></svg>
 				Building Future Leaders<br>One Experience At A Time
 			</span>
 		</div>
