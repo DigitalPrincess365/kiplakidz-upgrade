@@ -53,6 +53,18 @@ docker compose -f docker-compose.base44.yml up -d
   and checks for the preview iframe. These are development setup checks,
   with no shared application configuration overrides.
 
+## Static site export (WPConvert)
+- `public/kipla-site/` is a standalone static HTML/CSS/JS recreation of the whole site
+  (no PHP, no build step, no React wrapper) for WPConvert conversion — browsable in the
+  preview at `/kipla-site/index.html`. Pages: index, schedule-tour, enrollment,
+  full-gallery (148 baked-in photos, client-side 48/page pager), 404, six `programs/` pages.
+- `public/kipla-site.zip` is the upload-ready export (files at the ZIP root, `index.html`
+  on the top level). Rebuild it from `public/kipla-site/` after any change to that folder.
+- The site's media there is optimized (WebP/slimmer JPEGs); gallery uploads were resized
+  to ≤1400px. Forms submit via FormSubmit.co AJAX (same wiring as `schedule-tour.html`).
+- Vite dev quirk: files added to `public/` may 404 until the dev server picks them up;
+  if a brand-new directory 404s, `docker compose -f docker-compose.base44.yml restart web`.
+
 ## Vite config note
 - vite.config.ts uses `@lovable.dev/vite-tanstack-config`, which already registers
   TanStack Start, React, Tailwind, tsconfig paths, nitro, and sandbox host/port detection.

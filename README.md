@@ -29,6 +29,13 @@ WordPress's theme installer in an isolated WordPress 6.9.4 instance, and all 30
 packaged PHP files passed syntax checks. This does not test the upload limits
 or configuration of a separate hosting account, or every theme interaction.
 
+## Static site export (for WPConvert)
+
+`public/kipla-site/` is a standalone static HTML/CSS/JS recreation of the site — no PHP,
+no build step. Zip that folder (or use `public/kipla-site.zip`, which has `index.html` at
+the ZIP root) and upload it to WPConvert. It is also browsable in the dev preview at
+`/kipla-site/index.html`.
+
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
