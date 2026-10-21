@@ -14,7 +14,7 @@ services:
     env_file:
       - /run/base44/app.env
     healthcheck:
-      test: ["CMD", "bun", "-e", "fetch('http://127.0.0.1:5173/').then(r => { if (!r.ok) process.exit(1); return r.text(); }).then(body => { if (!body.includes('/kipla-preview/index.html')) process.exit(1); }).catch(() => process.exit(1));"]
+      test: ["CMD", "bun", "-e", "fetch('http://127.0.0.1:5173/kipla-site/index.html').then(r => { if (!r.ok) process.exit(1); return r.text(); }).then(body => { if (!body.includes('KIPLA')) process.exit(1); }).catch(() => process.exit(1));"]
       interval: 30s
       timeout: 10s
       start_period: 90s

@@ -25,7 +25,9 @@ docker compose -f docker-compose.base44.yml up -d
 - `node_modules` lives in a named volume (not the bind mount) to avoid host/platform conflicts.
 
 ## What the app renders
-- `/` (src/routes/index.tsx) renders an `<iframe>` pointing at `/kipla-preview/index.html`.
+- `/` (src/routes/index.tsx) server-redirects (302) to `/kipla-site/index.html` so URL importers
+  (WPConvert) land on the real static HTML instead of an empty SPA shell. `public/kipla-preview/`
+  remains browsable directly at `/kipla-preview/index.html`.
 - `/registration` (src/routes/registration.tsx + src/components/PdfFormFiller.tsx) is an online
   fillable PDF form. It loads `public/kipla-preview/KIPLA_Standard_Enrollment_Application_Fillable.pdf`
   with `pdfjs-dist` (renders pages + overlays native HTML inputs on the AcroForm fields), then on
@@ -49,8 +51,8 @@ docker compose -f docker-compose.base44.yml up -d
   bytes against the source. No React/Vite build is required by this classic
   PHP theme. A correct ZIP does not establish why a separate upload failed.
 - Preview startup installs from the frozen Bun lockfile, then runs the dev
-  server directly; its Compose healthcheck requests the rendered homepage
-  and checks for the preview iframe. These are development setup checks,
+  server directly; its Compose healthcheck requests `/kipla-site/index.html`
+  and checks for KIPLA content. These are development setup checks,
   with no shared application configuration overrides.
 
 ## Static site export (WPConvert)
