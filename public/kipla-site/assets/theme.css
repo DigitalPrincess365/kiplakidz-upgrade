@@ -568,3 +568,23 @@ section[id]{scroll-margin-top:5.5rem}
 /* centered CTA beneath the featured gallery photos */
 .gallery-cta{text-align:center;margin:2.5rem 0 0}
 .gallery-cta[hidden]{display:none!important}
+
+/* ==========================================================
+   Standard forms (Enroll)
+   ========================================================== */
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin:0}
+.form-field{display:flex;flex-direction:column;gap:.4rem}
+.form-field--full{grid-column:1/-1}
+.form-field label{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--hunter)}
+.form-field input,.form-field select,.form-field textarea{
+  border:1px solid rgba(27,67,50,.25);border-radius:.5rem;padding:.7rem .9rem;
+  font:inherit;font-size:1rem;background:var(--white);width:100%
+}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:2px solid var(--sunflower);outline-offset:1px;border-color:var(--kelly)}
+.form-checks{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem}
+.form-checks label{display:flex;align-items:center;gap:.4rem;font-size:.9rem;cursor:pointer}
+.form-checks input{width:1.1rem;height:1.1rem;accent-color:var(--hunter)}
+.form-submit{text-align:center;margin-top:1.75rem}
+.form-submit .btn{font-size:1.05rem;padding:.9rem 2.25rem}
+.form-note{font-size:.82rem;color:rgba(38,38,38,.6);margin:.5rem 0 0}
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}}
