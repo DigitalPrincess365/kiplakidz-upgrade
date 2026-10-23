@@ -50,7 +50,7 @@ $kipla_programs = array(
 		'points' => array( 'State-funded Pre-K led by certified educators — leadership-centered learning for every next step' ),
 		'where'  => 'KIPLA #1 + KIPLA #2',
 		'img'    => '/assets/images/programs-pre-k-1.webp',
-		'alt'    => 'KIPLA Pre-K 1 class with their teacher',
+		'alt'    => 'KIPLA Pre-K 1 scholars showing off handcrafted toy cars',
 		'locs'   => 'kipla-1 kipla-2',
 	),
 	array(
