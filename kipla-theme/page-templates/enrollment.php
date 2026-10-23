@@ -17,6 +17,27 @@ get_header();
 			<div>
 				<span class="eyebrow">Enroll at KIPLA</span>
 				<h2>Start your scholar's positive start</h2>
+				<p>Fill out the official enrollment application below, or send a quick inquiry — we'll walk you through availability, next steps, and the enrollment process.</p>
+			</div>
+		</div>
+
+		<div id="application" style="margin-top:2.5rem">
+			<div class="section-head">
+				<div>
+					<span class="eyebrow eyebrow--red">Standard Enrollment Application</span>
+					<h2>Fill it out online — no printing needed</h2>
+					<p>Type directly into the form below — it&rsquo;s the official KIPLA enrollment application. When you submit, your completed PDF is emailed straight to KIPLA Foundation Inc. Nothing is stored online.</p>
+				</div>
+			</div>
+			<div id="pff-root" data-pdf="<?php echo esc_url( $kipla_assets ); ?>/assets/docs/KIPLA_Standard_Enrollment_Application_Fillable.pdf">
+				<div class="pff-loading"><div class="pff-spinner" aria-hidden></div><p>Loading the enrollment form&hellip;</p></div>
+			</div>
+		</div>
+
+		<div class="section-head" id="quick-inquiry" style="margin-top:3.5rem">
+			<div>
+				<span class="eyebrow">Quick inquiry</span>
+				<h2>Not ready to apply just yet?</h2>
 				<p>Send us your information and we'll walk you through availability, next steps, and the enrollment process.</p>
 			</div>
 		</div>

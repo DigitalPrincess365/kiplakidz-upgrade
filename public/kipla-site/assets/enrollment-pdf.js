@@ -12,12 +12,16 @@
  *   pdfjs-dist@4.10.38, pdf-lib@1.17.1 (classic script on the page).
  */
 
-const FILLABLE_PDF = 'assets/docs/KIPLA_Standard_Enrollment_Application_Fillable.pdf';
 const SUBMIT_EMAIL = 'kiplafoundationinc@gmail.com';
 const AUTO_REPLY =
   'Thank you for submitting your enrollment application to Keeping It Positive Learning Academy! We have received your completed form and will contact you within 1-2 business days to confirm enrollment. If you have questions, call us at 770-672-7800 (Main Campus) or 678-483-5160 (Lithia Springs). — KIPLA Foundation Inc.';
 
 const root = document.getElementById('pff-root');
+// The hosting page can pass the PDF location (WordPress theme uses its theme
+// URI); otherwise default to the static-site relative path.
+const FILLABLE_PDF =
+  (root && root.dataset.pdf) ||
+  'assets/docs/KIPLA_Standard_Enrollment_Application_Fillable.pdf';
 if (root) main();
 
 async function main() {

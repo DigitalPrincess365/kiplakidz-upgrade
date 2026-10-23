@@ -49,11 +49,26 @@ function kipla_assets() {
 	wp_enqueue_style( 'kipla-style', get_stylesheet_uri(), array(), KIPLA_VERSION );
 	wp_enqueue_script( 'kipla-main', get_template_directory_uri() . '/assets/js/main.js', array(), KIPLA_VERSION, true );
 
+	if ( is_page_template( 'page-templates/enrollment.php' ) ) {
+		wp_enqueue_script( 'pdf-lib', 'https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js', array(), '1.17.1', true );
+		wp_enqueue_script( 'kipla-enrollment-pdf', get_template_directory_uri() . '/assets/js/enrollment-pdf.js', array( 'pdf-lib' ), KIPLA_VERSION, true );
+	}
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'kipla_assets' );
+
+/**
+ * The fillable enrollment form is an ES module.
+ */
+add_filter( 'script_loader_tag', function ( $tag, $handle ) {
+	if ( 'kipla-enrollment-pdf' === $handle ) {
+		$tag = str_replace( ' src', ' type="module" src', $tag );
+	}
+	return $tag;
+}, 10, 2 );
 
 /**
  * Widget areas.
