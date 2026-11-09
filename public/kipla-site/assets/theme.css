@@ -588,3 +588,12 @@ section[id]{scroll-margin-top:5.5rem}
 .form-submit .btn{font-size:1.05rem;padding:.9rem 2.25rem}
 .form-note{font-size:.82rem;color:rgba(38,38,38,.6);margin:.5rem 0 0}
 @media(max-width:640px){.form-grid{grid-template-columns:1fr}}
+
+/* Policy cards: uniform, hours, ages */
+.policy-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;max-width:60rem;margin:clamp(2rem,5vw,3rem) auto 0}
+.policy-card{background:var(--white);border:1px solid rgba(27,67,50,.12);border-radius:1rem;padding:1.5rem 1.75rem;text-align:left}
+.policy-card h3{color:var(--hunter);margin:0 0 .5rem;font-size:1.12rem}
+.policy-card p{margin:0 0 .75rem;color:rgba(38,38,38,.75);font-size:.92rem;line-height:1.55}
+.policy-card ul{margin:0;padding-left:1.1rem;color:rgba(38,38,38,.75);font-size:.92rem;line-height:1.6}
+.policy-card li{margin:.2rem 0}
+@media(max-width:640px){.policy-strip{grid-template-columns:1fr}}

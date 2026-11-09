@@ -16,7 +16,7 @@ $tour_url     = kipla_opt( 'kipla_tour_url' ) ? kipla_opt( 'kipla_tour_url' ) : 
 				<span class="eyebrow">Welcome to KIPLA</span>
 				<hr class="rule" />
 				<h2>A positive start shapes everything that follows</h2>
-				<p>KIPLA is a family-owned early learning community in Austell, Georgia, with two campuses serving scholars from 6 weeks through 12 years. From the first morning, your child is known by name, story, and strength.</p>
+				<p>KIPLA is a family-owned early learning community in West Georgia with two campuses serving scholars from 6 weeks through 12 years — ages 2–12 at KIPLA #1 in Austell, and 6 weeks–12 years at KIPLA #2 in Lithia Springs. From the first morning, your child is known by name, story, and strength.</p>
 				<p><strong>The KIPLA difference:</strong> we pair leadership-centered learning designed to prepare scholars for every next step with genuine warmth — every scholar is taught, trained, motivated, and loved every single day.</p>
 				<div class="stat-row">
 					<div class="stat"><div class="stat__num">2</div><div class="stat__label">Campuses in West Georgia</div></div>
@@ -40,10 +40,10 @@ $tour_url     = kipla_opt( 'kipla_tour_url' ) ? kipla_opt( 'kipla_tour_url' ) : 
 				<article class="location-card location-card--one">
 					<span class="location-card__badge">KIPLA #1</span>
 					<h3>Austell campus</h3>
-					<p class="location-card__ages">6 weeks – 12 years · all programs</p>
+					<p class="location-card__ages">Ages 2 – 12 years · all programs</p>
 					<ul class="location-card__meta">
 						<li><strong>Address</strong><span>1920 Veterans Memorial Hwy SW, Austell, GA 30168</span></li>
-						<li><strong>Hours</strong><span>Mon–Fri, 6:30am – 6:30pm</span></li>
+						<li><strong>Hours</strong><span>Mon–Fri, 7:00 AM – 6:00 PM</span></li>
 						<li><strong>Phone</strong><span><a href="tel:+17706727800">(770) 672-7800</a></span></li>
 					</ul>
 					<div class="location-card__actions">
@@ -54,10 +54,10 @@ $tour_url     = kipla_opt( 'kipla_tour_url' ) ? kipla_opt( 'kipla_tour_url' ) : 
 				<article class="location-card location-card--two">
 					<span class="location-card__badge">KIPLA #2</span>
 					<h3>Lithia Springs campus</h3>
-					<p class="location-card__ages">6 weeks – 12 years · all programs</p>
+					<p class="location-card__ages">Ages 6 weeks – 12 years · all programs</p>
 					<ul class="location-card__meta">
 						<li><strong>Address</strong><span>2548 Vulcan Dr, Lithia Springs, GA 30122</span></li>
-						<li><strong>Hours</strong><span>Mon–Fri, 6:30am – 6:30pm</span></li>
+						<li><strong>Hours</strong><span>Mon–Fri, 7:00 AM – 6:00 PM</span></li>
 						<li><strong>Phone</strong><span><a href="tel:+16784835160">(678) 483-5160</a></span></li>
 					</ul>
 					<div class="location-card__actions">
@@ -66,6 +66,25 @@ $tour_url     = kipla_opt( 'kipla_tour_url' ) ? kipla_opt( 'kipla_tour_url' ) : 
 					</div>
 				</article>
 			</div>
+		</div>
+
+		<div class="policy-strip">
+			<article class="policy-card">
+				<h3>Scholar uniform policy</h3>
+				<p>KIPLA is a uniform school — once scholars begin walking, uniforms are required.</p>
+				<ul>
+					<li><strong>Monday–Thursday:</strong> Kelly green polo shirts with khaki bottoms.</li>
+					<li><strong>Friday:</strong> Free dress.</li>
+				</ul>
+			</article>
+			<article class="policy-card">
+				<h3>Hours &amp; ages at a glance</h3>
+				<p>Both campuses operate Monday through Friday, 7:00 AM – 6:00 PM.</p>
+				<ul>
+					<li><strong>KIPLA #1 · Austell:</strong> Ages 2 – 12 years.</li>
+					<li><strong>KIPLA #2 · Lithia Springs:</strong> Ages 6 weeks – 12 years.</li>
+				</ul>
+			</article>
 		</div>
 	</div>
 </section>
